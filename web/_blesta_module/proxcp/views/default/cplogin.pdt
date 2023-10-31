@@ -1,0 +1,1 @@
+<a class="btn btn-lg btn-primary" target="_blank" href="https://<?php $this->Html->_($hostname); ?>/login?u=<?php $this->Html->_($email); ?>&from=blesta"><i class="glyphicon glyphicon-arrow-right"></i> Go to control panel</a>

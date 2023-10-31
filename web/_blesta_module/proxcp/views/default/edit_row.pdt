@@ -1,0 +1,54 @@
+<?php
+$url = explode("/", $_SERVER['REQUEST_URI']);
+$link_buttons = array(
+  array('name'=>"Return to manage page", 'attributes'=>array('href'=>$this->base_uri . "settings/company/modules/manage/" . $url[count($url)-3] ."/" , 'class'=>'return' ))
+);
+$this->Widget->clear();
+$this->Widget->setLinkButtons($link_buttons);
+$this->Widget->create("Edit ProxCP Server");
+?>
+<div class="inner">
+  <?php
+  $this->Form->create();
+  ?>
+  <div class="title_row first">
+    <h3>Basic Settings</h3>
+  </div>
+  <div class="pad">
+    <ul>
+      <li>
+        <?php
+        $this->Form->label("Server Label", "server_name");
+        $this->Form->fieldText("server_name", $this->Html->ifSet($vars->server_name), array('id' => "server_name"));
+        ?>
+      </li>
+      <li>
+        <?php
+        $this->Form->label("Hostname", "hostname");
+        $this->Form->fieldText("hostname", $this->Html->ifSet($vars->hostname), array('id' => "hostname"));
+        ?>
+        <span class="tooltip"><?php $this->_("AppController.tooltip.text");?><div>Hostname should be IP address or domain name (i.e. proxcp.domain.com)</div></span>
+      </li>
+      <li>
+        <?php
+        $this->Form->label("API ID", "user");
+        $this->Form->fieldText("user", $this->Html->ifSet($vars->user), array('id' => "user"));
+        ?>
+      </li>
+      <li>
+        <?php
+        $this->Form->label("API Key", "password");
+        $this->Form->fieldPassword("password", array('id' => "password", 'value' => $this->Html->ifSet($vars->password)));
+        ?>
+      </li>
+    </ul>
+  </div>
+
+  <div class="button_row"><a class="btn_right submit" href="#">Update</a></div>
+  <?php
+  $this->Form->end();
+  ?>
+</div>
+<?php
+$this->Widget->end();
+?>

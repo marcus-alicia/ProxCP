@@ -1,0 +1,63 @@
+<?php
+if (count(get_included_files()) == 1) {
+    exit("You just broke everything.");
+}
+echo "<nav class=\"navbar navbar-default\" id=\"admin_navigation\">\r\n    <div class=\"container\">\r\n        <div class=\"navbar-header\">\r\n            <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-2\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            </button>\r\n        </div>\r\n            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-2\">\r\n                <ul class=\"nav navbar-nav nav-elem\">\r\n                    <li><a href=\"";
+echo Config::get("admin/base");
+echo "\">Admin Dashboard</a></li>\r\n\t\t\t\t\t\t\t\t\t\t<li class=\"dropdown\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">Users <span class=\"caret\"></span></a>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu subNav\" role=\"menu\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=users";
+echo "\">Manage Users</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=acl";
+echo "\">Manage User ACL</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t\t<li class=\"dropdown\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">LXC <span class=\"caret\"></span></a>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu subNav\" role=\"menu\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=lxc";
+echo "\">Manage LXC</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=lxctemp";
+echo "\">Manage LXC Templates</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=tuntap";
+echo "\">Manage LXC TUN/TAP</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=lxckvmprops";
+echo "\">Manage LXC/KVM Properties</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t\t<li class=\"dropdown\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">KVM <span class=\"caret\"></span></a>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu subNav\" role=\"menu\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=kvm";
+echo "\">Manage KVM</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=kvmiso";
+echo "\">Manage KVM ISOs</a></li>\r\n                              <li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=kvmiso_custom";
+echo "\">Manage Custom KVM ISOs</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=kvmtemp";
+echo "\">Manage KVM Templates</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=lxckvmprops";
+echo "\">Manage LXC/KVM Properties</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t\t<li class=\"dropdown\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">Cloud <span class=\"caret\"></span></a>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu subNav\" role=\"menu\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=cloud";
+echo "\">Manage Cloud</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t\t<li class=\"dropdown\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">DNS <span class=\"caret\"></span></a>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu subNav\" role=\"menu\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=fdns";
+echo "\">Manage Forward DNS</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=rdns";
+echo "\">Manage Reverse DNS</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t\t<li class=\"dropdown\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">Settings <span class=\"caret\"></span></a>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu subNav\" role=\"menu\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=settings";
+echo "\">";
+echo $appname;
+echo " Settings</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=nodes";
+echo "\">Manage Nodes</a></li>\r\n                              <li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=tuntap";
+echo "\">Manage Node SSH</a></li>\r\n                              <li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=natnodes";
+echo "\">Manage NAT Nodes</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=bandwidth";
+echo "\">Manage Bandwidth</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=dhcp";
+echo "\">Manage DHCP</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=ipv6";
+echo "\">Manage IPv6</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=private";
+echo "\">Manage Private IPs</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=ip2";
+echo "\">Manage Secondary IPs</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=log";
+echo "\">System Logs</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t\t<li class=\"dropdown\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">Integrations <span class=\"caret\"></span></a>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu subNav\" role=\"menu\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=ipv4";
+echo "\">Manage IPv4 Pool</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"admin_dd_li\"><a class=\"admin_dd\" href=\"";
+echo Config::get("admin/base") . "?action=api";
+echo "\">Manage API</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</li>\r\n                </ul>\r\n            </div>\r\n    </div>\r\n</nav>\r\n";
+
+?>

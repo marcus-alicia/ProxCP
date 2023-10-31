@@ -1,0 +1,56 @@
+{
+    "name": "@root/greenlock",
+    "version": "4.0.5",
+    "description": "The easiest Let's Encrypt client for Node.js and Browsers",
+    "homepage": "https://rootprojects.org/greenlock/",
+    "main": "greenlock.js",
+    "browser": {},
+    "bin": {
+        "greenlock": "bin/greenlock.js"
+    },
+    "files": [
+        "*.js",
+        "lib",
+        "bin",
+        "dist"
+    ],
+    "scripts": {
+        "build": "nodex bin/bundle.js",
+        "lint": "jshint lib bin",
+        "test": "node server.js",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://git.rootprojects.org/root/greenlock.js.git"
+    },
+    "keywords": [
+        "Let's Encrypt",
+        "ACME",
+        "browser",
+        "EC",
+        "RSA",
+        "CSR",
+        "greenlock",
+        "VanillaJS",
+        "ZeroSSL"
+    ],
+    "author": "AJ ONeal <coolaj86@gmail.com> (https://coolaj86.com/)",
+    "license": "MPL-2.0",
+    "dependencies": {
+        "@greenlock/manager": "^3.1.0",
+        "@root/acme": "^3.1.0",
+        "@root/csr": "^0.8.1",
+        "@root/keypairs": "^0.10.0",
+        "@root/mkdirp": "^1.0.0",
+        "@root/request": "^1.6.1",
+        "acme-http-01-standalone": "^3.0.5",
+        "cert-info": "^1.5.1",
+        "greenlock-store-fs": "^3.2.2",
+        "safe-replace": "^1.1.0"
+    },
+    "devDependencies": {
+        "dotenv": "^8.2.0",
+        "punycode": "^1.4.1"
+    }
+}

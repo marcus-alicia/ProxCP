@@ -1,0 +1,20 @@
+<table class="table">
+    <tr class="heading_row">
+        <td class="fixed_small center border_none"><i class="fa fa-level-up fa-rotate-90"></i></td>
+        <td class="border_left">Hostname</td>
+        <td>Original OS</td>
+        <td>Current OS</td>
+        <td>Node</td>
+        <td>Status</td>
+        <td>IP</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><?php $this->Html->_($service_fields->proxcp_hostname);?></td>
+        <td><?php $this->Html->_($service_fields->proxcp_os);?></td>
+        <td><?php $this->Html->_($service_os);?></td>
+        <td><?php $this->Html->_($service_node);?></td>
+        <td><?php $this->Html->_($service_status);?></td>
+        <td><?php $this->Html->_($service_ip);?></td>
+    </tr>
+</table>

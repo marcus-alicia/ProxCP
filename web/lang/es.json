@@ -1,0 +1,55 @@
+{
+  "navbar": {
+    "dashboard": "Dashboard",
+    "firewall": "Firewall",
+    "notepad": "Bloc de notas",
+    "status": "Estado",
+    "ADMIN": "ADMIN",
+    "welcome_tag1": "Bienvenido a",
+    "welcome_tag2": "Has iniciado sesión como",
+    "acl": "Control de acceso",
+    "logout": "Cerrar sesión"
+  },
+  "dashboard": {
+    "vms": "Máquinas virtuales",
+    "status": "Estado",
+    "hostname": "Hostname",
+    "type": "Tipo",
+    "main_ip": "IP principal",
+    "os": "Sistema operativo",
+    "ram": "RAM",
+    "storage": "Almacenamiento"
+  },
+  "firewall": {
+    "manage_firewall": "Administrar Firewall",
+    "vm_select": "Selecciona una máquina virtual",
+    "status": "Estado",
+    "hostname": "Hostname",
+    "type": "Tipo",
+    "main_ip": "IP principal",
+    "os": "Sistema operativo",
+    "ram": "RAM",
+    "storage": "Almacenamiento"
+  },
+  "notepad": {
+    "notepad": "Bloc de notas",
+    "notes": "Notas",
+    "save": "Guardar"
+  },
+  "status": {
+    "node_status": "Estado del nodo",
+    "status": "Estado",
+    "name": "Nombre",
+    "cpu_model": "Modelo de CPU",
+    "cpu_usage": "Uso de CPU",
+    "uptime": "Disponibilidad"
+  },
+  "side_bar": {
+    "news": "Novedades",
+    "last_login": "Último inicio de sesión",
+    "at": "a las",
+    "view_full_log": "Ver historial completo de IPs",
+    "support_panel": "¿Tienes problemas con el servicio? Obtén ayuda de nuestros expertos.",
+    "new_ticket": "Abrir nuevo ticket de soporte"
+  }
+}

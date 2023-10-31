@@ -1,0 +1,55 @@
+{
+  "navbar": {
+    "dashboard": "控制面板",
+    "firewall": "防火墙",
+    "notepad": "记事本",
+    "status": "节点监控",
+    "ADMIN": "管理面板",
+    "welcome_tag1": "欢迎试用",
+    "welcome_tag2": "您所登陆的用户",
+    "acl": "访问控制",
+    "logout": "登出"
+  },
+  "dashboard": {
+    "vms": "虚拟机列表",
+    "status": "状态",
+    "hostname": "主机名",
+    "type": "类型",
+    "main_ip": "主IP",
+    "os": "操作系统",
+    "ram": "内存",
+    "storage": "储存空间"
+  },
+  "firewall": {
+    "manage_firewall": "管理防火墙",
+    "vm_select": "选择虚拟机",
+    "status": "状态",
+    "hostname": "主机名",
+    "type": "类型",
+    "main_ip": "主IP",
+    "os": "操作系统",
+    "ram": "内存",
+    "storage": "储存空间"
+  },
+  "notepad": {
+    "notepad": "记事本",
+    "notes": "记事本",
+    "save": "保存"
+  },
+  "status": {
+    "node_status": "节点监控",
+    "status": "状态",
+    "name": "名称",
+    "cpu_model": "CPU型号",
+    "cpu_usage": "CPU占用",
+    "uptime": "在线时间"
+  },
+  "side_bar": {
+    "news": "公告",
+    "last_login": "上一次登陆",
+    "at": "时间",
+    "view_full_log": "查看完整的日志",
+    "support_panel": "有任何疑问？点击这里获得帮助！",
+    "new_ticket": "开启新的工单"
+  }
+}

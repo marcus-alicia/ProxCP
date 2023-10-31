@@ -1,0 +1,31 @@
+{
+	"name": "@root/encoding",
+	"version": "1.0.1",
+	"description": "Leightweight, Zero-dependency, translation between Unicode, Buffers, Base64, Hex, Binary Strings, UCS-2, UTF-8, etc.",
+	"main": "./encoding.js",
+	"browser": {
+		"./base64.js": "./browser/base64.js",
+		"./bytes.js": "./browser/bytes.js",
+		"./hex.js": "./browser/hex.js"
+	},
+	"scripts": {
+		"test": "node tests/"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://git.rootprojects.org/root/encoding.js.git"
+	},
+	"keywords": [
+		"Unicode",
+		"UTF-8",
+		"Buffer",
+		"ArrayBuffer",
+		"Binary",
+		"Strings",
+		"TypedArray",
+		"utf8",
+		"unibabel"
+	],
+	"author": "AJ ONeal <coolaj86@gmail.com> (https://coolaj86.com/)",
+	"license": "MPL-2.0"
+}

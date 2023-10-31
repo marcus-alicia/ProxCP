@@ -1,0 +1,55 @@
+{
+  "navbar": {
+    "dashboard": "Dashboard",
+    "firewall": "Firewall",
+    "notepad": "Notizen",
+    "status": "Status",
+    "ADMIN": "ADMIN",
+    "welcome_tag1": "Willkommen zu",
+    "welcome_tag2": "Sie sind angemeldet als",
+    "acl": "Zugriffsrechte",
+    "logout": "Abmelden"
+  },
+  "dashboard": {
+    "vms": "Virtuelle Maschinen",
+    "status": "Status",
+    "hostname": "Hostname",
+    "type": "Typ",
+    "main_ip": "Haupt IP",
+    "os": "Betriebssystem",
+    "ram": "RAM",
+    "storage": "Speicher"
+  },
+  "firewall": {
+    "manage_firewall": "Firewall verwalten",
+    "vm_select": "Virtuelle Maschine auswählen",
+    "status": "Status",
+    "hostname": "Hostname",
+    "type": "Typ",
+    "main_ip": "Haupt IP",
+    "os": "Betriebssystem",
+    "ram": "RAM",
+    "storage": "Speicher"
+  },
+  "notepad": {
+    "notepad": "Notizbuch",
+    "notes": "Notizen",
+    "save": "Speichern"
+  },
+  "status": {
+    "node_status": "Node Status",
+    "status": "Status",
+    "name": "Name",
+    "cpu_model": "CPU Modell",
+    "cpu_usage": "CPU Auslastung",
+    "uptime": "Uptime"
+  },
+  "side_bar": {
+    "news": "Ankündigungen",
+    "last_login": "Letzte Anmeldung",
+    "at": "am",
+    "view_full_log": "Zeige IP Logbuch",
+    "support_panel": "Haben Sie Probleme mit unserem Service? Klicken Sie hier um Support zu erhalten!",
+    "new_ticket": "Neues Ticket erstellen"
+  }
+}

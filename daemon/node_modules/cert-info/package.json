@@ -1,0 +1,38 @@
+{
+  "name": "cert-info",
+  "version": "1.5.1",
+  "description": "Read basic info (subject, altnames, expiresAt, issuedAt) from a cert.pem / x509 certificate (tls / ssl / https) ",
+  "main": "index.js",
+  "author": "AJ ONeal <coolaj86@gmail.com> (https://coolaj86.com/)",
+  "license": "MPL-2.0",
+  "homepage": "https://git.coolaj86.com/coolaj86/cert-info.js",
+  "bin": {
+    "cert-info": "bin/cert-info.js"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.coolaj86.com/coolaj86/cert-info.js.git"
+  },
+  "keywords": [
+    "cert.pem",
+    "cert",
+    "certificate",
+    "x509",
+    "subject",
+    "altnames",
+    "notBefore",
+    "notAfter",
+    "issuedAt",
+    "expiresAt",
+    "expired",
+    "expires",
+    "issued",
+    "asn1"
+  ],
+  "bugs": {
+    "url": "https://git.coolaj86.com/coolaj86/cert-info.js/issues"
+  }
+}

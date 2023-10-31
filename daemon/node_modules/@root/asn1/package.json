@@ -1,0 +1,36 @@
+{
+	"name": "@root/asn1",
+	"version": "1.0.0",
+	"description": "VanillaJS, Lightweight, Zero-Dependency, ASN.1 encoder and decoder.",
+	"main": "index.js",
+	"browser": {
+		"./node/native.js": "./browser/native.js"
+	},
+	"files": [
+		"*.js",
+		"node",
+		"browser",
+		"dist"
+	],
+	"scripts": {
+		"test": "node tests"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://git.rootprojects.org/root/asn1.js.git"
+	},
+	"keywords": [
+		"ASN.1",
+		"asn1",
+		"x509",
+		"PEM"
+	],
+	"author": "AJ ONeal <coolaj86@gmail.com> (https://coolaj86.com/)",
+	"license": "MPL-2.0",
+	"devDependencies": {
+		"@root/pem": "^1.0.3"
+	},
+	"dependencies": {
+		"@root/encoding": "^1.0.1"
+	}
+}

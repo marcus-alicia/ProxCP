@@ -1,0 +1,66 @@
+<?php
+$link_buttons = array(
+  array('name' => "Add Server", 'attributes' => array('href'=>$this->base_uri . "settings/company/modules/addrow/" . $module->id))
+);
+$this->Widget->clear();
+$this->Widget->setLinkButtons($link_buttons);
+$this->Widget->create($this->_("AdminCompanyModules.manage.boxtitle_manage", true, $this->Html->_($module->name, true)), array('id'=>"manage_proxcp"));
+?>
+<div class="title_row first">
+			<h3>ProxCP Servers</h3>
+		</div>
+		<?php
+		$num_rows = count($this->Html->ifSet($module->rows));
+		if ($num_rows > 0) {
+		?>
+		<table class="table">
+			<tr class="heading_row">
+				<td><span>Server Label</span></td>
+				<td><span>Hostname</span></td>
+				<td class="last"><span>Options</span></td>
+			</tr>
+			<?php
+			for ($i=0; $i<$num_rows; $i++) {
+			?>
+			<tr<?php echo ($i%2 == 1) ? " class=\"odd_row\"" : "";?>>
+				<td><?php $this->Html->_($module->rows[$i]->meta->server_name);?></td>
+				<td><?php $this->Html->_($module->rows[$i]->meta->hostname);?></td>
+				<td>
+					<a href="<?php echo $this->Html->safe($this->base_uri . "settings/company/modules/editrow/" . $this->Html->ifSet($module->id) . "/" . $this->Html->ifSet($module->rows[$i]->id) . "/");?>">Edit</a>
+					<?php
+					$this->Form->create($this->base_uri . "settings/company/modules/deleterow/");
+					$this->Form->fieldHidden("id", $this->Html->ifSet($module->id));
+					$this->Form->fieldHidden("row_id", $this->Html->ifSet($module->rows[$i]->id));
+					?>
+					<a href="<?php echo $this->Html->safe($this->base_uri . "settings/company/modules/deleterow/" . $this->Html->ifSet($module->id) . "/" . $this->Html->ifSet($module->rows[$i]->id) . "/");?>" class="manage" rel="Are you sure you want to delete this server?" id="manage_proxcp">Delete</a>
+					<?php
+					$this->Form->end();
+					?>
+				</td>
+			</tr>
+			<?php
+			}
+			?>
+		</table>
+		<?php
+		}
+		else {
+		?>
+		<div class="empty_section">
+			<div class="empty_box">
+				There are no servers.
+			</div>
+		</div>
+		<?php
+		}
+		?>
+
+		<?php
+		$this->Widget->end();
+		?>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#manage_proxcp a.manage[rel]').blestaModalConfirm({base_url: '<?php echo $this->base_uri;?>', close: '<?php $this->_("AppController.modal.text_close");?>', submit: true});
+	});
+</script>
