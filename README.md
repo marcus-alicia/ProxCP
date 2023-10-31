@@ -72,13 +72,13 @@ ProxCP is the premier Proxmox control panel for hosting providers and enterprise
 
 It provides your employees with a central dashboard to manage all your Proxmox infrastructure at once, and has full integration with popular billing platforms for complete automation and ease of use.
 
+![Intro](https://i.imgur.com/ZaPsK6m.png)
+![Demo](https://i.imgur.com/sBxrSMo.png)
 
-
+<br>
 
 ### My wallet is crying now. Please give this repo a star to cheer me up
-![Intro](https://i.imgur.com/ZaPsK6m.png)
 ![Pricing](https://i.imgur.com/OLAkbo7.png)
-![Demo](https://i.imgur.com/sBxrSMo.png)
 
 ----- 
 <p align="center"><a href="https://discord.gg/96kh6n5EMB">Join the Discord and help us!</a></p>
