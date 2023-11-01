@@ -81,7 +81,7 @@ echo count($usercount_s);
 echo " / Admins ";
 echo count($usercount_a);
 echo "</p></center>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n<div class=\"panel panel-default\">\r\n\t<div class=\"panel-heading\">\r\n\t\t<h3 class=\"panel-title\">System Information</h3>\r\n\t</div>\r\n\t<div class=\"panel-body\">\r\n\t\t<div class=\"row\">\r\n\t\t\t<div class=\"col-md-4\">\r\n\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t<div class=\"col-md-8\">HTTPS Web</div>\r\n\t\t\t\t\t<div class=\"col-md-4\">";
-if (_obfuscated_0D0329080D2F17391B0C2F1A2F1B2F0A0E5B011B330511_()) {
+if (check_https()) {
     echo "True";
 } else {
     echo "False";

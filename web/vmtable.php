@@ -41,11 +41,11 @@ for ($i = 0; $i < count($data); $i++) {
             }
             echo "<td>" . $info["name"] . "</td>";
             echo "<td><img src=\"img/lxc.png\" style=\"padding-right:5px;\" />LXC</td>";
-            echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->ip) . "</td>";
-            echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->os) . "</td>";
-            echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxmem"], 0) . "</td>";
-            echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxdisk"], 0) . "</td>";
-            echo "<td><a href=\"manage?id=" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->hb_account_id) . "&virt=lxc\" class=\"btn btn-sm btn-info\">Manage</a></td>";
+            echo "<td>" . parse_input($data[$i]->ip) . "</td>";
+            echo "<td>" . parse_input($data[$i]->os) . "</td>";
+            echo "<td>" . get_size($info["maxmem"], 0) . "</td>";
+            echo "<td>" . get_size($info["maxdisk"], 0) . "</td>";
+            echo "<td><a href=\"manage?id=" . parse_input($data[$i]->hb_account_id) . "&virt=lxc\" class=\"btn btn-sm btn-info\">Manage</a></td>";
             echo "</tr>";
         } else {
             if ($data[$i]->suspended == 1) {
@@ -59,10 +59,10 @@ for ($i = 0; $i < count($data); $i++) {
                 }
                 echo "<td>" . $info["name"] . "</td>";
                 echo "<td><img src=\"img/lxc.png\" style=\"padding-right:5px;\" />LXC</td>";
-                echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->ip) . "</td>";
-                echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->os) . "</td>";
-                echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxmem"], 0) . "</td>";
-                echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxdisk"], 0) . "</td>";
+                echo "<td>" . parse_input($data[$i]->ip) . "</td>";
+                echo "<td>" . parse_input($data[$i]->os) . "</td>";
+                echo "<td>" . get_size($info["maxmem"], 0) . "</td>";
+                echo "<td>" . get_size($info["maxdisk"], 0) . "</td>";
                 echo "<td><div class=\"tooltip-wrapper disabled\" data-title=\"Suspended\" data-placement=\"right\"><button class=\"btn btn-sm btn-info\" disabled>Manage</button></td></tr>";
             }
         }
@@ -105,14 +105,14 @@ for ($i = 0; $i < count($data); $i++) {
                 }
                 echo "<td>" . $info["name"] . "</td>";
                 echo "<td><img src=\"img/kvm.png\" style=\"padding-right:5px;\" />KVM</td>";
-                echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->ip) . "</td>";
-                echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->os) . "</td>";
-                echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxmem"], 0) . "</td>";
-                echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxdisk"], 0) . "</td>";
+                echo "<td>" . parse_input($data[$i]->ip) . "</td>";
+                echo "<td>" . parse_input($data[$i]->os) . "</td>";
+                echo "<td>" . get_size($info["maxmem"], 0) . "</td>";
+                echo "<td>" . get_size($info["maxdisk"], 0) . "</td>";
                 if ($data[$i]->from_template == 1) {
-                    echo "<td><a href=\"manage?id=" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->hb_account_id) . "&virt=kvm\" class=\"btn btn-sm btn-warning template_setup_btn\">Setup</a></td>";
+                    echo "<td><a href=\"manage?id=" . parse_input($data[$i]->hb_account_id) . "&virt=kvm\" class=\"btn btn-sm btn-warning template_setup_btn\">Setup</a></td>";
                 } else {
-                    echo "<td><a href=\"manage?id=" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->hb_account_id) . "&virt=kvm\" class=\"btn btn-sm btn-info\">Manage</a></td>";
+                    echo "<td><a href=\"manage?id=" . parse_input($data[$i]->hb_account_id) . "&virt=kvm\" class=\"btn btn-sm btn-info\">Manage</a></td>";
                 }
                 echo "</tr>";
             } else {
@@ -127,14 +127,14 @@ for ($i = 0; $i < count($data); $i++) {
                         }
                         echo "<td>" . $info["name"] . "</td>";
                         echo "<td><img src=\"img/kvm.png\" style=\"padding-right:5px;\" />KVM</td>";
-                        echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->ip) . "</td>";
-                        echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->os) . "</td>";
-                        echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxmem"], 0) . "</td>";
-                        echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxdisk"], 0) . "</td>";
+                        echo "<td>" . parse_input($data[$i]->ip) . "</td>";
+                        echo "<td>" . parse_input($data[$i]->os) . "</td>";
+                        echo "<td>" . get_size($info["maxmem"], 0) . "</td>";
+                        echo "<td>" . get_size($info["maxdisk"], 0) . "</td>";
                         if ($data[$i]->from_template == 1) {
-                            echo "<td><a href=\"manage?id=" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->hb_account_id) . "&virt=kvm\" class=\"btn btn-sm btn-warning template_setup_btn\">Setup</a></td>";
+                            echo "<td><a href=\"manage?id=" . parse_input($data[$i]->hb_account_id) . "&virt=kvm\" class=\"btn btn-sm btn-warning template_setup_btn\">Setup</a></td>";
                         } else {
-                            echo "<td><a href=\"manage?id=" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->hb_account_id) . "&virt=kvm\" class=\"btn btn-sm btn-info\">Manage</a></td>";
+                            echo "<td><a href=\"manage?id=" . parse_input($data[$i]->hb_account_id) . "&virt=kvm\" class=\"btn btn-sm btn-info\">Manage</a></td>";
                         }
                         echo "</tr>";
                     }
@@ -152,10 +152,10 @@ for ($i = 0; $i < count($data); $i++) {
                 }
                 echo "<td>" . $info["name"] . "</td>";
                 echo "<td><img src=\"img/kvm.png\" style=\"padding-right:5px;\" />KVM</td>";
-                echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->ip) . "</td>";
-                echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->os) . "</td>";
-                echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxmem"], 0) . "</td>";
-                echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxdisk"], 0) . "</td>";
+                echo "<td>" . parse_input($data[$i]->ip) . "</td>";
+                echo "<td>" . parse_input($data[$i]->os) . "</td>";
+                echo "<td>" . get_size($info["maxmem"], 0) . "</td>";
+                echo "<td>" . get_size($info["maxdisk"], 0) . "</td>";
                 echo "<td><div class=\"tooltip-wrapper disabled\" data-title=\"Suspended\" data-placement=\"right\"><button class=\"btn btn-sm btn-info\" disabled>Manage</button></td></tr>";
             }
         }

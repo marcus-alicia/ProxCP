@@ -135,7 +135,7 @@ switch ($step) {
                 }
                 $salt = salt();
                 $salt = mysqli_real_escape_string($connection, $salt);
-                $admin_password = _obfuscated_0D3017040F3937035B190D3213142F12223F1C14332501_($admin_password, $salt);
+                $admin_password = get_hash($admin_password, $salt);
                 mysqli_query($connection, "INSERT INTO vncp_users SET email='" . $admin_email . "', username='" . $admin_email . "', password='" . $admin_password . "', salt='" . $salt . "', tfa_enabled=0, tfa_secret='', `group`=2, locked=0, language='en'");
                 mysqli_query($connection, "INSERT INTO vncp_notes SET id=1, notes='Welcome!'");
                 mysqli_close($connection);
@@ -158,18 +158,18 @@ switch ($step) {
         }
         $form = "<form role=\"form\" action=\"install?step=1\" method=\"POST\">\r\n                        <fieldset>\r\n                        \t<h2>ProxCP Installation <small>v " . _obfuscated_0D31240926250B2C5C0C5C0B360A22040F3F1C3E143632_()[0] . "</small></h2>\r\n                        \t<h6 align=\"center\">" . _obfuscated_0D31240926250B2C5C0C5C0B360A22040F3F1C3E143632_()[1] . "</h6>\r\n                        \t<hr class=\"pulse\" />\r\n                        \t<div class=\"row\">\r\n                        \t\t<div class=\"col-md-12\">\r\n                        \t\t\t<p>Welcome to ProxCP! Run this script to complete installation of the application.</p>\r\n                        \t\t\t<p>License Agreement</p>\r\n                        \t\t\t<textarea style=\"resize:none;\" class=\"form-control\" rows=\"18\" disabled>" . $license . "</textarea>\r\n                        \t\t</div>\r\n                        \t</div>\r\n                        \t<br />\r\n                        \t<span class=\"button-checkbox\">\r\n                                <button type=\"button\" class=\"btn\" data-color=\"info\">Agree</button>\r\n                                <input type=\"checkbox\" name=\"agree\" id=\"agree\" class=\"hidden\">\r\n                            </span>\r\n                        \t<hr class=\"pulse\" />\r\n                        \t<div class=\"row\">\r\n                        \t\t<div class=\"col-xs-12 col-sm-12 col-md-12\">\r\n                        \t\t\t<input type=\"submit\" class=\"btn btn-lg btn-success btn-block\" value=\"Begin\" />\r\n                        \t\t</div>\r\n                        \t</div>\r\n                        </fieldset>\r\n                    </form>";
         echo "<!doctype html>\r\n<!--[if lt IE 7]><html class=\"no-js lt-ie9 lt-ie8 lt-ie7\" lang=\"\"><![endif]-->\r\n<!--[if IE 7]><html class=\"no-js lt-ie9 lt-ie8\" lang=\"\"><![endif]-->\r\n<!--[if IE 8]><html class=\"no-js lt-ie9\" lang=\"\"><![endif]-->\r\n<!--[if gt IE 8]><!--> <html class=\"no-js\" lang=\"\"> <!--<![endif]-->\r\n<head>\r\n    <meta charset=\"utf-8\" />\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\" />\r\n    <title>ProxCP - Installation</title>\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n    <link rel=\"stylesheet\" href=\"css/bootstrap.min.css\" />\r\n    <link rel=\"stylesheet\" href=\"css/font-awesome.min.css\" />\r\n    <link rel=\"stylesheet\" href=\"css/main.css\" />\r\n    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css' />\r\n    <link rel=\"icon\" type=\"image/png\" href=\"favicon.ico\" />\r\n    <script src=\"js/vendor/modernizr-2.8.3-respond-1.4.2.min.js\"></script>\r\n</head>\r\n<body>\r\n\t";
-        if (!_obfuscated_0D0329080D2F17391B0C2F1A2F1B2F0A0E5B011B330511_()) {
+        if (!check_https()) {
             echo "<div id=\"socket_error\" class=\"socket_error\" style=\"visibility:visible;padding:10px;\">Insecure connection (non-HTTPS)!</div>";
         }
         echo "    <!--[if lt IE 8]>\r\n        <p class=\"browserupgrade\">You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/\">upgrade your browser</a> to improve your experience.</p>\r\n    <![endif]-->\r\n    <nav class=\"navbar navbar-default\" id=\"navigation\">\r\n        <div class=\"container\">\r\n            <div class=\"navbar-header\">\r\n                <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\r\n                <span class=\"sr-only\">Toggle navigation</span>\r\n                <span class=\"icon-bar\"></span>\r\n                <span class=\"icon-bar\"></span>\r\n                <span class=\"icon-bar\"></span>\r\n                </button>\r\n                <a class=\"navbar-brand\"><img src=\"img/logo.png\" class=\"img-responsive\" /></a>\r\n            </div>\r\n                <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\r\n                    <ul class=\"nav navbar-nav navbar-right nav-elem\" id=\"bottom-nav\">\r\n                        <li><a href=\"https://my.proxcp.com\"><i class=\"fa fa-life-ring\"></i> Support</a></li>\r\n                    </ul>\r\n                </div>\r\n        </div>\r\n    </nav>\r\n    <div class=\"container-full\" id=\"blocks\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 login-box\">\r\n                \t\t";
         echo $form;
         echo "                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js\"></script>\r\n    <script>window.jQuery || document.write('<script src=\"js/vendor/jquery-1.11.2.min.js\"><\\/script>')</script>\r\n    <script src=\"js/vendor/bootstrap.min.js\"></script>\r\n    <script src=\"js/buttons.js\"></script>\r\n</body>\r\n</html>\r\n";
 }
-function _obfuscated_0D3017040F3937035B190D3213142F12223F1C14332501_($string, $salt = "")
+function get_hash($string, $salt = "")
 {
     return hash("sha256", $string . $salt);
 }
-function _obfuscated_211211_()
+function get_unique_id()
 {
     return uniqid(mt_rand(), true);
 }

@@ -11,7 +11,7 @@ if ($privAddedSuccess) {
     echo "<div id=\"adm_message\"></div>";
 }
 echo "                ";
-$private_networking = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "private_networking"])->first()->value);
+$private_networking = parse_input($db->get("vncp_settings", ["item", "=", "private_networking"])->first()->value);
 if ($private_networking == "true") {
     echo "                ";
     $poolexists = $db->get("vncp_private_pool", ["id", "!=", 0])->all();

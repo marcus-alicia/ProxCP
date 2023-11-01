@@ -20,11 +20,11 @@ for ($i = 0; $i < count($fetch); $i++) {
     $current[$fetch[$i]->item] = $fetch[$i]->value;
 }
 echo "                <div>\r\n                  <ul class=\"nav nav-tabs\" role=\"tablist\">\r\n                    <li role=\"presentation\" class=\"active\"><a href=\"#general\" aria-controls=\"general\" role=\"tab\" data-toggle=\"tab\">General</a></li>\r\n                    <li role=\"presentation\"><a href=\"#mail\" aria-controls=\"mail\" role=\"tab\" data-toggle=\"tab\">Mail</a></li>\r\n                  </ul>\r\n                  <div class=\"tab-content\">\r\n                    <div role=\"tabpanel\" class=\"tab-pane fade in active\" id=\"general\"><br />\r\n                      <form role=\"form\" action=\"\" method=\"POST\">\r\n                      \t<div class=\"form-group\">\r\n                      \t    <label>App Name</label>\r\n                      \t    <input class=\"form-control\" type=\"text\" name=\"app_name\" value=\"";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($current["app_name"]);
+echo parse_input($current["app_name"]);
 echo "\" />\r\n                      \t</div>\r\n                        <div class=\"form-group\">\r\n                      \t    <label>Default Language</label>\r\n                            <select class=\"form-control\" name=\"default_language\">\r\n                              <option value=\"";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($current["default_language"]) . ".json";
+echo parse_input($current["default_language"]) . ".json";
 echo "\">";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($current["default_language"]) . ".json";
+echo parse_input($current["default_language"]) . ".json";
 echo "</option>\r\n                              ";
 foreach (glob("lang/*.json") as $file) {
     list($file) = explode("/", $file);
@@ -110,7 +110,7 @@ if ($current["enable_panel_news"] == "true") {
     echo "</textarea>\r\n                          </div>\r\n                          ";
 }
 echo "                          <div class=\"form-group\">\r\n                              <label>Support Ticket URL</label>\r\n                              <input class=\"form-control\" type=\"text\" name=\"support_ticket_url\" value=\"";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($current["support_ticket_url"]);
+echo parse_input($current["support_ticket_url"]);
 echo "\" />\r\n                          </div>\r\n                          <div class=\"form-group\">\r\n                              <label>Enable User ACL</label>\r\n                              <select class=\"form-control\" name=\"user_acl\">\r\n                              \t";
 if ($current["user_acl"] == "false") {
     echo "<option value=\"false\">False</option><option value=\"true\">True</option>";
@@ -196,17 +196,17 @@ if ($current["mail_type"] == "sysmail") {
     echo "<option value=\"smtp\">SMTP</option><option value=\"sysmail\">PHP mail()</option>";
 }
 echo "                            </select>\r\n                          </div>\r\n                          <hr />\r\n                          <div class=\"form-group\">\r\n                            <label>From Name</label>\r\n                            <input class=\"form-control\" type=\"text\" name=\"from_email_addr_name\" value=\"";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($current["from_email_name"]);
+echo parse_input($current["from_email_name"]);
 echo "\" />\r\n                          </div>\r\n                          <div class=\"form-group\">\r\n                              <label>From Email Address</label>\r\n                              <input class=\"form-control\" type=\"text\" name=\"from_email_addr\" value=\"";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($current["from_email"]);
+echo parse_input($current["from_email"]);
 echo "\" />\r\n                          </div>\r\n                          <hr />\r\n                          <div class=\"form-group\">\r\n                              <label>SMTP Host</label>\r\n                              <input class=\"form-control\" type=\"text\" name=\"smtp_host\" value=\"";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($current["smtp_host"]);
+echo parse_input($current["smtp_host"]);
 echo "\" />\r\n                          </div>\r\n                          <div class=\"form-group\">\r\n                              <label>SMTP Port</label>\r\n                              <input class=\"form-control\" type=\"number\" name=\"smtp_port\" value=\"";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($current["smtp_port"]);
+echo parse_input($current["smtp_port"]);
 echo "\" min=\"1\" max=\"65535\" />\r\n                          </div>\r\n                          <div class=\"form-group\">\r\n                              <label>SMTP Username</label>\r\n                              <input class=\"form-control\" type=\"text\" name=\"smtp_username\" value=\"";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($current["smtp_username"]);
+echo parse_input($current["smtp_username"]);
 echo "\" />\r\n                          </div>\r\n                          <div class=\"form-group\">\r\n                              <label>SMTP Password</label>\r\n                              <input class=\"form-control\" type=\"password\" name=\"smtp_password\" value=\"";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($current["smtp_password"]);
+echo parse_input($current["smtp_password"]);
 echo "\" />\r\n                          </div>\r\n                          <div class=\"form-group\">\r\n                            <label>SMTP Security</label>\r\n                            <select class=\"form-control\" name=\"smtp_type\">\r\n                              ";
 if ($current["smtp_type"] == "none") {
     echo "<option value=\"none\">None</option><option value=\"ssltls\">SSL/TLS</option><option value=\"starttls\">STARTTLS</option>";

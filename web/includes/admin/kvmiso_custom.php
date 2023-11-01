@@ -5,7 +5,7 @@ if (count(get_included_files()) == 1) {
 }
 require_once "menu_main.php";
 echo "<div class=\"row\">\r\n    <div class=\"col-md-12\">\r\n        <div class=\"panel panel-default\">\r\n            <div class=\"panel-body\">\r\n              <div class=\"clearfix\"><a class=\"btn btn-info btn-sm pull-right\" href=\"https://docs.proxcp.com/index.php?title=ProxCP_Admin_-_Manage_Custom_KVM_ISO\" role=\"button\" target=\"_blank\"><i class=\"fa fa-book\"></i> Related Documentation</a></div>\r\n                <h2 align=\"center\">Manage Custom KVM ISOs</h2><br />\r\n                ";
-$custom_iso = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "user_iso_upload"])->first()->value);
+$custom_iso = parse_input($db->get("vncp_settings", ["item", "=", "user_iso_upload"])->first()->value);
 if ($custom_iso == "true") {
     echo "                <div id=\"adm_message\"></div>\r\n                <div class=\"table-responsive\">\r\n                    <table class=\"table table-hover\" id=\"admin_kvmisotable\">\r\n                        <thead>\r\n                            <tr>\r\n                                <th>User ID</th>\r\n                                <th>Friendly Name</th>\r\n                                <th>Type</th>\r\n                                <th>Real Name</th>\r\n                                <th>Upload Date</th>\r\n                                <th>Status</th>\r\n                                <th>Delete</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            ";
     $admin_datakvmiso = $db->get("vncp_kvm_isos_custom", ["id", "!=", 0]);

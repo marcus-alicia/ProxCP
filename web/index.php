@@ -9,7 +9,7 @@ if (!Config::get("instance/installed")) {
 } else {
     $connection = mysqli_connect(Config::get("database/host"), Config::get("database/username"), Config::get("database/password"));
     mysqli_select_db($connection, Config::get("database/db"));
-    $l_array = _obfuscated_0D24283F12023F041C383230393C32170E1D0837160111_($connection, 0);
+    $l_array = get_license_info($connection, 0);
     if ($l_array["notification_case"] != "notification_license_ok") {
         mysqli_close($connection);
         exit("License check failed: " . $l_array["notification_text"]);
@@ -81,12 +81,12 @@ for ($i = 0; $i < count($data); $i++) {
         if ($data[$i]->suspended == 0 && !$noLogin) {
             $vminfo = $pxAPI->get("/pools/" . $data[$i]->pool_id);
             $info = $pxAPI->get("/nodes/" . $data[$i]->node . "/lxc/" . $vminfo["members"][0]["vmid"] . "/status/current");
-            $vmtable["lxc"][$i] = ["noLogin" => false, "suspended" => false, "status" => $info["status"], "name" => $info["name"], "ip" => _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->ip), "os" => _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->os), "maxmem" => _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxmem"], 0), "maxdisk" => _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxdisk"], 0), "cpus" => $info["cpus"], "hbid" => _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->hb_account_id)];
+            $vmtable["lxc"][$i] = ["noLogin" => false, "suspended" => false, "status" => $info["status"], "name" => $info["name"], "ip" => parse_input($data[$i]->ip), "os" => parse_input($data[$i]->os), "maxmem" => get_size($info["maxmem"], 0), "maxdisk" => get_size($info["maxdisk"], 0), "cpus" => $info["cpus"], "hbid" => parse_input($data[$i]->hb_account_id)];
         } else {
             if ($data[$i]->suspended == 1) {
                 $vminfo = $pxAPI->get("/pools/" . $data[$i]->pool_id);
                 $info = $pxAPI->get("/nodes/" . $data[$i]->node . "/lxc/" . $vminfo["members"][0]["vmid"] . "/status/current");
-                $vmtable["lxc"][$i] = ["noLogin" => false, "suspended" => true, "status" => $info["status"], "name" => $info["name"], "ip" => _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->ip), "os" => _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->os), "maxmem" => _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxmem"], 0), "maxdisk" => _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxdisk"], 0), "cpus" => $info["cpus"]];
+                $vmtable["lxc"][$i] = ["noLogin" => false, "suspended" => true, "status" => $info["status"], "name" => $info["name"], "ip" => parse_input($data[$i]->ip), "os" => parse_input($data[$i]->os), "maxmem" => get_size($info["maxmem"], 0), "maxdisk" => get_size($info["maxdisk"], 0), "cpus" => $info["cpus"]];
             }
         }
     }
@@ -130,12 +130,12 @@ for ($i = 0; $i < count($data); $i++) {
             $vminfo = $pxAPI->get("/pools/" . $data[$i]->pool_id);
             if (count($vminfo["members"]) == 1) {
                 $info = $pxAPI->get("/nodes/" . $data[$i]->node . "/qemu/" . $vminfo["members"][0]["vmid"] . "/status/current");
-                $vmtable["kvm"][$i] = ["noLogin" => false, "suspended" => false, "status" => $info["status"], "name" => $info["name"], "ip" => _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->ip), "os" => _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->os), "maxmem" => _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxmem"], 0), "maxdisk" => _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxdisk"], 0), "cpus" => $info["cpus"], "hbid" => _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->hb_account_id), "from_template" => $data[$i]->from_template];
+                $vmtable["kvm"][$i] = ["noLogin" => false, "suspended" => false, "status" => $info["status"], "name" => $info["name"], "ip" => parse_input($data[$i]->ip), "os" => parse_input($data[$i]->os), "maxmem" => get_size($info["maxmem"], 0), "maxdisk" => get_size($info["maxdisk"], 0), "cpus" => $info["cpus"], "hbid" => parse_input($data[$i]->hb_account_id), "from_template" => $data[$i]->from_template];
             } else {
                 for ($j = 0; $j < count($vminfo["members"]); $j++) {
                     if ($vminfo["members"][$j]["name"] == $data[$i]->cloud_hostname) {
                         $info = $pxAPI->get("/nodes/" . $data[$i]->node . "/qemu/" . $vminfo["members"][$j]["vmid"] . "/status/current");
-                        $vmtable["kvm"][$i] = ["noLogin" => false, "suspended" => false, "status" => $info["status"], "name" => $info["name"], "ip" => _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->ip), "os" => _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->os), "maxmem" => _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxmem"], 0), "maxdisk" => _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxdisk"], 0), "cpus" => $info["cpus"], "hbid" => _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->hb_account_id), "from_template" => $data[$i]->from_template];
+                        $vmtable["kvm"][$i] = ["noLogin" => false, "suspended" => false, "status" => $info["status"], "name" => $info["name"], "ip" => parse_input($data[$i]->ip), "os" => parse_input($data[$i]->os), "maxmem" => get_size($info["maxmem"], 0), "maxdisk" => get_size($info["maxdisk"], 0), "cpus" => $info["cpus"], "hbid" => parse_input($data[$i]->hb_account_id), "from_template" => $data[$i]->from_template];
                     }
                 }
             }
@@ -143,12 +143,12 @@ for ($i = 0; $i < count($data); $i++) {
             if ($data[$i]->suspended == 1) {
                 $vminfo = $pxAPI->get("/pools/" . $data[$i]->pool_id);
                 $info = $pxAPI->get("/nodes/" . $data[$i]->node . "/qemu/" . $vminfo["members"][0]["vmid"] . "/status/current");
-                $vmtable["kvm"][$i] = ["noLogin" => false, "suspended" => true, "status" => $info["status"], "name" => $info["name"], "ip" => _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->ip), "os" => _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->os), "maxmem" => _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxmem"], 0), "maxdisk" => _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxdisk"], 0), "cpus" => $info["cpus"]];
+                $vmtable["kvm"][$i] = ["noLogin" => false, "suspended" => true, "status" => $info["status"], "name" => $info["name"], "ip" => parse_input($data[$i]->ip), "os" => parse_input($data[$i]->os), "maxmem" => get_size($info["maxmem"], 0), "maxdisk" => get_size($info["maxdisk"], 0), "cpus" => $info["cpus"]];
             }
         }
     }
 }
-$cloud_accounts = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "cloud_accounts"])->first()->value);
+$cloud_accounts = parse_input($db->get("vncp_settings", ["item", "=", "cloud_accounts"])->first()->value);
 $hasCloud = false;
 $cl_data = [];
 if ($cloud_accounts != "false") {
@@ -181,11 +181,11 @@ if ($enable_whmcs == "true") {
     $getInvoices = _obfuscated_0D0508392C01340D09123612315C372D183335235B1732_($whmcs_url, ["username" => $whmcs_id, "password" => $whmcs_key, "responsetype" => "json", "action" => "GetInvoices", "userid" => $user->data()->id, "status" => "Unpaid"]);
     $getTickets = _obfuscated_0D0508392C01340D09123612315C372D183335235B1732_($whmcs_url, ["username" => $whmcs_id, "password" => $whmcs_key, "responsetype" => "json", "action" => "GetTickets", "clientid" => $user->data()->id, "status" => "All Active Tickets", "ignore_dept_assignments" => true]);
 }
-$enable_firewall = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "enable_firewall"])->first()->value);
-$enable_forward_dns = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "enable_forward_dns"])->first()->value);
-$enable_reverse_dns = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "enable_reverse_dns"])->first()->value);
-$enable_notepad = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "enable_notepad"])->first()->value);
-$enable_status = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "enable_status"])->first()->value);
+$enable_firewall = parse_input($db->get("vncp_settings", ["item", "=", "enable_firewall"])->first()->value);
+$enable_forward_dns = parse_input($db->get("vncp_settings", ["item", "=", "enable_forward_dns"])->first()->value);
+$enable_reverse_dns = parse_input($db->get("vncp_settings", ["item", "=", "enable_reverse_dns"])->first()->value);
+$enable_notepad = parse_input($db->get("vncp_settings", ["item", "=", "enable_notepad"])->first()->value);
+$enable_status = parse_input($db->get("vncp_settings", ["item", "=", "enable_status"])->first()->value);
 $isAdmin = $user->hasPermission("admin");
 $constants = false;
 if (defined("constant") || defined("constant-fw")) {
@@ -202,15 +202,15 @@ echo $twig->render("home-left.tpl", ["appname" => $appname, "errors" => $errors,
 if (isset($GLOBALS["proxcp_branding"]) && !empty($GLOBALS["proxcp_branding"])) {
     echo $GLOBALS["proxcp_branding"];
 }
-$enable_panel_news = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "enable_panel_news"])->first()->value);
+$enable_panel_news = parse_input($db->get("vncp_settings", ["item", "=", "enable_panel_news"])->first()->value);
 $news = "";
 if ($enable_panel_news == "true") {
     $news = _obfuscated_0D063F0D33221E0E273011111E2E3C373F1E140B402101_($db);
 }
 $result = $db->limit_get_desc("vncp_users_ip_log", ["client_id", "=", $user->data()->id], "1");
 $data = $result->first();
-$support_ticket_url = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "support_ticket_url"])->first()->value);
-$user_iso_upload = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "user_iso_upload"])->first()->value);
+$support_ticket_url = parse_input($db->get("vncp_settings", ["item", "=", "support_ticket_url"])->first()->value);
+$user_iso_upload = parse_input($db->get("vncp_settings", ["item", "=", "user_iso_upload"])->first()->value);
 $max_upload_size = ini_get("upload_max_filesize");
 $hasKVM_ISO = false;
 foreach ($vmtable["kvm"] as $kvm) {

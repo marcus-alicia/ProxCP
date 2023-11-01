@@ -696,11 +696,11 @@ class Proxcp extends Module
     private function generatePassword($min_chars = 12, $max_chars = 12)
     {
         $password = "";
-        $_obfuscated_0D1F3F073B3D3F1C1D1F023E25090E211F1D2A18323211_ = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!", "@", "#", "\$", "%", "^", "&", "*", "(", ")"];
-        $count = count($_obfuscated_0D1F3F073B3D3F1C1D1F023E25090E211F1D2A18323211_) - 1;
+        $charset = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!", "@", "#", "\$", "%", "^", "&", "*", "(", ")"];
+        $count = count($charset) - 1;
         $_obfuscated_0D14153B22271D351F01121F0B322C1114133F172B3401_ = (int) abs($min_chars == $max_chars ? $min_chars : mt_rand($min_chars, $max_chars));
         for ($i = 0; $i < $_obfuscated_0D14153B22271D351F01121F0B322C1114133F172B3401_; $i++) {
-            $password = $_obfuscated_0D1F3F073B3D3F1C1D1F023E25090E211F1D2A18323211_[mt_rand(0, $count)] . $password;
+            $password = $charset[mt_rand(0, $count)] . $password;
         }
         return $password;
     }

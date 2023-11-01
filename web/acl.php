@@ -9,7 +9,7 @@ if (!Config::get("instance/installed")) {
 } else {
     $connection = mysqli_connect(Config::get("database/host"), Config::get("database/username"), Config::get("database/password"));
     mysqli_select_db($connection, Config::get("database/db"));
-    $l_array = _obfuscated_0D24283F12023F041C383230393C32170E1D0837160111_($connection, 0);
+    $l_array = get_license_info($connection, 0);
     if ($l_array["notification_case"] != "notification_license_ok") {
         mysqli_close($connection);
         exit("License check failed: " . $l_array["notification_text"]);
@@ -64,11 +64,11 @@ $constants = false;
 if (defined("constant") || defined("constant-fw")) {
     $constants = true;
 }
-$enable_firewall = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "enable_firewall"])->first()->value);
-$enable_forward_dns = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "enable_forward_dns"])->first()->value);
-$enable_reverse_dns = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "enable_reverse_dns"])->first()->value);
-$enable_notepad = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "enable_notepad"])->first()->value);
-$enable_status = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "enable_status"])->first()->value);
+$enable_firewall = parse_input($db->get("vncp_settings", ["item", "=", "enable_firewall"])->first()->value);
+$enable_forward_dns = parse_input($db->get("vncp_settings", ["item", "=", "enable_forward_dns"])->first()->value);
+$enable_reverse_dns = parse_input($db->get("vncp_settings", ["item", "=", "enable_reverse_dns"])->first()->value);
+$enable_notepad = parse_input($db->get("vncp_settings", ["item", "=", "enable_notepad"])->first()->value);
+$enable_status = parse_input($db->get("vncp_settings", ["item", "=", "enable_status"])->first()->value);
 $isAdmin = $user->hasPermission("admin");
 $L = new Language($user->data()->language);
 $L = $L->load();

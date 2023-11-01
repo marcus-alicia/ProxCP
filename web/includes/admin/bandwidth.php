@@ -17,7 +17,7 @@ for ($k = 0; $k < count($admin_users); $k++) {
     }
     $usage = round((double) $admin_users[$k]->current / (double) $admin_users[$k]->max * 100, 2);
     echo "<td>" . $usage . "%</td>";
-    echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($admin_users[$k]->max) . "</td>";
+    echo "<td>" . get_size($admin_users[$k]->max) . "</td>";
     echo "<td>" . $admin_users[$k]->reset_date . "</td>";
     echo "<td><button class=\"btn btn-info btn-sm\" id=\"resetbw" . $admin_users[$k]->id . "\" role=\"" . $admin_users[$k]->id . "\">Reset Now</button></td>";
     echo "</tr>";

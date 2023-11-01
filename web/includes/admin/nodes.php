@@ -24,7 +24,7 @@ $admin_datanodes = $db->get("vncp_nodes", ["id", "!=", 0]);
 $admin_nodes = $admin_datanodes->all();
 for ($k = 0; $k < count($admin_nodes); $k++) {
     echo "<tr>";
-    echo "<td><a href=\"" . Config::get("instance/base") . "/admin?action=edit_node&id=" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($admin_nodes[$k]->id) . "\">" . $admin_nodes[$k]->hostname . "</a></td>";
+    echo "<td><a href=\"" . Config::get("instance/base") . "/admin?action=edit_node&id=" . parse_input($admin_nodes[$k]->id) . "\">" . $admin_nodes[$k]->hostname . "</a></td>";
     echo "<td>" . $admin_nodes[$k]->name . "</td>";
     echo "<td>" . $admin_nodes[$k]->location . "</td>";
     echo "<td>" . $admin_nodes[$k]->cpu . "</td>";

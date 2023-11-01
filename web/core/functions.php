@@ -3,21 +3,21 @@
 if (count(get_included_files()) == 1) {
     exit("You just broke everything.");
 }
-function _obfuscated_40260C32_($string)
+function html_ify($string)
 {
     return htmlentities($string, ENT_QUOTES, "UTF-8");
 }
-function _obfuscated_0D0621112E17120638365B1133392E3D1F063C053E1E01_($length)
+function get_random_chars($length)
 {
-    $_obfuscated_0D1F3F073B3D3F1C1D1F023E25090E211F1D2A18323211_ = "abcdefghijlkmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#\$%^&";
-    $_obfuscated_0D10111807323B0E5C011A240F1F295B222F120A063C11_ = "";
-    $_obfuscated_0D143C2A083B040F010726313512270B27072C10371801_ = strlen($_obfuscated_0D1F3F073B3D3F1C1D1F023E25090E211F1D2A18323211_);
+    $charset = "abcdefghijlkmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#\$%^&";
+    $concat_char = "";
+    $charset_length = strlen($charset);
     for ($i = 0; $i < $length; $i++) {
-        $_obfuscated_0D3F2B1602281A04270414103F2D5C39082B2615060811_ = mt_rand(1, $_obfuscated_0D143C2A083B040F010726313512270B27072C10371801_);
-        $_obfuscated_0D371C2A01290E143E133E1C3D123F05161D151D083222_ = $_obfuscated_0D1F3F073B3D3F1C1D1F023E25090E211F1D2A18323211_[$_obfuscated_0D3F2B1602281A04270414103F2D5C39082B2615060811_ - 1];
-        $_obfuscated_0D10111807323B0E5C011A240F1F295B222F120A063C11_ .= $_obfuscated_0D371C2A01290E143E133E1C3D123F05161D151D083222_;
+        $random_value = mt_rand(1, $charset_length);
+        $random_char = $charset[$random_value - 1];
+        $concat_char .= $random_char;
     }
-    return $_obfuscated_0D10111807323B0E5C011A240F1F295B222F120A063C11_;
+    return $concat_char;
 }
 function _obfuscated_3715233532_($min, $max)
 {
@@ -25,16 +25,16 @@ function _obfuscated_3715233532_($min, $max)
 }
 function _obfuscated_0D2A082A285B0A0C0F0B251A362D240438031D0E251B32_($bytes, $decimals = 2)
 {
-    $_obfuscated_0D320A0222112C5C0F01121A1B2940162C1F3C33013601_ = floor((strlen($bytes) - 1) / 3);
-    return sprintf("%." . $decimals . "f", $bytes / pow(1024, $_obfuscated_0D320A0222112C5C0F01121A1B2940162C1F3C33013601_));
+    $storage_bytes = floor((strlen($bytes) - 1) / 3);
+    return sprintf("%." . $decimals . "f", $bytes / pow(1024, $storage_bytes));
 }
-function _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($bytes, $decimals = 2)
+function get_size($bytes, $decimals = 2)
 {
-    $_obfuscated_0D283323281D251F03160511303C0613341033273C3911_ = ["B", "KB", "MB", "GB", "TB"];
-    $_obfuscated_0D320A0222112C5C0F01121A1B2940162C1F3C33013601_ = floor((strlen($bytes) - 1) / 3);
-    return sprintf("%." . $decimals . "f", $bytes / pow(1024, $_obfuscated_0D320A0222112C5C0F01121A1B2940162C1F3C33013601_)) . $_obfuscated_0D283323281D251F03160511303C0613341033273C3911_[$_obfuscated_0D320A0222112C5C0F01121A1B2940162C1F3C33013601_];
+    $storage_sizes = ["B", "KB", "MB", "GB", "TB"];
+    $storage_bytes = floor((strlen($bytes) - 1) / 3);
+    return sprintf("%." . $decimals . "f", $bytes / pow(1024, $storage_bytes)) . $storage_sizes[$storage_bytes];
 }
-function _obfuscated_0D32270E041F18331427231D0808312740381114283E32_($bytes)
+function round_bytes($bytes)
 {
     return number_format($bytes / 1048576, 0, "", "");
 }
@@ -86,22 +86,22 @@ function _obfuscated_0D0327272C1F1932192F383E152A352E0B013F2A023211_($ciphertext
     $_obfuscated_0D2208090B2B01402E02210C18212207370C112C320801_ = new org\magiclen\magiccrypt\MagicCrypt($key, 256, $_obfuscated_0D3E3F1A2B351E352A3E01192C2E08401E1D0402160D32_);
     return $_obfuscated_0D2208090B2B01402E02210C18212207370C112C320801_->decrypt($ciphertext);
 }
-function _obfuscated_1925345B312F373C1022_()
+function get_server_url()
 {
     if (isset($_SERVER["HTTPS"])) {
-        $_obfuscated_0D1B2235300E1C27171E293C22382340333B1606381701_ = $_SERVER["HTTPS"] && $_SERVER["HTTPS"] != "off" ? "https" : "http";
+        $server_protocol = $_SERVER["HTTPS"] && $_SERVER["HTTPS"] != "off" ? "https" : "http";
     } else {
-        $_obfuscated_0D1B2235300E1C27171E293C22382340333B1606381701_ = "http";
+        $server_protocol = "http";
     }
-    return $_obfuscated_0D1B2235300E1C27171E293C22382340333B1606381701_ . "://" . $_SERVER["HTTP_HOST"];
+    return $server_protocol . "://" . $_SERVER["HTTP_HOST"];
 }
-function _obfuscated_0D0329080D2F17391B0C2F1A2F1B2F0A0E5B011B330511_()
+function check_https()
 {
     if (isset($_SERVER["HTTPS"])) {
         return $_SERVER["HTTPS"] && $_SERVER["HTTPS"] != "off" ? true : false;
     }
 }
-function _obfuscated_0211133E0A0E393128393D39350E0C16160401_($cidr)
+function get_cidr_range($cidr)
 {
     $range = [];
     $cidr = explode("/", $cidr);
@@ -109,7 +109,7 @@ function _obfuscated_0211133E0A0E393128393D39350E0C16160401_($cidr)
     $range[1] = long2ip(ip2long($range[0]) + pow(2, 32 - (int) $cidr[1]) - 1);
     return $range;
 }
-function _obfuscated_0D0935343F2F2402302C161711153006273F1021131332_($num)
+function get_error_level($num)
 {
     if ($num == 0) {
         return "info";

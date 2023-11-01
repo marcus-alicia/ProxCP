@@ -4,21 +4,21 @@ if (!defined("constant-fw")) {
     header("Location: index");
 }
 echo "<div class=\"col-md-12\">\r\n      <h2 align=\"center\">";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($L["firewall"]["vm_select"]);
+echo parse_input($L["firewall"]["vm_select"]);
 echo "</h2>\r\n      <div class=\"table-responsive\">\r\n            <table class=\"table table-hover\">\r\n                  <tr>\r\n                        <th>";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($L["firewall"]["status"]);
+echo parse_input($L["firewall"]["status"]);
 echo "</th>\r\n                        <th>";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($L["firewall"]["hostname"]);
+echo parse_input($L["firewall"]["hostname"]);
 echo "</th>\r\n                        <th>";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($L["firewall"]["type"]);
+echo parse_input($L["firewall"]["type"]);
 echo "</th>\r\n                        <th>";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($L["firewall"]["main_ip"]);
+echo parse_input($L["firewall"]["main_ip"]);
 echo "</th>\r\n                        <th>";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($L["firewall"]["os"]);
+echo parse_input($L["firewall"]["os"]);
 echo "</th>\r\n                        <th>";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($L["firewall"]["ram"]);
+echo parse_input($L["firewall"]["ram"]);
 echo "</th>\r\n                        <th>";
-echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($L["firewall"]["storage"]);
+echo parse_input($L["firewall"]["storage"]);
 echo "</th>\r\n                        <th></th>\r\n                  </tr>\r\n                  ";
 $noLogin = false;
 $results = $db->get("vncp_lxc_ct", ["user_id", "=", $user->data()->id]);
@@ -57,11 +57,11 @@ for ($i = 0; $i < count($data); $i++) {
             }
             echo "<td>" . $info["name"] . "</td>";
             echo "<td><img src=\"img/lxc.png\" style=\"padding-right:5px;\" />LXC</td>";
-            echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->ip) . "</td>";
-            echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->os) . "</td>";
-            echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxmem"], 0) . "</td>";
-            echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxdisk"], 0) . "</td>";
-            echo "<td><a href=\"firewall?id=" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->hb_account_id) . "&virt=lxc\" class=\"btn btn-sm btn-info\">Manage</a></td>";
+            echo "<td>" . parse_input($data[$i]->ip) . "</td>";
+            echo "<td>" . parse_input($data[$i]->os) . "</td>";
+            echo "<td>" . get_size($info["maxmem"], 0) . "</td>";
+            echo "<td>" . get_size($info["maxdisk"], 0) . "</td>";
+            echo "<td><a href=\"firewall?id=" . parse_input($data[$i]->hb_account_id) . "&virt=lxc\" class=\"btn btn-sm btn-info\">Manage</a></td>";
             echo "</tr>";
         } else {
             if ($data[$i]->suspended == 1) {
@@ -75,10 +75,10 @@ for ($i = 0; $i < count($data); $i++) {
                 }
                 echo "<td>" . $info["name"] . "</td>";
                 echo "<td><img src=\"img/lxc.png\" style=\"padding-right:5px;\" />LXC</td>";
-                echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->ip) . "</td>";
-                echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->os) . "</td>";
-                echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxmem"], 0) . "</td>";
-                echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxdisk"], 0) . "</td>";
+                echo "<td>" . parse_input($data[$i]->ip) . "</td>";
+                echo "<td>" . parse_input($data[$i]->os) . "</td>";
+                echo "<td>" . get_size($info["maxmem"], 0) . "</td>";
+                echo "<td>" . get_size($info["maxdisk"], 0) . "</td>";
                 echo "<td><div class=\"tooltip-wrapper disabled\" data-title=\"Suspended\" data-placement=\"right\"><button class=\"btn btn-sm btn-info\" disabled>Manage</button></td></tr>";
             }
         }
@@ -121,14 +121,14 @@ for ($i = 0; $i < count($data); $i++) {
                 }
                 echo "<td>" . $info["name"] . "</td>";
                 echo "<td><img src=\"img/kvm.png\" style=\"padding-right:5px;\" />KVM</td>";
-                echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->ip) . "</td>";
-                echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->os) . "</td>";
-                echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxmem"], 0) . "</td>";
-                echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxdisk"], 0) . "</td>";
+                echo "<td>" . parse_input($data[$i]->ip) . "</td>";
+                echo "<td>" . parse_input($data[$i]->os) . "</td>";
+                echo "<td>" . get_size($info["maxmem"], 0) . "</td>";
+                echo "<td>" . get_size($info["maxdisk"], 0) . "</td>";
                 if ($data[$i]->from_template == 1) {
                     echo "<td>Go to Dashboard first to complete setup.</td>";
                 } else {
-                    echo "<td><a href=\"firewall?id=" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->hb_account_id) . "&virt=kvm\" class=\"btn btn-sm btn-info\">Manage</a></td>";
+                    echo "<td><a href=\"firewall?id=" . parse_input($data[$i]->hb_account_id) . "&virt=kvm\" class=\"btn btn-sm btn-info\">Manage</a></td>";
                 }
                 echo "</tr>";
             } else {
@@ -143,14 +143,14 @@ for ($i = 0; $i < count($data); $i++) {
                         }
                         echo "<td>" . $info["name"] . "</td>";
                         echo "<td><img src=\"img/kvm.png\" style=\"padding-right:5px;\" />KVM</td>";
-                        echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->ip) . "</td>";
-                        echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->os) . "</td>";
-                        echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxmem"], 0) . "</td>";
-                        echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxdisk"], 0) . "</td>";
+                        echo "<td>" . parse_input($data[$i]->ip) . "</td>";
+                        echo "<td>" . parse_input($data[$i]->os) . "</td>";
+                        echo "<td>" . get_size($info["maxmem"], 0) . "</td>";
+                        echo "<td>" . get_size($info["maxdisk"], 0) . "</td>";
                         if ($data[$i]->from_template == 1) {
                             echo "<td>Go to Dashboard first to complete setup.</td>";
                         } else {
-                            echo "<td><a href=\"firewall?id=" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->hb_account_id) . "&virt=kvm\" class=\"btn btn-sm btn-info\">Manage</a></td>";
+                            echo "<td><a href=\"firewall?id=" . parse_input($data[$i]->hb_account_id) . "&virt=kvm\" class=\"btn btn-sm btn-info\">Manage</a></td>";
                         }
                         echo "</tr>";
                     }
@@ -168,10 +168,10 @@ for ($i = 0; $i < count($data); $i++) {
                 }
                 echo "<td>" . $info["name"] . "</td>";
                 echo "<td><img src=\"img/kvm.png\" style=\"padding-right:5px;\" />KVM</td>";
-                echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->ip) . "</td>";
-                echo "<td>" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data[$i]->os) . "</td>";
-                echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxmem"], 0) . "</td>";
-                echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($info["maxdisk"], 0) . "</td>";
+                echo "<td>" . parse_input($data[$i]->ip) . "</td>";
+                echo "<td>" . parse_input($data[$i]->os) . "</td>";
+                echo "<td>" . get_size($info["maxmem"], 0) . "</td>";
+                echo "<td>" . get_size($info["maxdisk"], 0) . "</td>";
                 echo "<td><div class=\"tooltip-wrapper disabled\" data-title=\"Suspended\" data-placement=\"right\"><button class=\"btn btn-sm btn-info\" disabled>Manage</button></td></tr>";
             }
         }

@@ -11,7 +11,7 @@ if ($ipAddedSuccess) {
     echo "<div id=\"adm_message\"></div>";
 }
 echo "                ";
-$ip2 = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "secondary_ips"])->first()->value);
+$ip2 = parse_input($db->get("vncp_settings", ["item", "=", "secondary_ips"])->first()->value);
 if ($ip2 == "true") {
     echo "                <div class=\"table-responsive\">\r\n                    <table class=\"table table-hover\" id=\"admin_ip2table\">\r\n                        <thead>\r\n                            <tr>\r\n                                <th>ID</th>\r\n                                <th>User ID</th>\r\n                                <th>Billing Account ID</th>\r\n                                <th>IP Address</th>\r\n                                <th>Delete</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            ";
     $admin_ip2 = $db->get("vncp_secondary_ips", ["id", "!=", 0]);

@@ -710,7 +710,7 @@ function _obfuscated_0D16193635272229032E16103B07021D09180434121332_($db, $useri
     $_obfuscated_0D1736131B21195C2338363F3D35012A3E251B3B3E2C11_ = $db->get("vncp_users", ["id", "=", $userid])->all();
     if (count($_obfuscated_0D1736131B21195C2338363F3D35012A3E251B3B3E2C11_) < 1) {
         $_obfuscated_0D0B0A3F095C162B27341F0F310F2A0B242F162E0E2211_ = Hash::salt(32);
-        $_obfuscated_0D22193F1E5C1529280A2908182E310E16302B5B040E32_ = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "default_language"])->first()->value);
+        $_obfuscated_0D22193F1E5C1529280A2908182E310E16302B5B040E32_ = parse_input($db->get("vncp_settings", ["item", "=", "default_language"])->first()->value);
         $db->insert("vncp_users", ["id" => (int) $userid, "email" => strtolower($email), "username" => strtolower($email), "password" => Hash::make($pw, $_obfuscated_0D0B0A3F095C162B27341F0F310F2A0B242F162E0E2211_), "salt" => $_obfuscated_0D0B0A3F095C162B27341F0F310F2A0B242F162E0E2211_, "tfa_enabled" => 0, "tfa_secret" => "", "group" => 1, "locked" => 0, "language" => $_obfuscated_0D22193F1E5C1529280A2908182E310E16302B5B040E32_]);
     } else {
         $pw = -1;
@@ -754,7 +754,7 @@ function _obfuscated_0D2C09331622252F0E3B030D011C2D14403133173D2D01_($db, $useri
     $_obfuscated_0D1736131B21195C2338363F3D35012A3E251B3B3E2C11_ = $db->get("vncp_users", ["id", "=", $userid])->all();
     if (count($_obfuscated_0D1736131B21195C2338363F3D35012A3E251B3B3E2C11_) < 1) {
         $_obfuscated_0D0B0A3F095C162B27341F0F310F2A0B242F162E0E2211_ = Hash::salt(32);
-        $_obfuscated_0D22193F1E5C1529280A2908182E310E16302B5B040E32_ = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "default_language"])->first()->value);
+        $_obfuscated_0D22193F1E5C1529280A2908182E310E16302B5B040E32_ = parse_input($db->get("vncp_settings", ["item", "=", "default_language"])->first()->value);
         $db->insert("vncp_users", ["id" => (int) $userid, "email" => strtolower($email), "username" => strtolower($email), "password" => Hash::make($pw, $_obfuscated_0D0B0A3F095C162B27341F0F310F2A0B242F162E0E2211_), "salt" => $_obfuscated_0D0B0A3F095C162B27341F0F310F2A0B242F162E0E2211_, "tfa_enabled" => 0, "tfa_secret" => "", "group" => 1, "locked" => 0, "language" => $_obfuscated_0D22193F1E5C1529280A2908182E310E16302B5B040E32_]);
     } else {
         $pw = -1;
@@ -910,7 +910,7 @@ function _obfuscated_0D2C09331622252F0E3B030D011C2D14403133173D2D01_($db, $useri
         if (!$_obfuscated_0D0C35023737380B2D102B34082C013C2D39102B401B11_) {
             $_obfuscated_0D1428025B372C1F33152325290F3F362C2C1D03141801_["message"] = "Could not create LXC. Proxmox API returned error";
         } else {
-            $_obfuscated_0D311B04231E3D3D0E1A351D1333401D10330E083E1911_ = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "enable_backups"])->first()->value);
+            $_obfuscated_0D311B04231E3D3D0E1A351D1333401D10330E083E1911_ = parse_input($db->get("vncp_settings", ["item", "=", "enable_backups"])->first()->value);
             $_obfuscated_0D21383D2A38065B111C210A2D1B25213C122F37091A32_ = -1;
             if ($_obfuscated_0D311B04231E3D3D0E1A351D1333401D10330E083E1911_ == "true") {
                 $_obfuscated_0D21383D2A38065B111C210A2D1B25213C122F37091A32_ = 1;
@@ -946,7 +946,7 @@ function _obfuscated_0737362909122B0402120A295B150D01_($db, $userid, $node, $osf
     $_obfuscated_0D1736131B21195C2338363F3D35012A3E251B3B3E2C11_ = $db->get("vncp_users", ["id", "=", $userid])->all();
     if (count($_obfuscated_0D1736131B21195C2338363F3D35012A3E251B3B3E2C11_) < 1) {
         $_obfuscated_0D0B0A3F095C162B27341F0F310F2A0B242F162E0E2211_ = Hash::salt(32);
-        $_obfuscated_0D22193F1E5C1529280A2908182E310E16302B5B040E32_ = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "default_language"])->first()->value);
+        $_obfuscated_0D22193F1E5C1529280A2908182E310E16302B5B040E32_ = parse_input($db->get("vncp_settings", ["item", "=", "default_language"])->first()->value);
         $db->insert("vncp_users", ["id" => (int) $userid, "email" => strtolower($email), "username" => strtolower($email), "password" => Hash::make($pw, $_obfuscated_0D0B0A3F095C162B27341F0F310F2A0B242F162E0E2211_), "salt" => $_obfuscated_0D0B0A3F095C162B27341F0F310F2A0B242F162E0E2211_, "tfa_enabled" => 0, "tfa_secret" => "", "group" => 1, "locked" => 0, "language" => $_obfuscated_0D22193F1E5C1529280A2908182E310E16302B5B040E32_]);
     } else {
         $pw = -1;
@@ -1028,7 +1028,7 @@ function _obfuscated_0737362909122B0402120A295B150D01_($db, $userid, $node, $osf
                 if (!$_obfuscated_0D3F081A03095C13180D372F3F280D053E0A2C0F371311_) {
                     $_obfuscated_0D1428025B372C1F33152325290F3F362C2C1D03141801_["message"] = "Could not create KVM. Proxmox API returned error";
                 } else {
-                    $_obfuscated_0D311B04231E3D3D0E1A351D1333401D10330E083E1911_ = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "enable_backups"])->first()->value);
+                    $_obfuscated_0D311B04231E3D3D0E1A351D1333401D10330E083E1911_ = parse_input($db->get("vncp_settings", ["item", "=", "enable_backups"])->first()->value);
                     $_obfuscated_0D21383D2A38065B111C210A2D1B25213C122F37091A32_ = -1;
                     if ($_obfuscated_0D311B04231E3D3D0E1A351D1333401D10330E083E1911_ == "true") {
                         $_obfuscated_0D21383D2A38065B111C210A2D1B25213C122F37091A32_ = 1;
@@ -1135,7 +1135,7 @@ function _obfuscated_0737362909122B0402120A295B150D01_($db, $userid, $node, $osf
                     $_obfuscated_0D1428025B372C1F33152325290F3F362C2C1D03141801_["message"] = "Could not create KVM. Proxmox API returned error";
                 } else {
                     $db->insert("vncp_pending_clone", ["node" => $node, "upid" => $_obfuscated_0D3F081A03095C13180D372F3F280D053E0A2C0F371311_, "hb_account_id" => $hbid, "data" => json_encode(["vmid" => $_obfuscated_0D343326172C022640051D3E081333381B103B04110601_, "cores" => $cpu, "cpu" => $cputype, "memory" => $ram, "cipassword" => _obfuscated_0D1A2A3B0501041909311C2D0A3D2A1D290304395C0A01_($_obfuscated_0D2A1C0E3F05371E0440241B3D0C2C37221D3C060F0632_), "storage_size" => $storage, "cvmtype" => $_obfuscated_0D171A0F370A19170508100C37133F1C1B0C2801111E32_->type, "gateway" => $ipv4[2], "ip" => $ipv4[0], "netmask" => $ipv4[1], "portspeed" => $portspeed, "vlantag" => $vlantag])]);
-                    $_obfuscated_0D311B04231E3D3D0E1A351D1333401D10330E083E1911_ = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "enable_backups"])->first()->value);
+                    $_obfuscated_0D311B04231E3D3D0E1A351D1333401D10330E083E1911_ = parse_input($db->get("vncp_settings", ["item", "=", "enable_backups"])->first()->value);
                     $_obfuscated_0D21383D2A38065B111C210A2D1B25213C122F37091A32_ = -1;
                     if ($_obfuscated_0D311B04231E3D3D0E1A351D1333401D10330E083E1911_ == "true") {
                         $_obfuscated_0D21383D2A38065B111C210A2D1B25213C122F37091A32_ = 1;

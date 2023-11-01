@@ -11,7 +11,7 @@ if ($cloudCreatedSuccess) {
     echo "<div id=\"adm_message\"></div>";
 }
 echo "                ";
-$cloud_accounts = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "cloud_accounts"])->first()->value);
+$cloud_accounts = parse_input($db->get("vncp_settings", ["item", "=", "cloud_accounts"])->first()->value);
 if ($cloud_accounts == "true") {
     echo "                <div class=\"table-responsive\">\r\n                    <table class=\"table table-hover\" id=\"admin_cloudtable\">\r\n                        <thead>\r\n                            <tr>\r\n                                <th>User ID</th>\r\n                                <th>Billing ID</th>\r\n                                <th>Pool ID</th>\r\n                                <th>Node</th>\r\n                                <th>IP List</th>\r\n                                <th>Suspend</th>\r\n                                <th>Delete</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            ";
     $admin_datacloud = $db->get("vncp_kvm_cloud", ["user_id", "!=", 0]);

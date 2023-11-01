@@ -9,7 +9,7 @@ if (!Config::get("instance/installed")) {
 } else {
     $connection = mysqli_connect(Config::get("database/host"), Config::get("database/username"), Config::get("database/password"));
     mysqli_select_db($connection, Config::get("database/db"));
-    $l_array = _obfuscated_0D24283F12023F041C383230393C32170E1D0837160111_($connection, 0);
+    $l_array = get_license_info($connection, 0);
     if ($l_array["notification_case"] != "notification_license_ok") {
         mysqli_close($connection);
         exit("License check failed: " . $l_array["notification_text"]);
@@ -34,7 +34,7 @@ if (Input::exists() && Input::get("form_name") == "login_form") {
                     $log->log("Attempted to login to disabled account.", "error", 1, Input::get("username"), $_SERVER["REMOTE_ADDR"]);
                     $user->logout();
                 } else {
-                    $user_acl = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "user_acl"])->first()->value);
+                    $user_acl = parse_input($db->get("vncp_settings", ["item", "=", "user_acl"])->first()->value);
                     if ($user_acl == "true") {
                         $rip = $db->get("vncp_acl", ["user_id", "=", $user->data()->id]);
                         $dip = $rip->all();
@@ -110,12 +110,12 @@ if (Input::exists("GET") && isset($_GET["u"]) && (Input::get("from") == "whmcs" 
     if (!$ssoemail) {
         $ssoemail = "";
     } else {
-        $ssoemail = trim(stripslashes(_obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_((string) $ssoemail)));
+        $ssoemail = trim(stripslashes(parse_input((string) $ssoemail)));
     }
 }
 $appname = $db->get("vncp_settings", ["item", "=", "app_name"])->first()->value;
 $support_ticket_url = $db->get("vncp_settings", ["item", "=", "support_ticket_url"])->first()->value;
-echo $twig->render("login.tpl", ["appname" => $appname, "gethttps" => _obfuscated_0D0329080D2F17391B0C2F1A2F1B2F0A0E5B011B330511_(), "modalForm" => $modalForm, "errors" => $errors, "formToken" => Token::generate(), "support_ticket_url" => $support_ticket_url, "pagename" => "Login", "ssoemail" => $ssoemail]);
+echo $twig->render("login.tpl", ["appname" => $appname, "gethttps" => check_https(), "modalForm" => $modalForm, "errors" => $errors, "formToken" => Token::generate(), "support_ticket_url" => $support_ticket_url, "pagename" => "Login", "ssoemail" => $ssoemail]);
 if (isset($GLOBALS["proxcp_branding"]) && !empty($GLOBALS["proxcp_branding"])) {
     echo $GLOBALS["proxcp_branding"];
 }

@@ -3,10 +3,10 @@
 if (!defined("constant")) {
     header("Location: index");
 }
-$clone_pending = $db->get("vncp_pending_clone", ["hb_account_id", "=", _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($_GET["id"])])->first();
+$clone_pending = $db->get("vncp_pending_clone", ["hb_account_id", "=", parse_input($_GET["id"])])->first();
 if (count($clone_pending) == 0) {
     echo "<div class=\"col-md-12\">\r\n\t<!-- Feature with tabs -->\r\n    <section class=\"feature-tabs\">\r\n     <div class=\"first-sliding\">\r\n     </div>\r\n     <div class=\"wrap\">\r\n      <div class=\"tabs\">\r\n       <div class=\"tabs_container\">\r\n       <!-- TAB -->\r\n        <li class=\"btnLink smallBtnLink green_tab\">\r\n            <a class=\"tab-action active\" data-tab-cnt=\"tab1\">\r\n                <span><i class=\"fa fa-wrench\"></i> General</span>\r\n            </a></li>\r\n        <!-- TAB END -->\r\n        <!-- TAB -->\r\n        <li class=\"btnLink smallBtnLink green_tab\">\r\n            <a class=\"tab-action\" data-tab-cnt=\"tab3\">\r\n                <span><i class=\"fa fa-desktop\"></i> Device Manager</span>\r\n            </a></li>\r\n        <!-- TAB END -->\r\n        <!-- TAB -->\r\n        <li class=\"btnLink smallBtnLink green_tab\">\r\n            <a class=\"tab-action\" data-tab-cnt=\"tab5\">\r\n                <span><i class=\"fa fa-bolt\"></i> Network Manager</span>\r\n            </a></li>\r\n        <!-- TAB END -->\r\n        <!-- TAB -->\r\n        <li class=\"btnLink smallBtnLink green_tab\">\r\n            <a class=\"tab-action\" data-tab-cnt=\"tab2\">\r\n                <span><i class=\"fa fa-area-chart\"></i> Resource Graphs</span>\r\n            </a></li>\r\n        <!-- TAB END -->\r\n        <!-- TAB -->\r\n        <li class=\"btnLink smallBtnLink green_tab\">\r\n            <a class=\"tab-action\" data-tab-cnt=\"tab4\">\r\n                <span><i class=\"fa fa-cubes\"></i> Rebuild</span>\r\n            </a></li>\r\n        <!-- TAB END -->\r\n        <!-- TAB -->\r\n        <li class=\"btnLink smallBtnLink green_tab\">\r\n            <a class=\"tab-action\" data-tab-cnt=\"tab7\">\r\n                <span><i class=\"fa fa-hdd-o\"></i> Backups</span>\r\n            </a></li>\r\n        <!-- TAB END -->\r\n        <!-- TAB -->\r\n        <li class=\"btnLink smallBtnLink green_tab\">\r\n            <a class=\"tab-action\" data-tab-cnt=\"tab8\">\r\n                <span><i class=\"fa fa-terminal\"></i> Console</span>\r\n            </a></li>\r\n        <!-- TAB END -->\r\n       </div>\r\n       <br>\r\n       <div class=\"clr\"></div>\r\n       <!-- TAB CONTENT -->\r\n       <div id=\"tab1\" class=\"tab-single tab-cnt active\">\r\n            <div class=\"datacenters\">\r\n                <div class=\"col-md-12\">\r\n\t\t            <div id=\"func_error\"></div>\r\n\t\t            <h1 align=\"center\" id=\"status_1\">Server Status: <span class=\"label\" id=\"status_2\"><img src=\"img/loader.GIF\" id=\"loader\" /></span></h1>\r\n\t\t            ";
-    $results = $db->get("vncp_kvm_ct", ["hb_account_id", "=", _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($_GET["id"])]);
+    $results = $db->get("vncp_kvm_ct", ["hb_account_id", "=", parse_input($_GET["id"])]);
     $data = $results->first();
     $node_results = $db->get("vncp_nodes", ["name", "=", $data->node]);
     $node_data = $node_results->first();
@@ -31,7 +31,7 @@ if (count($clone_pending) == 0) {
     }
     echo "\t\t            <br />\r\n\t\t            <div class=\"row\">\r\n\t\t            \t<div class=\"col-md-12\">\r\n\t\t            \t\t<div class=\"panel panel-default\">\r\n\t\t            \t\t\t<div class=\"panel-body\">\r\n\t\t            \t\t\t\t<div class=\"col-md-2\"><p><em>CPU Usage</em></p></div>\r\n\t\t            \t\t\t\t<div class=\"progress\">\r\n\t\t            \t\t\t\t\t<div class=\"progress-bar progress-bar-info progress-bar-striped\" role=\"progressbar\" aria-valuenow=\"100\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"min-width: 2em;width: 100%;\" id=\"cpu_usage_1\"><div id=\"cpu_usage_2\"></div></div>\r\n\t\t            \t\t\t\t</div>\r\n\t\t            \t\t\t\t<div class=\"col-md-2\"><p><em>RAM Usage</em></p></div>\r\n\t\t            \t\t\t\t<div class=\"progress\">\r\n\t\t            \t\t\t\t\t<div class=\"progress-bar progress-bar-info progress-bar-striped\" role=\"progressbar\" aria-valuenow=\"100\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"min-width: 2em;width: 100%;\" id=\"ram_usage_1\"><div id=\"ram_usage_2\"></div></div>\r\n\t\t            \t\t\t\t</div>\r\n                        ";
     if ($data->cloud_account_id == 0) {
-        $bwstats = $db->get("vncp_bandwidth_monitor", ["hb_account_id", "=", _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($_GET["id"])])->first();
+        $bwstats = $db->get("vncp_bandwidth_monitor", ["hb_account_id", "=", parse_input($_GET["id"])])->first();
         $bwperc = round((double) $bwstats->current / (double) $bwstats->max * 100, 2);
         $bwperc_single = round($bwperc, 0);
         echo "                        <div class=\"col-md-2\"><p><em>Bandwidth Usage</em></p></div>\r\n\t\t            \t\t\t\t<div class=\"progress\">\r\n\t\t            \t\t\t\t\t<div class=\"progress-bar progress-bar-info progress-bar-striped\" role=\"progressbar\" aria-valuenow=\"100\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"min-width: 2em;width: ";
@@ -247,7 +247,7 @@ if (count($clone_pending) == 0) {
         echo "<td></td>";
     }
     echo "                          \t\t</tr>\r\n                          \t\t";
-    $getsips = $db->get("vncp_secondary_ips", ["hb_account_id", "=", _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($_GET["id"])]);
+    $getsips = $db->get("vncp_secondary_ips", ["hb_account_id", "=", parse_input($_GET["id"])]);
     $gotsips = $getsips->all();
     for ($i = 0; $i < count($gotsips); $i++) {
         echo "<tr>";
@@ -267,17 +267,17 @@ if (count($clone_pending) == 0) {
         }
     }
     echo "                          <br />\r\n                          ";
-    $vm_ipv6 = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "vm_ipv6"])->first()->value);
-    $v6mode = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "ipv6_mode"])->first()->value);
-    $private_networking = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "private_networking"])->first()->value);
+    $vm_ipv6 = parse_input($db->get("vncp_settings", ["item", "=", "vm_ipv6"])->first()->value);
+    $v6mode = parse_input($db->get("vncp_settings", ["item", "=", "ipv6_mode"])->first()->value);
+    $private_networking = parse_input($db->get("vncp_settings", ["item", "=", "private_networking"])->first()->value);
     if ($vm_ipv6 == "true") {
         if ($v6mode == "single") {
-            $ipv6_limit = (int) _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "ipv6_limit"])->first()->value);
+            $ipv6_limit = (int) parse_input($db->get("vncp_settings", ["item", "=", "ipv6_limit"])->first()->value);
         } else {
-            $ipv6_limit = (int) _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "ipv6_limit_subnet"])->first()->value);
+            $ipv6_limit = (int) parse_input($db->get("vncp_settings", ["item", "=", "ipv6_limit_subnet"])->first()->value);
         }
         echo "                          <div class=\"table-responsive\">\r\n                          \t<table class=\"table table-striped\">\r\n                          \t\t<tr>\r\n                          \t\t\t<th>IPv6 Address</th>\r\n                          \t\t\t<th>Gateway</th>\r\n                          \t\t\t<th>Netmask</th>\r\n                          \t\t</tr>\r\n                          \t\t";
-        $v6data = $db->get("vncp_ipv6_assignment", ["hb_account_id", "=", _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($_GET["id"])]);
+        $v6data = $db->get("vncp_ipv6_assignment", ["hb_account_id", "=", parse_input($_GET["id"])]);
         $v6results = $db->all();
         if (0 < count($v6results)) {
             for ($i = 0; $i < count($v6results); $i++) {
@@ -303,7 +303,7 @@ if (count($clone_pending) == 0) {
         echo "                          <h2 align=\"center\">Private Network</h2>\r\n                          ";
         if ($data->has_net1 == 1) {
             echo "                          <div class=\"table-responsive\">\r\n                          \t<table class=\"table table-striped\">\r\n                          \t\t<tr>\r\n                          \t\t\t<th>IPv4 Address</th>\r\n                          \t\t\t<th>Netmask</th>\r\n                          \t\t\t<th></th>\r\n                          \t\t</tr>\r\n                          \t\t<tr>\r\n                          \t\t\t";
-            $getprivateip = $db->get("vncp_private_pool", ["hb_account_id", "=", _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($_GET["id"])]);
+            $getprivateip = $db->get("vncp_private_pool", ["hb_account_id", "=", parse_input($_GET["id"])]);
             $ipresults = $getprivateip->first();
             echo "<td>" . $ipresults->address . "</td>";
             echo "                          \t\t\t<td>";
@@ -316,7 +316,7 @@ if (count($clone_pending) == 0) {
     echo "                    </div>\r\n                    ";
     if ($KVMNAT == 1) {
         echo "                    <div role=\"tabpanel\" class=\"tab-pane\" id=\"natports\">\r\n                      <form role=\"form\">\r\n                         <div class=\"form-group\">\r\n                             <label>NAT Port</label>\r\n                             <input class=\"form-control\" type=\"number\" id=\"chosennatport\" autocomplete=\"off\" min=\"1\" max=\"65535\" />\r\n                             <p class=\"help-block\" style=\"color:red;\" id=\"natport_error\"></p>\r\n                         </div>\r\n                         <div class=\"form-group\">\r\n                             <label>Description <small>max 20 characters</small></label>\r\n                             <input class=\"form-control\" type=\"text\" id=\"natportdesc\" autocomplete=\"off\" />\r\n                             <p class=\"help-block\" style=\"color:red;\" id=\"natdesc_error\"></p>\r\n                         </div>\r\n                         <input type=\"hidden\" id=\"aid\" value=\"";
-        echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data->hb_account_id);
+        echo parse_input($data->hb_account_id);
         echo "\" />\r\n                         ";
         if ($data->suspended == 0) {
             echo "<input type=\"submit\" id=\"natport_btn\" value=\"Create Port Forward\" class=\"btn btn-info btn-lg\" />";
@@ -336,7 +336,7 @@ if (count($clone_pending) == 0) {
             echo "</tr>";
         }
         echo "                        </table>\r\n                      </div>\r\n                    </div>\r\n                    <div role=\"tabpanel\" class=\"tab-pane\" id=\"natdomains\">\r\n                      <form role=\"form\">\r\n                         <div class=\"form-group\">\r\n                             <label>Domain</label>\r\n                             <input class=\"form-control\" type=\"text\" id=\"chosendomain\" autocomplete=\"off\" placeholder=\"domain.com\" />\r\n                             <p class=\"help-block\">Wildcard forwarding. All requests to domain.com and *.domain.com will be forwarded to this virtual machine.</p>\r\n                             <p class=\"help-block\" style=\"color:red;\" id=\"natdomain_error\"></p>\r\n                         </div>\r\n                         <p>NAT domains will forward HTTP traffic by default. To enable HTTPS support, paste your SSL certificate details below.</p>\r\n                         <div class=\"form-group\">\r\n                             <label>SSL Certificate</label>\r\n                             <textarea class=\"form-control\" rows=\"5\" id=\"nat_sslcert\" placeholder=\"*Optional*: paste SSL certificate in PEM format\"></textarea>\r\n                         </div>\r\n                         <div class=\"form-group\">\r\n                             <label>SSL Private Key</label>\r\n                             <textarea class=\"form-control\" rows=\"5\" id=\"nat_sslkey\" placeholder=\"*Optional*: paste SSL private key in PEM format\"></textarea>\r\n                         </div>\r\n                         <input type=\"hidden\" id=\"aid\" value=\"";
-        echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data->hb_account_id);
+        echo parse_input($data->hb_account_id);
         echo "\" />\r\n                         ";
         if ($data->suspended == 0) {
             echo "<input type=\"submit\" id=\"natdomain_btn\" value=\"Create Domain Forward\" class=\"btn btn-info btn-lg\" />";
@@ -428,7 +428,7 @@ if (count($clone_pending) == 0) {
         echo "<option value=\"" . $content[$i]->volid . "\">" . $content[$i]->friendly_name . "</option>";
     }
     echo "\t\t\t                                    </select>\r\n\t\t\t                                    <p class=\"help-block\" style=\"color:red;\" id=\"man_os_error\"></p>\r\n\t\t\t                                </div>\r\n\t\t\t                                <div class=\"form-group\">\r\n\t\t\t                                    <label>Hostname</label>\r\n\t\t\t                                    <input class=\"form-control\" type=\"text\" id=\"man_hostname\" autocomplete=\"off\" />\r\n\t\t\t                                    <p class=\"help-block\" style=\"color:red;\" id=\"man_hostname_error\"></p>\r\n\t\t\t                                </div>\r\n\t\t\t                                <input type=\"hidden\" id=\"man_aid\" value=\"";
-    echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data->hb_account_id);
+    echo parse_input($data->hb_account_id);
     echo "\" />\r\n\t\t\t                                ";
     if ($data->suspended == 0) {
         echo "<input type=\"submit\" id=\"man_rebuild_btn\" value=\"Rebuild\" class=\"btn btn-info btn-lg\" />";
@@ -440,7 +440,7 @@ if (count($clone_pending) == 0) {
     $data_blog = $result_blog->first();
     echo "\t\t\t                            <div class=\"alert alert-info\"><strong>Last recorded rebuild: </strong>";
     if (!empty($data_blog) && $data_blog->vmid == $clvmid) {
-        echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data_blog->date);
+        echo parse_input($data_blog->date);
     } else {
         echo "none";
     }
@@ -453,7 +453,7 @@ if (count($clone_pending) == 0) {
         }
     }
     echo "\t\t\t                                    </select>\r\n\t\t\t                                    <p class=\"help-block\" style=\"color:red;\" id=\"temp_os_error\"></p>\r\n\t\t\t                                </div>\r\n\t\t\t                                <div class=\"form-group\">\r\n\t\t\t                                    <label>Hostname</label>\r\n\t\t\t                                    <input class=\"form-control\" type=\"text\" id=\"temp_hostname\" autocomplete=\"off\" />\r\n\t\t\t                                    <p class=\"help-block\" style=\"color:red;\" id=\"temp_hostname_error\"></p>\r\n\t\t\t                                </div>\r\n\t\t\t                                <input type=\"hidden\" id=\"temp_aid\" value=\"";
-    echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data->hb_account_id);
+    echo parse_input($data->hb_account_id);
     echo "\" />\r\n\t\t\t                                ";
     if ($data->suspended == 0) {
         echo "<input type=\"submit\" id=\"temp_rebuild_btn\" value=\"Rebuild\" class=\"btn btn-info btn-lg\" />";
@@ -462,15 +462,15 @@ if (count($clone_pending) == 0) {
     }
     echo "\t\t\t                            </form>\r\n\t\t\t                        </div>\r\n\t\t\t                        <div class=\"col-md-6\">\r\n\t\t\t                            <div class=\"alert alert-info\"><strong>Last recorded rebuild: </strong>";
     if (!empty($data_blog) && $data_blog->vmid == $clvmid) {
-        echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data_blog->date);
+        echo parse_input($data_blog->date);
     } else {
         echo "none";
     }
     echo "<br /><br /></div>\r\n\t\t\t                        </div>\r\n\t\t\t                    </div>\r\n\t            \t\t\t</div>\r\n\t            \t\t</div>\r\n\t            \t</div>\r\n\t            </div>\r\n            </div>\r\n            <div class=\"modal fade\" id=\"man_rebuild_modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"man_rebuild_modalLabel\" aria-hidden=\"true\">\r\n            \t<div class=\"modal-dialog modal-lg\">\r\n            \t\t<div class=\"modal-content\">\r\n            \t\t\t<div class=\"modal-header\">\r\n            \t\t\t\t<h4 class=\"modal-title\" id=\"man_rebuild_modalLabel\">Rebuild in progress...</h4>\r\n            \t\t\t</div>\r\n            \t\t\t<div class=\"modal-body\">\r\n            \t\t\t\t<div class=\"progress\">\r\n            \t\t\t\t\t<div class=\"progress-bar progress-bar-info progress-bar-striped active man_rebuild_progress\" role=\"progressbar\" style=\"width:0%\"></div>\r\n            \t\t\t\t\t<br />\r\n            \t\t\t\t\t<br />\r\n            \t\t\t\t\t<div id=\"man_rebuild_output\"></div>\r\n            \t\t\t\t</div>\r\n            \t\t\t</div>\r\n            \t\t</div>\r\n            \t</div>\r\n            </div>\r\n       </div>\r\n       <!-- TAB CONTENT END -->\r\n       <!-- TAB CONTENT -->\r\n       <div id=\"tab7\" class=\"tab-single tab-cnt\">\r\n            <div class=\"datacenters\">\r\n                <div class=\"col-md-12\">\r\n                \t";
-    $enable_backups = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "enable_backups"])->first()->value);
+    $enable_backups = parse_input($db->get("vncp_settings", ["item", "=", "enable_backups"])->first()->value);
     if ($enable_backups == "true") {
-        $maxbackups = (int) _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "backup_limit"])->first()->value);
-        $override = (int) _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_ct_backups", ["hb_account_id", "=", $data->hb_account_id])->first()->backuplimit);
+        $maxbackups = (int) parse_input($db->get("vncp_settings", ["item", "=", "backup_limit"])->first()->value);
+        $override = (int) parse_input($db->get("vncp_ct_backups", ["hb_account_id", "=", $data->hb_account_id])->first()->backuplimit);
         if (0 <= $override) {
             $maxbackups = $override;
         }
@@ -505,7 +505,7 @@ if (count($clone_pending) == 0) {
                     $bname = explode("/", $backups[$i]["volid"]);
                     echo "<tr>";
                     echo "<td>" . $bname[1] . "</td>";
-                    echo "<td>" . _obfuscated_0D1E19192D05223B341C2E3609382F143730271D391232_($backups[$i]["size"]) . "</td>";
+                    echo "<td>" . get_size($backups[$i]["size"]) . "</td>";
                     echo "<td><button id=\"get_backup_config_" . ($i + 1) . "\" class=\"btn btn-sm btn-default\" content=\"" . $backups[$i]["volid"] . "\" data-toggle=\"modal\" data-target=\"#config_modal\">View Config</button></td>";
                     echo "<td><button id=\"restore_backup_" . ($i + 1) . "\" class=\"btn btn-sm btn-info\" content=\"" . $backups[$i]["volid"] . "\">Restore</button></td>";
                     echo "<td><button id=\"remove_backup_" . ($i + 1) . "\" class=\"btn btn-sm btn-danger\" content=\"" . $backups[$i]["volid"] . "\">Remove</button></td>";
@@ -540,7 +540,7 @@ if (count($clone_pending) == 0) {
             echo "                    <div class=\"modal fade\" id=\"backup_modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"backup_modalLabel\" aria-hidden=\"true\">\r\n                    \t<div class=\"modal-dialog\">\r\n                    \t\t<div class=\"modal-content\">\r\n                    \t\t\t<div class=\"modal-header\">\r\n                    \t\t\t\t<button type=\"button\" class=\"close\" data-dismiss=\"modal\"><span aria-hidden=\"true\">&times;</span></button>\r\n                    \t\t\t\t<h4 class=\"modal-title\" id=\"backup_modalLabel\">Backup Confirmation</h4>\r\n                    \t\t\t</div>\r\n                    \t\t\t<div class=\"modal-body\">\r\n                    \t\t\t\t<p>Taking a backup on your KVM VPS will put your VPS in a suspended state and compress all VPS data into a backup file. This is a fast process that will cause minimal interruption, but <strong>your VPS will not be accessible while suspended.</strong> Once the backup finishes, your VPS will be available again.</p>\r\n                    \t\t\t\t<br />\r\n                            <form role=\"form\">\r\n            \t\t\t\t    <div class=\"form-group\">\r\n            \t\t\t\t        <label>Email Notification</label>\r\n            \t\t\t\t        <select class=\"form-control\" id=\"notification\">\r\n            \t\t\t\t        \t<option value=\"no\">No</option>\r\n            \t\t\t\t        \t<option value=\"yes\">Yes</option>\r\n            \t\t\t\t        </select>\r\n            \t\t\t\t        <p class=\"help-block\">Do you want to receive an email notification when the backup job finishes? The email will be sent to the email registered with your <a href=\"profile\">";
             echo $appname;
             echo " account</a>.</p>\r\n            \t\t\t\t    </div>\r\n            \t\t\t\t    <input type=\"hidden\" id=\"backup_aid\" value=\"";
-            echo _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($data->hb_account_id);
+            echo parse_input($data->hb_account_id);
             echo "\" />\r\n            \t\t\t\t</form>\r\n                    \t\t\t\t<div id=\"backup_message\" style=\"color: green;\"></div>\r\n                    \t\t\t</div>\r\n                    \t\t\t<div class=\"modal-footer\">\r\n                    \t\t\t\t<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" id=\"cancel_backup\">Cancel</button>\r\n            \t\t\t\t        <button type=\"button\" class=\"btn btn-primary\" id=\"create_backup\">Confirm Backup</button>\r\n                    \t\t\t</div>\r\n                    \t\t</div>\r\n                    \t</div>\r\n                    </div>\r\n                    <div class=\"modal fade\" id=\"config_modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"config_modalLabel\" aria-hidden=\"true\">\r\n                      <div class=\"modal-dialog\">\r\n                        <div class=\"modal-content\">\r\n                          <div class=\"modal-header\">\r\n                            <button type=\"button\" class=\"close\" data-dismiss=\"modal\"><span aria-hidden=\"true\">&times;</span></button>\r\n                            <h4 class=\"modal-title\" id=\"config_modalLabel\">Stored Configuration</h4>\r\n                          </div>\r\n                          <div class=\"modal-body\">\r\n                            <h5 id=\"confheader\"></h5>\r\n                            <div class=\"well well-sm\" id=\"confwell\">\r\n                              <i class=\"fa fa-cog fa-spin\"></i> Pulling configuration, please wait...\r\n                            </div>\r\n                          </div>\r\n                          <div class=\"modal-footer\">\r\n                            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                    <div class=\"modal fade\" id=\"restore_modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"restore_modalLabel\" aria-hidden=\"true\">\r\n                    \t<div class=\"modal-dialog modal-lg\">\r\n                    \t\t<div class=\"modal-content\">\r\n                    \t\t\t<div class=\"modal-header\">\r\n                    \t\t\t\t<h4 class=\"modal-title\" id=\"restore_modalLabel\">Restore in progress...</h4>\r\n                    \t\t\t</div>\r\n                    \t\t\t<div class=\"modal-body\">\r\n                    \t\t\t\t<div class=\"progress\">\r\n                    \t\t\t\t\t<div class=\"progress-bar progress-bar-info progress-bar-striped active restore_progress\" role=\"progressbar\" style=\"width:0%\"></div>\r\n                    \t\t\t\t\t<br />\r\n                    \t\t\t\t\t<br />\r\n                    \t\t\t\t\t<div id=\"restore_output\"></div>\r\n                    \t\t\t\t</div>\r\n                    \t\t\t</div>\r\n                    \t\t</div>\r\n                    \t</div>\r\n                    </div>\r\n                    ";
         } else {
             echo "Backups are not enabled on this VPS.";
@@ -550,7 +550,7 @@ if (count($clone_pending) == 0) {
     }
     echo "                </div>\r\n            </div>\r\n       </div>\r\n       <!-- TAB CONTENT END -->\r\n\t     <!-- TAB CONTENT -->\r\n\t     <div id=\"tab8\" class=\"tab-single tab-cnt\">\r\n\t           <div class=\"datacenters\">\r\n\t           \t<div class=\"row\">\r\n\t\t               <div class=\"col-md-12\">\r\n\t\t                   <h4>Click the button below to open a new console session for this VM. This console should only be used if you are unable to access your VM from the Internet. This console is not designed to be used for regular usage.</h4>\r\n\t\t                   <br />\r\n\t\t\t               \t";
     if ($data->suspended == 0) {
-        echo "<button class=\"btn btn-info btn-lg\" id=\"kvmconsole\" role=\"" . _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($_GET["id"]) . "\">Open VNC console</button>";
+        echo "<button class=\"btn btn-info btn-lg\" id=\"kvmconsole\" role=\"" . parse_input($_GET["id"]) . "\">Open VNC console</button>";
     } else {
         echo "<button class=\"btn btn-info btn-lg\" disabled>Open VNC console</button>";
     }
@@ -583,9 +583,9 @@ if (count($clone_pending) == 0) {
                 }
                 if (isset($clone_data->portspeed) && 0 < (int) $clone_data->portspeed) {
                     if (array_key_exists("setmacaddress", $clone_data) && !empty($clone_data->setmacaddress)) {
-                        $newvm["net0"] = $net0 . "=" . $clone_data->setmacaddress[0] . ",bridge=" . $cloneBridge . ",rate=" . (string) _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($clone_data->portspeed);
+                        $newvm["net0"] = $net0 . "=" . $clone_data->setmacaddress[0] . ",bridge=" . $cloneBridge . ",rate=" . (string) parse_input($clone_data->portspeed);
                     } else {
-                        $newvm["net0"] = $net0 . "=" . $clone_data->gateway[0] . ",bridge=" . $cloneBridge . ",rate=" . (string) _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($clone_data->portspeed);
+                        $newvm["net0"] = $net0 . "=" . $clone_data->gateway[0] . ",bridge=" . $cloneBridge . ",rate=" . (string) parse_input($clone_data->portspeed);
                     }
                 } else {
                     if (array_key_exists("setmacaddress", $clone_data) && !empty($clone_data->setmacaddress)) {
@@ -651,9 +651,9 @@ if (count($clone_pending) == 0) {
                 list($netdriver) = explode("=", $getcloneconfig["net0"]);
                 if (isset($clone_data->portspeed) && 0 < (int) $clone_data->portspeed) {
                     if (array_key_exists("setmacaddress", $clone_data) && !empty($clone_data->setmacaddress)) {
-                        $newconf["net0"] = $netdriver . "=" . $clone_data->setmacaddress . ",bridge=" . $cloneBridge . ",rate=" . (string) _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($clone_data->portspeed);
+                        $newconf["net0"] = $netdriver . "=" . $clone_data->setmacaddress . ",bridge=" . $cloneBridge . ",rate=" . (string) parse_input($clone_data->portspeed);
                     } else {
-                        $newconf["net0"] = $netdriver . "=" . $saved_macaddr . ",bridge=" . $cloneBridge . ",rate=" . (string) _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($clone_data->portspeed);
+                        $newconf["net0"] = $netdriver . "=" . $saved_macaddr . ",bridge=" . $cloneBridge . ",rate=" . (string) parse_input($clone_data->portspeed);
                     }
                 } else {
                     if (array_key_exists("setmacaddress", $clone_data) && !empty($clone_data->setmacaddress)) {

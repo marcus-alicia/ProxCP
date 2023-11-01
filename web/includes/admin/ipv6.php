@@ -11,7 +11,7 @@ if ($ipv6AddedSuccess) {
     echo "<div id=\"adm_message\"></div>";
 }
 echo "                ";
-$vm_ipv6 = _obfuscated_0D272F243C163F30393C2D05363D2D2B39015C40260C32_($db->get("vncp_settings", ["item", "=", "vm_ipv6"])->first()->value);
+$vm_ipv6 = parse_input($db->get("vncp_settings", ["item", "=", "vm_ipv6"])->first()->value);
 if ($vm_ipv6 == "true") {
     echo "                ";
     $poolexists = $db->get("vncp_ipv6_pool", ["id", "!=", 0])->all();

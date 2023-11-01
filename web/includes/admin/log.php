@@ -9,7 +9,7 @@ $general_log = $log->get("general");
 for ($i = 0; $i < count($general_log); $i++) {
     echo "<tr>";
     echo "<td>" . $general_log[$i]->msg . "</td>";
-    echo "<td>" . _obfuscated_0D0935343F2F2402302C161711153006273F1021131332_($general_log[$i]->severity) . "</td>";
+    echo "<td>" . get_error_level($general_log[$i]->severity) . "</td>";
     echo "<td>" . $general_log[$i]->date . "</td>";
     echo "<td>" . $general_log[$i]->username . "</td>";
     echo "<td>" . $general_log[$i]->ipaddress . "</td>";
