@@ -81,4 +81,4 @@ It provides your employees with a central dashboard to manage all your Proxmox i
 ![Pricing](https://i.imgur.com/OLAkbo7.png)
 
 ----- 
-<p align="center"><a href="https://discord.gg/96kh6n5EMB">Join the Discord and help us!</a></p>
+<p align="center"><a href="https://discord.gg/free-tools">Join the Discord and help us!</a></p>
