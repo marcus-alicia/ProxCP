@@ -10,7 +10,7 @@ function _obfuscated_072C162A11091E5B183E1F3E23281201_($string, $key)
     }
     return $_obfuscated_0D0C04303915383229171E2C2E21191D0F05033D281132_;
 }
-function _obfuscated_0D2F1911340427081B011F0527192C3F181734161C1F22_($string, $key)
+function decrypt_date($string, $key)
 {
     $_obfuscated_0D351A162B2A5C1724070827041A3B0919151331063432_ = NULL;
     if (!empty($string) && !empty($key)) {
@@ -123,11 +123,11 @@ function _obfuscated_0D1131190B291D342535160B1E1B1016173D1608053322_($url, $remo
     }
     return trim($url);
 }
-function _obfuscated_0D27012F2404020E1F0E133D390727105B140D370D0F01_($url, $post_info = NULL, $refer = NULL)
+function curl_post_request($url, $post_info = NULL, $refer = NULL)
 {
-    $_obfuscated_0D2A372A05052B19261422321E07085C2F095B23053E32_ = "phpmillion cURL";
-    $_obfuscated_0D0337173D2A34313D11271A28290D3406120338342F01_ = 10;
-    $_obfuscated_0D3D25263D172A230A5C3026091C3B3712320422111211_ = [];
+    $useragent = "phpmillion cURL";
+    $timeout = 10;
+    $retval = [];
     $_obfuscated_0D0F055B0C19071D1B3B07041518120916281F0B190A01_ = [];
     if (filter_var($url, FILTER_VALIDATE_URL) && !empty($post_info)) {
         if (empty($refer) || !filter_var($refer, FILTER_VALIDATE_URL)) {
@@ -135,9 +135,9 @@ function _obfuscated_0D27012F2404020E1F0E133D390727105B140D370D0F01_($url, $post
         }
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_USERAGENT, $_obfuscated_0D2A372A05052B19261422321E07085C2F095B23053E32_);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $_obfuscated_0D0337173D2A34313D11271A28290D3406120338342F01_);
-        curl_setopt($ch, CURLOPT_TIMEOUT, $_obfuscated_0D0337173D2A34313D11271A28290D3406120338342F01_);
+        curl_setopt($ch, CURLOPT_USERAGENT, $useragent);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+        curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
         curl_setopt($ch, CURLOPT_REFERER, $refer);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post_info);
@@ -159,11 +159,11 @@ function _obfuscated_0D27012F2404020E1F0E133D390727105B140D370D0F01_($url, $post
         $result = curl_exec($ch);
         $curl_error = curl_error($ch);
         curl_close($ch);
-        $_obfuscated_0D3D25263D172A230A5C3026091C3B3712320422111211_["headers"] = $formatted_headers_array;
-        $_obfuscated_0D3D25263D172A230A5C3026091C3B3712320422111211_["error"] = $curl_error;
-        $_obfuscated_0D3D25263D172A230A5C3026091C3B3712320422111211_["body"] = $result;
+        $retval["headers"] = $formatted_headers_array;
+        $retval["error"] = $curl_error;
+        $retval["body"] = $result;
     }
-    return $_obfuscated_0D3D25263D172A230A5C3026091C3B3712320422111211_;
+    return $retval;
 }
 function _obfuscated_073B3E032F241323122829193B5B3E0E0D1E0301_($datetime, $format)
 {
@@ -177,7 +177,7 @@ function _obfuscated_073B3E032F241323122829193B5B3E0E0D1E0301_($datetime, $forma
     }
     return $result;
 }
-function _obfuscated_0D0D333601280C1802363D282B0D2B28113C0F32361111_($date_from, $date_to)
+function date_difference($date_from, $date_to)
 {
     $_obfuscated_0D10343D1F3F0B342A012B3038293B5B040E3E04180422_ = 0;
     if (_obfuscated_0D3B5C073B3E032F241323122829193B5B3E0E0D1E0301_($date_from, "Y-m-d") && _obfuscated_0D3B5C073B3E032F241323122829193B5B3E0E0D1E0301_($date_to, "Y-m-d")) {
@@ -198,25 +198,25 @@ function _obfuscated_1A380F1E1D32023714183B1422_($content, $tag_name)
     }
     return $_obfuscated_0D3B1A362A2C0B0929213F091F03073F271829172F0922_;
 }
-function _obfuscated_08213418082C101D33223212073F1E2B3E382B3501_($content_array, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE)
+function parse_license_response($content_array, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE)
 {
-    $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_ = [];
+    $retval = [];
     if (!empty($content_array)) {
         if (!empty($content_array["headers"]["notification_server_signature"]) && _obfuscated_0D3E1E193D0F36150B362F122C1414351802091F031032_($content_array["headers"]["notification_server_signature"], $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE)) {
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = $content_array["headers"]["notification_case"];
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = $content_array["headers"]["notification_text"];
+            $retval["notification_case"] = $content_array["headers"]["notification_case"];
+            $retval["notification_text"] = $content_array["headers"]["notification_text"];
             if (!empty($content_array["headers"]["notification_data"])) {
-                $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_data"] = json_decode($content_array["headers"]["notification_data"], true);
+                $retval["notification_data"] = json_decode($content_array["headers"]["notification_data"], true);
             }
         } else {
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_invalid_response";
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = APL_NOTIFICATION_INVALID_RESPONSE;
+            $retval["notification_case"] = "notification_invalid_response";
+            $retval["notification_text"] = APL_NOTIFICATION_INVALID_RESPONSE;
         }
     } else {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_no_connection";
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = APL_NOTIFICATION_NO_CONNECTION;
+        $retval["notification_case"] = "notification_no_connection";
+        $retval["notification_text"] = APL_NOTIFICATION_NO_CONNECTION;
     }
-    return $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_;
+    return $retval;
 }
 function _obfuscated_3D2C2206033628161F0F211332_($ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE)
 {
@@ -236,40 +236,40 @@ function _obfuscated_1E0E2302070F03250C073935033B11_($notification_server_signat
     }
     return $result;
 }
-function _obfuscated_0D0C2D3E231B1740171D182D1404333212143739023B32_()
+function validate_configuration()
 {
-    $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_ = [];
+    $retval = [];
     if (!APL_SALT || APL_SALT == "some_random_text") {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_[] = APL_CORE_NOTIFICATION_INVALID_SALT;
+        $retval[] = APL_CORE_NOTIFICATION_INVALID_SALT;
     }
     if (!filter_var(APL_ROOT_URL, FILTER_VALIDATE_URL) || !ctype_alnum(substr(APL_ROOT_URL, -1))) {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_[] = APL_CORE_NOTIFICATION_INVALID_ROOT_URL;
+        $retval[] = APL_CORE_NOTIFICATION_INVALID_ROOT_URL;
     }
     if (!filter_var(APL_PRODUCT_ID, FILTER_VALIDATE_INT)) {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_[] = APL_CORE_NOTIFICATION_INVALID_PRODUCT_ID;
+        $retval[] = APL_CORE_NOTIFICATION_INVALID_PRODUCT_ID;
     }
     if (!_obfuscated_0D12042936250E240D220B0B073D120436403807332B11_(APL_DAYS, 1, 365)) {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_[] = APL_CORE_NOTIFICATION_INVALID_VERIFICATION_PERIOD;
+        $retval[] = APL_CORE_NOTIFICATION_INVALID_VERIFICATION_PERIOD;
     }
     if (APL_STORAGE != "DATABASE" && APL_STORAGE != "FILE") {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_[] = APL_CORE_NOTIFICATION_INVALID_STORAGE;
+        $retval[] = APL_CORE_NOTIFICATION_INVALID_STORAGE;
     }
     if (APL_STORAGE == "DATABASE" && !ctype_alnum(str_ireplace(["_"], "", APL_DATABASE_TABLE))) {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_[] = APL_CORE_NOTIFICATION_INVALID_TABLE;
+        $retval[] = APL_CORE_NOTIFICATION_INVALID_TABLE;
     }
     if (APL_STORAGE == "FILE" && !@is_writable(APL_DIRECTORY . "/" . APL_LICENSE_FILE_LOCATION)) {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_[] = APL_CORE_NOTIFICATION_INVALID_LICENSE_FILE;
+        $retval[] = APL_CORE_NOTIFICATION_INVALID_LICENSE_FILE;
     }
     if (APL_ROOT_IP && !filter_var(APL_ROOT_IP, FILTER_VALIDATE_IP)) {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_[] = APL_CORE_NOTIFICATION_INVALID_ROOT_IP;
+        $retval[] = APL_CORE_NOTIFICATION_INVALID_ROOT_IP;
     }
     if (APL_ROOT_IP && !in_array(APL_ROOT_IP, gethostbynamel(_obfuscated_0D2D04373008333C5B24195B095B14301F5B3431080D01_(APL_ROOT_URL)))) {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_[] = APL_CORE_NOTIFICATION_INVALID_DNS;
+        $retval[] = APL_CORE_NOTIFICATION_INVALID_DNS;
     }
     if (defined("APL_ROOT_NAMESERVERS") && APL_ROOT_NAMESERVERS) {
         foreach (APL_ROOT_NAMESERVERS as $_obfuscated_0D013C131A2D2B1C353C363934040C361801220C0B3122_) {
             if (!_obfuscated_0D05045B231B020C2F311B11113F21320206195C213032_($_obfuscated_0D013C131A2D2B1C353C363934040C361801220C0B3122_)) {
-                $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_[] = APL_CORE_NOTIFICATION_INVALID_ROOT_NAMESERVERS;
+                $retval[] = APL_CORE_NOTIFICATION_INVALID_ROOT_NAMESERVERS;
             }
         }
     }
@@ -285,10 +285,10 @@ function _obfuscated_0D0C2D3E231B1740171D182D1404333212143739023B32_()
         sort($_obfuscated_0D383F30363E2F233B171D5B253F28273C3D310E393001_);
         sort($_obfuscated_0D29140D3819182D3E2C041037071B32010D0F0D172F01_);
         if ($_obfuscated_0D383F30363E2F233B171D5B253F28273C3D310E393001_ != $_obfuscated_0D29140D3819182D3E2C041037071B32010D0F0D172F01_) {
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_[] = APL_CORE_NOTIFICATION_INVALID_DNS;
+            $retval[] = APL_CORE_NOTIFICATION_INVALID_DNS;
         }
     }
-    return $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_;
+    return $retval;
 }
 function _obfuscated_0E2510340F1B22041A3B3611_()
 {
@@ -306,128 +306,128 @@ function _obfuscated_0E2510340F1B22041A3B3611_()
     }
     return $_obfuscated_0D3E230C23331C1611110D0332072D3B3D2437062A1532_;
 }
-function _obfuscated_0D23070E3B3E1224253E33291E0804140C065B09300A32_($MYSQLI_LINK = NULL)
+function get_vncp_data($MYSQLI_LINK = NULL)
 {
-    $_obfuscated_0D3107253B313E0E343D2A28182E110F14020B0A070A11_ = [];
+    $retval = [];
     if (APL_STORAGE == "DATABASE") {
-        $_obfuscated_0D2209381C070A3C2D245B220C091A3110330F39320B01_ = @mysqli_query($MYSQLI_LINK, "SELECT * FROM " . APL_DATABASE_TABLE);
-        $_obfuscated_0D3107253B313E0E343D2A28182E110F14020B0A070A11_ = @mysqli_fetch_assoc($_obfuscated_0D2209381C070A3C2D245B220C091A3110330F39320B01_);
+        $query = @mysqli_query($MYSQLI_LINK, "SELECT * FROM " . APL_DATABASE_TABLE);
+        $retval = @mysqli_fetch_assoc($query);
     }
     if (APL_STORAGE == "FILE") {
-        $_obfuscated_0D3107253B313E0E343D2A28182E110F14020B0A070A11_ = _obfuscated_0D1C01403C105B0E010E5C0E2510340F1B22041A3B3611_();
+        $retval = _obfuscated_0D1C01403C105B0E010E5C0E2510340F1B22041A3B3611_();
     }
-    return $_obfuscated_0D3107253B313E0E343D2A28182E110F14020B0A070A11_;
+    return $retval;
 }
 function _obfuscated_0D2913081F321C3B2934380912401F3C233C3E0D120401_()
 {
-    $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_ = [];
-    $content_array = _obfuscated_0D27012F2404020E1F0E133D390727105B140D370D0F01_(APL_ROOT_URL . "/apl_callbacks/connection_test.php", "product_id=" . rawurlencode(APL_PRODUCT_ID) . "&connection_hash=" . rawurlencode(hash("sha256", "connection_test")));
+    $retval = [];
+    $content_array = curl_post_request(APL_ROOT_URL . "/apl_callbacks/connection_test.php", "product_id=" . rawurlencode(APL_PRODUCT_ID) . "&connection_hash=" . rawurlencode(hash("sha256", "connection_test")));
     if (!empty($content_array)) {
         if ($content_array["body"] != "<connection_test>OK</connection_test>") {
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_invalid_response";
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = APL_NOTIFICATION_INVALID_RESPONSE;
+            $retval["notification_case"] = "notification_invalid_response";
+            $retval["notification_text"] = APL_NOTIFICATION_INVALID_RESPONSE;
         }
     } else {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_no_connection";
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = APL_NOTIFICATION_NO_CONNECTION;
+        $retval["notification_case"] = "notification_no_connection";
+        $retval["notification_text"] = APL_NOTIFICATION_NO_CONNECTION;
     }
-    return $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_;
+    return $retval;
 }
 function _obfuscated_3E34392D27053E2A11_($MYSQLI_LINK = NULL)
 {
-    $_obfuscated_0D5B084026010439233C053240180321170F5B1F2A2122_ = 0;
-    $_obfuscated_0D341340342D253440252A225C320B180D5B065B3F2D32_ = 0;
-    $_obfuscated_0D1912340A0B1C32132201193F190B38150C271E312C01_ = false;
-    $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_ = _obfuscated_0D23070E3B3E1224253E33291E0804140C065B09300A32_($MYSQLI_LINK);
-    $ROOT_URL = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["ROOT_URL"];
-    $_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["INSTALLATION_HASH"];
-    $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["INSTALLATION_KEY"];
-    $_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LCD"];
-    $_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LRD"];
-    $_obfuscated_0D0640262838012E0C2F0E272B0F1D0D27150930290B22_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["SETTING_ID"];
-    $CLIENT_EMAIL = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["CLIENT_EMAIL"];
-    $LICENSE_CODE = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LICENSE_CODE"];
-    if (!empty($ROOT_URL) && !empty($_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_) && !empty($_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_) && !empty($_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_) && !empty($_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_)) {
-        $_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_ = _obfuscated_0D2F1911340427081B011F0527192C3F181734161C1F22_($_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_, APL_SALT . $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_);
-        $_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_ = _obfuscated_0D2F1911340427081B011F0527192C3F181734161C1F22_($_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_, APL_SALT . $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_);
+    $invalid = 0;
+    $lcd_lrd_in_future = 0;
+    $retval = false;
+    $vncp_data = get_vncp_data($MYSQLI_LINK);
+    $ROOT_URL = $vncp_data["ROOT_URL"];
+    $installation_hash = $vncp_data["INSTALLATION_HASH"];
+    $installation_key = $vncp_data["INSTALLATION_KEY"];
+    $lcd = $vncp_data["LCD"];
+    $lrd = $vncp_data["LRD"];
+    $setting_id = $vncp_data["SETTING_ID"];
+    $CLIENT_EMAIL = $vncp_data["CLIENT_EMAIL"];
+    $LICENSE_CODE = $vncp_data["LICENSE_CODE"];
+    if (!empty($ROOT_URL) && !empty($installation_hash) && !empty($installation_key) && !empty($lcd) && !empty($lrd)) {
+        $lcd = decrypt_date($lcd, APL_SALT . $installation_key);
+        $lrd = decrypt_date($lrd, APL_SALT . $installation_key);
         if (!filter_var($ROOT_URL, FILTER_VALIDATE_URL) || !ctype_alnum(substr($ROOT_URL, -1))) {
-            $_obfuscated_0D5B084026010439233C053240180321170F5B1F2A2122_ = 1;
+            $invalid = 1;
         }
         if (filter_var(_obfuscated_0D40121D360121092307012A0B15281A330C1804241A22_(), FILTER_VALIDATE_URL) && stristr(_obfuscated_0D1131190B291D342535160B1E1B1016173D1608053322_(_obfuscated_0D40121D360121092307012A0B15281A330C1804241A22_(), 1, 1, 0, 1), _obfuscated_0D1131190B291D342535160B1E1B1016173D1608053322_($ROOT_URL . "/", 1, 1, 0, 1)) === false) {
-            $_obfuscated_0D5B084026010439233C053240180321170F5B1F2A2122_ = 1;
+            $invalid = 1;
         }
-        if (empty($_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_) || $_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_ != hash("sha256", $ROOT_URL . $CLIENT_EMAIL . $LICENSE_CODE)) {
-            $_obfuscated_0D5B084026010439233C053240180321170F5B1F2A2122_ = 1;
+        if (empty($installation_hash) || $installation_hash != hash("sha256", $ROOT_URL . $CLIENT_EMAIL . $LICENSE_CODE)) {
+            $invalid = 1;
         }
-        if (empty($_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_) || !_obfuscated_0D395C2D160E33380F302824191D5B1025032E280D2C22_($_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_, _obfuscated_0D2F1911340427081B011F0527192C3F181734161C1F22_($_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_, APL_SALT . $ROOT_URL))) {
-            $_obfuscated_0D5B084026010439233C053240180321170F5B1F2A2122_ = 1;
+        if (empty($installation_key) || !_obfuscated_0D395C2D160E33380F302824191D5B1025032E280D2C22_($lrd, decrypt_date($installation_key, APL_SALT . $ROOT_URL))) {
+            $invalid = 1;
         }
-        if (!_obfuscated_0D3B5C073B3E032F241323122829193B5B3E0E0D1E0301_($_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_, "Y-m-d")) {
-            $_obfuscated_0D5B084026010439233C053240180321170F5B1F2A2122_ = 1;
+        if (!_obfuscated_0D3B5C073B3E032F241323122829193B5B3E0E0D1E0301_($lcd, "Y-m-d")) {
+            $invalid = 1;
         }
-        if (!_obfuscated_0D3B5C073B3E032F241323122829193B5B3E0E0D1E0301_($_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_, "Y-m-d")) {
-            $_obfuscated_0D5B084026010439233C053240180321170F5B1F2A2122_ = 1;
+        if (!_obfuscated_0D3B5C073B3E032F241323122829193B5B3E0E0D1E0301_($lrd, "Y-m-d")) {
+            $invalid = 1;
         }
-        if (_obfuscated_0D3B5C073B3E032F241323122829193B5B3E0E0D1E0301_($_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_, "Y-m-d") && date("Y-m-d", strtotime("+1 day")) < $_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_) {
-            $_obfuscated_0D5B084026010439233C053240180321170F5B1F2A2122_ = 1;
-            $_obfuscated_0D341340342D253440252A225C320B180D5B065B3F2D32_ = 1;
+        if (_obfuscated_0D3B5C073B3E032F241323122829193B5B3E0E0D1E0301_($lcd, "Y-m-d") && date("Y-m-d", strtotime("+1 day")) < $lcd) {
+            $invalid = 1;
+            $lcd_lrd_in_future = 1;
         }
-        if (_obfuscated_0D3B5C073B3E032F241323122829193B5B3E0E0D1E0301_($_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_, "Y-m-d") && date("Y-m-d", strtotime("+1 day")) < $_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_) {
-            $_obfuscated_0D5B084026010439233C053240180321170F5B1F2A2122_ = 1;
-            $_obfuscated_0D341340342D253440252A225C320B180D5B065B3F2D32_ = 1;
+        if (_obfuscated_0D3B5C073B3E032F241323122829193B5B3E0E0D1E0301_($lrd, "Y-m-d") && date("Y-m-d", strtotime("+1 day")) < $lrd) {
+            $invalid = 1;
+            $lcd_lrd_in_future = 1;
         }
-        if (_obfuscated_0D3B5C073B3E032F241323122829193B5B3E0E0D1E0301_($_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_, "Y-m-d") && _obfuscated_0D3B5C073B3E032F241323122829193B5B3E0E0D1E0301_($_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_, "Y-m-d") && $_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_ < $_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_) {
-            $_obfuscated_0D5B084026010439233C053240180321170F5B1F2A2122_ = 1;
-            $_obfuscated_0D341340342D253440252A225C320B180D5B065B3F2D32_ = 1;
+        if (_obfuscated_0D3B5C073B3E032F241323122829193B5B3E0E0D1E0301_($lcd, "Y-m-d") && _obfuscated_0D3B5C073B3E032F241323122829193B5B3E0E0D1E0301_($lrd, "Y-m-d") && $lrd < $lcd) {
+            $invalid = 1;
+            $lcd_lrd_in_future = 1;
         }
-        if ($_obfuscated_0D341340342D253440252A225C320B180D5B065B3F2D32_ == 1 && APL_DELETE_CRACKED == "YES") {
+        if ($lcd_lrd_in_future == 1 && APL_DELETE_CRACKED == "YES") {
             _obfuscated_0D3F132427194013083D373B2B17220722032C0C111722_($MYSQLI_LINK);
         }
-        if ($_obfuscated_0D5B084026010439233C053240180321170F5B1F2A2122_ != 1 && $_obfuscated_0D341340342D253440252A225C320B180D5B065B3F2D32_ != 1) {
-            $_obfuscated_0D1912340A0B1C32132201193F190B38150C271E312C01_ = true;
+        if ($invalid != 1 && $lcd_lrd_in_future != 1) {
+            $retval = true;
         }
     }
-    return $_obfuscated_0D1912340A0B1C32132201193F190B38150C271E312C01_;
+    return $retval;
 }
 function _obfuscated_0D34315B033F1B23190E0821082A2225162F2223403811_($LICENSE_CODE = NULL)
 {
-    $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_ = [];
-    $content_array = _obfuscated_0D27012F2404020E1F0E133D390727105B140D370D0F01_(APL_ROOT_URL . "/apl_callbacks/verify_envato_purchase.php", "product_id=" . rawurlencode(APL_PRODUCT_ID) . "&license_code=" . rawurlencode($LICENSE_CODE) . "&connection_hash=" . rawurlencode(hash("sha256", "verify_envato_purchase")));
+    $retval = [];
+    $content_array = curl_post_request(APL_ROOT_URL . "/apl_callbacks/verify_envato_purchase.php", "product_id=" . rawurlencode(APL_PRODUCT_ID) . "&license_code=" . rawurlencode($LICENSE_CODE) . "&connection_hash=" . rawurlencode(hash("sha256", "verify_envato_purchase")));
     if (!empty($content_array)) {
         if ($content_array["body"] != "<verify_envato_purchase>OK</verify_envato_purchase>") {
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_invalid_response";
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = APL_NOTIFICATION_INVALID_RESPONSE;
+            $retval["notification_case"] = "notification_invalid_response";
+            $retval["notification_text"] = APL_NOTIFICATION_INVALID_RESPONSE;
         }
     } else {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_no_connection";
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = APL_NOTIFICATION_NO_CONNECTION;
+        $retval["notification_case"] = "notification_no_connection";
+        $retval["notification_text"] = APL_NOTIFICATION_NO_CONNECTION;
     }
-    return $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_;
+    return $retval;
 }
 function _obfuscated_0D090A1918030910011D2D2633053816171002380E1501_($ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE, $MYSQLI_LINK = NULL)
 {
-    $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_ = [];
-    $_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_ = _obfuscated_0D0C2D3E231B1740171D182D1404333212143739023B32_();
-    if (empty($_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_)) {
-        if (_obfuscated_0D23070E3B3E1224253E33291E0804140C065B09300A32_($MYSQLI_LINK) && is_array(_obfuscated_0D23070E3B3E1224253E33291E0804140C065B09300A32_($MYSQLI_LINK))) {
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_already_installed";
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = APL_NOTIFICATION_SCRIPT_ALREADY_INSTALLED;
+    $retval = [];
+    $configuration_errors = validate_configuration();
+    if (empty($configuration_errors)) {
+        if (get_vncp_data($MYSQLI_LINK) && is_array(get_vncp_data($MYSQLI_LINK))) {
+            $retval["notification_case"] = "notification_already_installed";
+            $retval["notification_text"] = APL_NOTIFICATION_SCRIPT_ALREADY_INSTALLED;
         } else {
-            $_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_ = hash("sha256", $ROOT_URL . $CLIENT_EMAIL . $LICENSE_CODE);
-            $post_info = "product_id=" . rawurlencode(APL_PRODUCT_ID) . "&client_email=" . rawurlencode($CLIENT_EMAIL) . "&license_code=" . rawurlencode($LICENSE_CODE) . "&root_url=" . rawurlencode($ROOT_URL) . "&installation_hash=" . rawurlencode($_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_) . "&license_signature=" . rawurlencode(_obfuscated_0D371A2738011A03095C3D2C2206033628161F0F211332_($ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE));
-            $content_array = _obfuscated_0D27012F2404020E1F0E133D390727105B140D370D0F01_(APL_ROOT_URL . "/apl_callbacks/license_install.php", $post_info, $ROOT_URL);
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_ = _obfuscated_0D5C08213418082C101D33223212073F1E2B3E382B3501_($content_array, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE);
-            if ($_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] == "notification_license_ok") {
-                $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_ = _obfuscated_0D1E141223165C072C162A11091E5B183E1F3E23281201_(_obfuscated_0D170127190E0D2A0C27260D2233160A2B08133C112322_(date("Y-m-d"), PASSWORD_DEFAULT), APL_SALT . $ROOT_URL);
-                $_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_ = _obfuscated_0D1E141223165C072C162A11091E5B183E1F3E23281201_(date("Y-m-d", strtotime("-" . APL_DAYS . " days")), APL_SALT . $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_);
-                $_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_ = _obfuscated_0D1E141223165C072C162A11091E5B183E1F3E23281201_(date("Y-m-d"), APL_SALT . $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_);
+            $installation_hash = hash("sha256", $ROOT_URL . $CLIENT_EMAIL . $LICENSE_CODE);
+            $post_info = "product_id=" . rawurlencode(APL_PRODUCT_ID) . "&client_email=" . rawurlencode($CLIENT_EMAIL) . "&license_code=" . rawurlencode($LICENSE_CODE) . "&root_url=" . rawurlencode($ROOT_URL) . "&installation_hash=" . rawurlencode($installation_hash) . "&license_signature=" . rawurlencode(get_license_signature($ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE));
+            $content_array = curl_post_request(APL_ROOT_URL . "/apl_callbacks/license_install.php", $post_info, $ROOT_URL);
+            $retval = parse_license_response($content_array, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE);
+            if ($retval["notification_case"] == "notification_license_ok") {
+                $installation_key = _obfuscated_0D1E141223165C072C162A11091E5B183E1F3E23281201_(_obfuscated_0D170127190E0D2A0C27260D2233160A2B08133C112322_(date("Y-m-d"), PASSWORD_DEFAULT), APL_SALT . $ROOT_URL);
+                $lcd = _obfuscated_0D1E141223165C072C162A11091E5B183E1F3E23281201_(date("Y-m-d", strtotime("-" . APL_DAYS . " days")), APL_SALT . $installation_key);
+                $lrd = _obfuscated_0D1E141223165C072C162A11091E5B183E1F3E23281201_(date("Y-m-d"), APL_SALT . $installation_key);
                 if (APL_STORAGE == "DATABASE") {
-                    $content_array = _obfuscated_0D27012F2404020E1F0E133D390727105B140D370D0F01_(APL_ROOT_URL . "/apl_callbacks/license_scheme.php", $post_info, $ROOT_URL);
-                    $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_ = _obfuscated_0D5C08213418082C101D33223212073F1E2B3E382B3501_($content_array, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE);
-                    if (!empty($_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_data"]) && !empty($_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_data"]["scheme_query"])) {
+                    $content_array = curl_post_request(APL_ROOT_URL . "/apl_callbacks/license_scheme.php", $post_info, $ROOT_URL);
+                    $retval = parse_license_response($content_array, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE);
+                    if (!empty($retval["notification_data"]) && !empty($retval["notification_data"]["scheme_query"])) {
                         $_obfuscated_0D04223E30174012061534172B0C1F1D061C1A400A3232_ = ["%APL_DATABASE_TABLE%", "%ROOT_URL%", "%CLIENT_EMAIL%", "%LICENSE_CODE%", "%LCD%", "%LRD%", "%INSTALLATION_KEY%", "%INSTALLATION_HASH%"];
-                        $_obfuscated_0D12352D235B220D242D22130B1C24321D1A2E1F0B2F32_ = [APL_DATABASE_TABLE, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE, $_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_, $_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_, $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_, $_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_];
-                        $_obfuscated_0D28012E0606253F0338332E1906320C24222E04222232_ = str_replace($_obfuscated_0D04223E30174012061534172B0C1F1D061C1A400A3232_, $_obfuscated_0D12352D235B220D242D22130B1C24321D1A2E1F0B2F32_, $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_data"]["scheme_query"]);
+                        $_obfuscated_0D12352D235B220D242D22130B1C24321D1A2E1F0B2F32_ = [APL_DATABASE_TABLE, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE, $lcd, $lrd, $installation_key, $installation_hash];
+                        $_obfuscated_0D28012E0606253F0338332E1906320C24222E04222232_ = str_replace($_obfuscated_0D04223E30174012061534172B0C1F1D061C1A400A3232_, $_obfuscated_0D12352D235B220D242D22130B1C24321D1A2E1F0B2F32_, $retval["notification_data"]["scheme_query"]);
                         mysqli_multi_query($MYSQLI_LINK, $_obfuscated_0D28012E0606253F0338332E1906320C24222E04222232_);
                         exit(mysqli_error($MYSQLI_LINK));
                     }
@@ -435,7 +435,7 @@ function _obfuscated_0D090A1918030910011D2D2633053816171002380E1501_($ROOT_URL, 
                 }
                 if (APL_STORAGE == "FILE") {
                     $handle = @fopen(APL_DIRECTORY . "/" . APL_LICENSE_FILE_LOCATION, "w+");
-                    $fwrite = @fwrite($handle, "<ROOT_URL>" . $ROOT_URL . "</ROOT_URL><CLIENT_EMAIL>" . $CLIENT_EMAIL . "</CLIENT_EMAIL><LICENSE_CODE>" . $LICENSE_CODE . "</LICENSE_CODE><LCD>" . $_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_ . "</LCD><LRD>" . $_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_ . "</LRD><INSTALLATION_KEY>" . $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_ . "</INSTALLATION_KEY><INSTALLATION_HASH>" . $_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_ . "</INSTALLATION_HASH>");
+                    $fwrite = @fwrite($handle, "<ROOT_URL>" . $ROOT_URL . "</ROOT_URL><CLIENT_EMAIL>" . $CLIENT_EMAIL . "</CLIENT_EMAIL><LICENSE_CODE>" . $LICENSE_CODE . "</LICENSE_CODE><LCD>" . $lcd . "</LCD><LRD>" . $lrd . "</LRD><INSTALLATION_KEY>" . $installation_key . "</INSTALLATION_KEY><INSTALLATION_HASH>" . $installation_hash . "</INSTALLATION_HASH>");
                     if ($fwrite === false) {
                         echo APL_NOTIFICATION_LICENSE_FILE_WRITE_ERROR;
                         exit;
@@ -445,74 +445,77 @@ function _obfuscated_0D090A1918030910011D2D2633053816171002380E1501_($ROOT_URL, 
             }
         }
     } else {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_script_corrupted";
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = implode("; ", $_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_);
+        $retval["notification_case"] = "notification_script_corrupted";
+        $retval["notification_text"] = implode("; ", $configuration_errors);
     }
-    return $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_;
+    return $retval;
 }
-function _obfuscated_0D185B073D300E071827082D3E3B0F263B301F380A3832_($MYSQLI_LINK = NULL, $FORCE_VERIFICATION = 0)
+function get_license_info($MYSQLI_LINK = NULL, $FORCE_VERIFICATION = 0)
 {
-    $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_ = [];
-    $_obfuscated_0D3B3F123C351D5B39150533230F082C2233303F272322_ = 0;
-    $_obfuscated_0D01171E37053E2E170540290C281C352E0D3E21380D22_ = 0;
-    $_obfuscated_0D222412402E0A3B144031371A142922081D2B35392901_ = 0;
-    $_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_ = _obfuscated_0D0C2D3E231B1740171D182D1404333212143739023B32_();
-    if (empty($_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_)) {
+    $retval = [];
+    $license_already_checked = 0;
+    $license_ok = 0;
+    $db_write_count = 0;
+    $configuration_errors = validate_configuration();
+    if (empty($configuration_errors)) {
         if (_obfuscated_0D0F1C143817031239390D3E0D5C3E34392D27053E2A11_($MYSQLI_LINK)) {
-            $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_ = _obfuscated_0D23070E3B3E1224253E33291E0804140C065B09300A32_($MYSQLI_LINK);
-            $ROOT_URL = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["ROOT_URL"];
-            $_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["INSTALLATION_HASH"];
-            $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["INSTALLATION_KEY"];
-            $_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LCD"];
-            $_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LRD"];
-            $_obfuscated_0D0640262838012E0C2F0E272B0F1D0D27150930290B22_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["SETTING_ID"];
-            $CLIENT_EMAIL = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["CLIENT_EMAIL"];
-            $LICENSE_CODE = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LICENSE_CODE"];
-            if (_obfuscated_0D0D333601280C1802363D282B0D2B28113C0F32361111_(_obfuscated_0D2F1911340427081B011F0527192C3F181734161C1F22_($_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_, APL_SALT . $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_), date("Y-m-d")) < APL_DAYS && _obfuscated_0D2F1911340427081B011F0527192C3F181734161C1F22_($_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_, APL_SALT . $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_) <= date("Y-m-d") && _obfuscated_0D2F1911340427081B011F0527192C3F181734161C1F22_($_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_, APL_SALT . $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_) <= date("Y-m-d") && $FORCE_VERIFICATION === 0) {
-                $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_license_ok";
-                $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = APL_NOTIFICATION_BYPASS_VERIFICATION;
+            $vncp_data = get_vncp_data($MYSQLI_LINK);
+            $ROOT_URL = $vncp_data["ROOT_URL"];
+            $installation_hash = $vncp_data["INSTALLATION_HASH"];
+            $installation_key = $vncp_data["INSTALLATION_KEY"];
+            $lcd = $vncp_data["LCD"];
+            $lrd = $vncp_data["LRD"];
+            $setting_id = $vncp_data["SETTING_ID"];
+            $CLIENT_EMAIL = $vncp_data["CLIENT_EMAIL"];
+            $LICENSE_CODE = $vncp_data["LICENSE_CODE"];
+            if (date_difference(decrypt_date($lcd, APL_SALT . $installation_key), date("Y-m-d")) < APL_DAYS
+            && decrypt_date($lcd, APL_SALT . $installation_key) <= date("Y-m-d")
+            && decrypt_date($lrd, APL_SALT . $installation_key) <= date("Y-m-d")
+            && $FORCE_VERIFICATION === 0) {
+                $retval["notification_case"] = "notification_license_ok";
+                $retval["notification_text"] = APL_NOTIFICATION_BYPASS_VERIFICATION;
             } else {
-                $post_info = "product_id=" . rawurlencode(APL_PRODUCT_ID) . "&client_email=" . rawurlencode($CLIENT_EMAIL) . "&license_code=" . rawurlencode($LICENSE_CODE) . "&root_url=" . rawurlencode($ROOT_URL) . "&installation_hash=" . rawurlencode($_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_) . "&license_signature=" . rawurlencode(_obfuscated_0D371A2738011A03095C3D2C2206033628161F0F211332_($ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE));
-                $content_array = _obfuscated_0D27012F2404020E1F0E133D390727105B140D370D0F01_(APL_ROOT_URL . "/apl_callbacks/license_verify.php", $post_info, $ROOT_URL);
-                $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_ = _obfuscated_0D5C08213418082C101D33223212073F1E2B3E382B3501_($content_array, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE);
-                if ($_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] == "notification_license_ok") {
-                    $_obfuscated_0D01171E37053E2E170540290C281C352E0D3E21380D22_ = 1;
+                $post_info = "product_id=" . rawurlencode(APL_PRODUCT_ID) . "&client_email=" . rawurlencode($CLIENT_EMAIL) . "&license_code=" . rawurlencode($LICENSE_CODE) . "&root_url=" . rawurlencode($ROOT_URL) . "&installation_hash=" . rawurlencode($installation_hash) . "&license_signature=" . rawurlencode(get_license_signature($ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE));
+                $content_array = curl_post_request(APL_ROOT_URL . "/apl_callbacks/license_verify.php", $post_info, $ROOT_URL);
+                $retval = parse_license_response($content_array, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE);
+                if ($retval["notification_case"] == "notification_license_ok") {
+                    $license_ok = 1;
                 }
-                if ($_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] == "notification_license_cancelled" && APL_DELETE_CANCELLED == "YES") {
+                if ($retval["notification_case"] == "notification_license_cancelled" && APL_DELETE_CANCELLED == "YES") {
                     _obfuscated_0D3F132427194013083D373B2B17220722032C0C111722_($MYSQLI_LINK);
                 }
             }
-            if (_obfuscated_0D2F1911340427081B011F0527192C3F181734161C1F22_($_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_, APL_SALT . $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_) < date("Y-m-d")) {
-                $_obfuscated_0D3B3F123C351D5B39150533230F082C2233303F272322_ = 1;
+            if (decrypt_date($lrd, APL_SALT . $installation_key) < date("Y-m-d")) {
+                $license_already_checked = 1;
             }
-            if ($_obfuscated_0D3B3F123C351D5B39150533230F082C2233303F272322_ == 1 || $_obfuscated_0D01171E37053E2E170540290C281C352E0D3E21380D22_ == 1) {
-                if ($_obfuscated_0D01171E37053E2E170540290C281C352E0D3E21380D22_ == 1) {
-                    $_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_ = date("Y-m-d");
+            if ($license_already_checked == 1 || $license_ok == 1) {
+                if ($license_ok == 1) {
+                    $lcd = date("Y-m-d");
                 } else {
-                    $_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_ = _obfuscated_0D2F1911340427081B011F0527192C3F181734161C1F22_($_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_, APL_SALT . $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_);
+                    $lcd = decrypt_date($lcd, APL_SALT . $installation_key);
                 }
-                $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_ = _obfuscated_0D1E141223165C072C162A11091E5B183E1F3E23281201_(_obfuscated_0D170127190E0D2A0C27260D2233160A2B08133C112322_(date("Y-m-d"), PASSWORD_DEFAULT), APL_SALT . $ROOT_URL);
-                $_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_ = _obfuscated_0D1E141223165C072C162A11091E5B183E1F3E23281201_($_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_, APL_SALT . $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_);
-                $_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_ = _obfuscated_0D1E141223165C072C162A11091E5B183E1F3E23281201_(date("Y-m-d"), APL_SALT . $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_);
+                $installation_key = _obfuscated_0D1E141223165C072C162A11091E5B183E1F3E23281201_(_obfuscated_0D170127190E0D2A0C27260D2233160A2B08133C112322_(date("Y-m-d"), PASSWORD_DEFAULT), APL_SALT . $ROOT_URL);
+                $lcd = _obfuscated_0D1E141223165C072C162A11091E5B183E1F3E23281201_($lcd, APL_SALT . $installation_key);
+                $lrd = _obfuscated_0D1E141223165C072C162A11091E5B183E1F3E23281201_(date("Y-m-d"), APL_SALT . $installation_key);
                 if (APL_STORAGE == "DATABASE") {
-                    $_obfuscated_0D332C09030123043933142E070D3D3511151F3E071E22_ = mysqli_prepare($MYSQLI_LINK, "UPDATE " . APL_DATABASE_TABLE . " SET LCD=?, LRD=?, INSTALLATION_KEY=?");
-                    if ($_obfuscated_0D332C09030123043933142E070D3D3511151F3E071E22_) {
-                        mysqli_stmt_bind_param($_obfuscated_0D332C09030123043933142E070D3D3511151F3E071E22_, "sss", $_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_, $_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_, $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_);
-                        $exec = mysqli_stmt_execute($_obfuscated_0D332C09030123043933142E070D3D3511151F3E071E22_);
-                        $_obfuscated_0D3F1406281E363C1417303436121310130A0B31132C32_ = mysqli_stmt_affected_rows($_obfuscated_0D332C09030123043933142E070D3D3511151F3E071E22_);
-                        if (0 < $_obfuscated_0D3F1406281E363C1417303436121310130A0B31132C32_) {
-                            $_obfuscated_0D222412402E0A3B144031371A142922081D2B35392901_ = $_obfuscated_0D222412402E0A3B144031371A142922081D2B35392901_ + $_obfuscated_0D3F1406281E363C1417303436121310130A0B31132C32_;
+                    $query = mysqli_prepare($MYSQLI_LINK, "UPDATE " . APL_DATABASE_TABLE . " SET LCD=?, LRD=?, INSTALLATION_KEY=?");
+                    if ($query) {
+                        mysqli_stmt_bind_param($query, "sss", $lcd, $lrd, $installation_key);
+                        $exec = mysqli_stmt_execute($query);
+                        $affected_rows = mysqli_stmt_affected_rows($query);
+                        if (0 < $affected_rows) {
+                            $db_write_count = $db_write_count + $affected_rows;
                         }
-                        mysqli_stmt_close($_obfuscated_0D332C09030123043933142E070D3D3511151F3E071E22_);
+                        mysqli_stmt_close($query);
                     }
-                    if ($_obfuscated_0D222412402E0A3B144031371A142922081D2B35392901_ < 1) {
+                    if ($db_write_count < 1) {
                         echo APL_NOTIFICATION_DATABASE_WRITE_ERROR;
                         exit;
                     }
                 }
                 if (APL_STORAGE == "FILE") {
                     $handle = @fopen(APL_DIRECTORY . "/" . APL_LICENSE_FILE_LOCATION, "w+");
-                    $fwrite = @fwrite($handle, "<ROOT_URL>" . $ROOT_URL . "</ROOT_URL><CLIENT_EMAIL>" . $CLIENT_EMAIL . "</CLIENT_EMAIL><LICENSE_CODE>" . $LICENSE_CODE . "</LICENSE_CODE><LCD>" . $_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_ . "</LCD><LRD>" . $_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_ . "</LRD><INSTALLATION_KEY>" . $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_ . "</INSTALLATION_KEY><INSTALLATION_HASH>" . $_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_ . "</INSTALLATION_HASH>");
+                    $fwrite = @fwrite($handle, "<ROOT_URL>" . $ROOT_URL . "</ROOT_URL><CLIENT_EMAIL>" . $CLIENT_EMAIL . "</CLIENT_EMAIL><LICENSE_CODE>" . $LICENSE_CODE . "</LICENSE_CODE><LCD>" . $lcd . "</LCD><LRD>" . $lrd . "</LRD><INSTALLATION_KEY>" . $installation_key . "</INSTALLATION_KEY><INSTALLATION_HASH>" . $installation_hash . "</INSTALLATION_HASH>");
                     if ($fwrite === false) {
                         echo APL_NOTIFICATION_LICENSE_FILE_WRITE_ERROR;
                         exit;
@@ -521,118 +524,118 @@ function _obfuscated_0D185B073D300E071827082D3E3B0F263B301F380A3832_($MYSQLI_LIN
                 }
             }
         } else {
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_license_corrupted";
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = APL_NOTIFICATION_LICENSE_CORRUPTED;
+            $retval["notification_case"] = "notification_license_corrupted";
+            $retval["notification_text"] = APL_NOTIFICATION_LICENSE_CORRUPTED;
         }
     } else {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_script_corrupted";
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = implode("; ", $_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_);
+        $retval["notification_case"] = "notification_script_corrupted";
+        $retval["notification_text"] = implode("; ", $configuration_errors);
     }
-    return $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_;
+    return $retval;
 }
 function _obfuscated_0D281F2A361B3F2D10162F3B05291D302A1E1707033101_($MYSQLI_LINK = NULL)
 {
-    $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_ = [];
-    $_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_ = _obfuscated_0D0C2D3E231B1740171D182D1404333212143739023B32_();
-    if (empty($_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_)) {
+    $retval = [];
+    $configuration_errors = validate_configuration();
+    if (empty($configuration_errors)) {
         if (_obfuscated_0D0F1C143817031239390D3E0D5C3E34392D27053E2A11_($MYSQLI_LINK)) {
-            $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_ = _obfuscated_0D23070E3B3E1224253E33291E0804140C065B09300A32_($MYSQLI_LINK);
-            $ROOT_URL = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["ROOT_URL"];
-            $_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["INSTALLATION_HASH"];
-            $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["INSTALLATION_KEY"];
-            $_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LCD"];
-            $_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LRD"];
-            $_obfuscated_0D0640262838012E0C2F0E272B0F1D0D27150930290B22_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["SETTING_ID"];
-            $CLIENT_EMAIL = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["CLIENT_EMAIL"];
-            $LICENSE_CODE = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LICENSE_CODE"];
-            $post_info = "product_id=" . rawurlencode(APL_PRODUCT_ID) . "&client_email=" . rawurlencode($CLIENT_EMAIL) . "&license_code=" . rawurlencode($LICENSE_CODE) . "&root_url=" . rawurlencode($ROOT_URL) . "&installation_hash=" . rawurlencode($_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_) . "&license_signature=" . rawurlencode(_obfuscated_0D371A2738011A03095C3D2C2206033628161F0F211332_($ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE));
-            $content_array = _obfuscated_0D27012F2404020E1F0E133D390727105B140D370D0F01_(APL_ROOT_URL . "/apl_callbacks/license_support.php", $post_info, $ROOT_URL);
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_ = _obfuscated_0D5C08213418082C101D33223212073F1E2B3E382B3501_($content_array, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE);
+            $vncp_data = get_vncp_data($MYSQLI_LINK);
+            $ROOT_URL = $vncp_data["ROOT_URL"];
+            $installation_hash = $vncp_data["INSTALLATION_HASH"];
+            $installation_key = $vncp_data["INSTALLATION_KEY"];
+            $lcd = $vncp_data["LCD"];
+            $lrd = $vncp_data["LRD"];
+            $setting_id = $vncp_data["SETTING_ID"];
+            $CLIENT_EMAIL = $vncp_data["CLIENT_EMAIL"];
+            $LICENSE_CODE = $vncp_data["LICENSE_CODE"];
+            $post_info = "product_id=" . rawurlencode(APL_PRODUCT_ID) . "&client_email=" . rawurlencode($CLIENT_EMAIL) . "&license_code=" . rawurlencode($LICENSE_CODE) . "&root_url=" . rawurlencode($ROOT_URL) . "&installation_hash=" . rawurlencode($installation_hash) . "&license_signature=" . rawurlencode(get_license_signature($ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE));
+            $content_array = curl_post_request(APL_ROOT_URL . "/apl_callbacks/license_support.php", $post_info, $ROOT_URL);
+            $retval = parse_license_response($content_array, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE);
         } else {
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_license_corrupted";
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = APL_NOTIFICATION_LICENSE_CORRUPTED;
+            $retval["notification_case"] = "notification_license_corrupted";
+            $retval["notification_text"] = APL_NOTIFICATION_LICENSE_CORRUPTED;
         }
     } else {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_script_corrupted";
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = implode("; ", $_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_);
+        $retval["notification_case"] = "notification_script_corrupted";
+        $retval["notification_text"] = implode("; ", $configuration_errors);
     }
-    return $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_;
+    return $retval;
 }
 function _obfuscated_0D05141B02130B0624140F341018232F05112C290D3B22_($MYSQLI_LINK = NULL)
 {
-    $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_ = [];
-    $_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_ = _obfuscated_0D0C2D3E231B1740171D182D1404333212143739023B32_();
-    if (empty($_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_)) {
+    $retval = [];
+    $configuration_errors = validate_configuration();
+    if (empty($configuration_errors)) {
         if (_obfuscated_0D0F1C143817031239390D3E0D5C3E34392D27053E2A11_($MYSQLI_LINK)) {
-            $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_ = _obfuscated_0D23070E3B3E1224253E33291E0804140C065B09300A32_($MYSQLI_LINK);
-            $ROOT_URL = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["ROOT_URL"];
-            $_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["INSTALLATION_HASH"];
-            $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["INSTALLATION_KEY"];
-            $_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LCD"];
-            $_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LRD"];
-            $_obfuscated_0D0640262838012E0C2F0E272B0F1D0D27150930290B22_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["SETTING_ID"];
-            $CLIENT_EMAIL = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["CLIENT_EMAIL"];
-            $LICENSE_CODE = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LICENSE_CODE"];
-            $post_info = "product_id=" . rawurlencode(APL_PRODUCT_ID) . "&client_email=" . rawurlencode($CLIENT_EMAIL) . "&license_code=" . rawurlencode($LICENSE_CODE) . "&root_url=" . rawurlencode($ROOT_URL) . "&installation_hash=" . rawurlencode($_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_) . "&license_signature=" . rawurlencode(_obfuscated_0D371A2738011A03095C3D2C2206033628161F0F211332_($ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE));
-            $content_array = _obfuscated_0D27012F2404020E1F0E133D390727105B140D370D0F01_(APL_ROOT_URL . "/apl_callbacks/license_updates.php", $post_info, $ROOT_URL);
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_ = _obfuscated_0D5C08213418082C101D33223212073F1E2B3E382B3501_($content_array, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE);
+            $vncp_data = get_vncp_data($MYSQLI_LINK);
+            $ROOT_URL = $vncp_data["ROOT_URL"];
+            $installation_hash = $vncp_data["INSTALLATION_HASH"];
+            $installation_key = $vncp_data["INSTALLATION_KEY"];
+            $lcd = $vncp_data["LCD"];
+            $lrd = $vncp_data["LRD"];
+            $setting_id = $vncp_data["SETTING_ID"];
+            $CLIENT_EMAIL = $vncp_data["CLIENT_EMAIL"];
+            $LICENSE_CODE = $vncp_data["LICENSE_CODE"];
+            $post_info = "product_id=" . rawurlencode(APL_PRODUCT_ID) . "&client_email=" . rawurlencode($CLIENT_EMAIL) . "&license_code=" . rawurlencode($LICENSE_CODE) . "&root_url=" . rawurlencode($ROOT_URL) . "&installation_hash=" . rawurlencode($installation_hash) . "&license_signature=" . rawurlencode(get_license_signature($ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE));
+            $content_array = curl_post_request(APL_ROOT_URL . "/apl_callbacks/license_updates.php", $post_info, $ROOT_URL);
+            $retval = parse_license_response($content_array, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE);
         } else {
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_license_corrupted";
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = APL_NOTIFICATION_LICENSE_CORRUPTED;
+            $retval["notification_case"] = "notification_license_corrupted";
+            $retval["notification_text"] = APL_NOTIFICATION_LICENSE_CORRUPTED;
         }
     } else {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_script_corrupted";
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = implode("; ", $_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_);
+        $retval["notification_case"] = "notification_script_corrupted";
+        $retval["notification_text"] = implode("; ", $configuration_errors);
     }
-    return $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_;
+    return $retval;
 }
 function _obfuscated_0D111407222F0A16113621193F3E273C151C2917011401_($MYSQLI_LINK = NULL)
 {
-    $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_ = [];
-    $_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_ = _obfuscated_0D0C2D3E231B1740171D182D1404333212143739023B32_();
-    if (empty($_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_)) {
+    $retval = [];
+    $configuration_errors = validate_configuration();
+    if (empty($configuration_errors)) {
         if (_obfuscated_0D0F1C143817031239390D3E0D5C3E34392D27053E2A11_($MYSQLI_LINK)) {
-            $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_ = _obfuscated_0D23070E3B3E1224253E33291E0804140C065B09300A32_($MYSQLI_LINK);
-            $ROOT_URL = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["ROOT_URL"];
-            $_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["INSTALLATION_HASH"];
-            $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["INSTALLATION_KEY"];
-            $_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LCD"];
-            $_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LRD"];
-            $_obfuscated_0D0640262838012E0C2F0E272B0F1D0D27150930290B22_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["SETTING_ID"];
-            $CLIENT_EMAIL = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["CLIENT_EMAIL"];
-            $LICENSE_CODE = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LICENSE_CODE"];
-            $post_info = "product_id=" . rawurlencode(APL_PRODUCT_ID) . "&client_email=" . rawurlencode($CLIENT_EMAIL) . "&license_code=" . rawurlencode($LICENSE_CODE) . "&root_url=" . rawurlencode($ROOT_URL) . "&installation_hash=" . rawurlencode($_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_) . "&license_signature=" . rawurlencode(_obfuscated_0D371A2738011A03095C3D2C2206033628161F0F211332_($ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE));
-            $content_array = _obfuscated_0D27012F2404020E1F0E133D390727105B140D370D0F01_(APL_ROOT_URL . "/apl_callbacks/license_update.php", $post_info, $ROOT_URL);
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_ = _obfuscated_0D5C08213418082C101D33223212073F1E2B3E382B3501_($content_array, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE);
+            $vncp_data = get_vncp_data($MYSQLI_LINK);
+            $ROOT_URL = $vncp_data["ROOT_URL"];
+            $installation_hash = $vncp_data["INSTALLATION_HASH"];
+            $installation_key = $vncp_data["INSTALLATION_KEY"];
+            $lcd = $vncp_data["LCD"];
+            $lrd = $vncp_data["LRD"];
+            $setting_id = $vncp_data["SETTING_ID"];
+            $CLIENT_EMAIL = $vncp_data["CLIENT_EMAIL"];
+            $LICENSE_CODE = $vncp_data["LICENSE_CODE"];
+            $post_info = "product_id=" . rawurlencode(APL_PRODUCT_ID) . "&client_email=" . rawurlencode($CLIENT_EMAIL) . "&license_code=" . rawurlencode($LICENSE_CODE) . "&root_url=" . rawurlencode($ROOT_URL) . "&installation_hash=" . rawurlencode($installation_hash) . "&license_signature=" . rawurlencode(get_license_signature($ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE));
+            $content_array = curl_post_request(APL_ROOT_URL . "/apl_callbacks/license_update.php", $post_info, $ROOT_URL);
+            $retval = parse_license_response($content_array, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE);
         } else {
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_license_corrupted";
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = APL_NOTIFICATION_LICENSE_CORRUPTED;
+            $retval["notification_case"] = "notification_license_corrupted";
+            $retval["notification_text"] = APL_NOTIFICATION_LICENSE_CORRUPTED;
         }
     } else {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_script_corrupted";
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = implode("; ", $_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_);
+        $retval["notification_case"] = "notification_script_corrupted";
+        $retval["notification_text"] = implode("; ", $configuration_errors);
     }
-    return $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_;
+    return $retval;
 }
 function _obfuscated_0D270606325B3431032F3D06365B3C29273D4007131C32_($MYSQLI_LINK = NULL)
 {
-    $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_ = [];
-    $_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_ = _obfuscated_0D0C2D3E231B1740171D182D1404333212143739023B32_();
-    if (empty($_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_)) {
+    $retval = [];
+    $configuration_errors = validate_configuration();
+    if (empty($configuration_errors)) {
         if (_obfuscated_0D0F1C143817031239390D3E0D5C3E34392D27053E2A11_($MYSQLI_LINK)) {
-            $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_ = _obfuscated_0D23070E3B3E1224253E33291E0804140C065B09300A32_($MYSQLI_LINK);
-            $ROOT_URL = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["ROOT_URL"];
-            $_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["INSTALLATION_HASH"];
-            $_obfuscated_0D1E35091622030D1F371B1F1129241416323629381A32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["INSTALLATION_KEY"];
-            $_obfuscated_0D22343F152F1D21140201361D121E3D2F2E1D38391D32_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LCD"];
-            $_obfuscated_0D351C3F28151A1E232E113F08112E011F0C25210E3B01_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LRD"];
-            $_obfuscated_0D0640262838012E0C2F0E272B0F1D0D27150930290B22_ = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["SETTING_ID"];
-            $CLIENT_EMAIL = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["CLIENT_EMAIL"];
-            $LICENSE_CODE = $_obfuscated_0D321B1E18252D321D19032B17300D0A2A05170C261601_["LICENSE_CODE"];
-            $post_info = "product_id=" . rawurlencode(APL_PRODUCT_ID) . "&client_email=" . rawurlencode($CLIENT_EMAIL) . "&license_code=" . rawurlencode($LICENSE_CODE) . "&root_url=" . rawurlencode($ROOT_URL) . "&installation_hash=" . rawurlencode($_obfuscated_0D30272F1B2C1E15120838113D0D022D03242D12033D32_) . "&license_signature=" . rawurlencode(_obfuscated_0D371A2738011A03095C3D2C2206033628161F0F211332_($ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE));
-            $content_array = _obfuscated_0D27012F2404020E1F0E133D390727105B140D370D0F01_(APL_ROOT_URL . "/apl_callbacks/license_uninstall.php", $post_info, $ROOT_URL);
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_ = _obfuscated_0D5C08213418082C101D33223212073F1E2B3E382B3501_($content_array, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE);
-            if ($_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] == "notification_license_ok") {
+            $vncp_data = get_vncp_data($MYSQLI_LINK);
+            $ROOT_URL = $vncp_data["ROOT_URL"];
+            $installation_hash = $vncp_data["INSTALLATION_HASH"];
+            $installation_key = $vncp_data["INSTALLATION_KEY"];
+            $lcd = $vncp_data["LCD"];
+            $lrd = $vncp_data["LRD"];
+            $setting_id = $vncp_data["SETTING_ID"];
+            $CLIENT_EMAIL = $vncp_data["CLIENT_EMAIL"];
+            $LICENSE_CODE = $vncp_data["LICENSE_CODE"];
+            $post_info = "product_id=" . rawurlencode(APL_PRODUCT_ID) . "&client_email=" . rawurlencode($CLIENT_EMAIL) . "&license_code=" . rawurlencode($LICENSE_CODE) . "&root_url=" . rawurlencode($ROOT_URL) . "&installation_hash=" . rawurlencode($installation_hash) . "&license_signature=" . rawurlencode(get_license_signature($ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE));
+            $content_array = curl_post_request(APL_ROOT_URL . "/apl_callbacks/license_uninstall.php", $post_info, $ROOT_URL);
+            $retval = parse_license_response($content_array, $ROOT_URL, $CLIENT_EMAIL, $LICENSE_CODE);
+            if ($retval["notification_case"] == "notification_license_ok") {
                 if (APL_STORAGE == "DATABASE") {
                     mysqli_query($MYSQLI_LINK, "DELETE FROM " . APL_DATABASE_TABLE);
                     mysqli_query($MYSQLI_LINK, "DROP TABLE " . APL_DATABASE_TABLE);
@@ -643,14 +646,14 @@ function _obfuscated_0D270606325B3431032F3D06365B3C29273D4007131C32_($MYSQLI_LIN
                 }
             }
         } else {
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_license_corrupted";
-            $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = APL_NOTIFICATION_LICENSE_CORRUPTED;
+            $retval["notification_case"] = "notification_license_corrupted";
+            $retval["notification_text"] = APL_NOTIFICATION_LICENSE_CORRUPTED;
         }
     } else {
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_case"] = "notification_script_corrupted";
-        $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_["notification_text"] = implode("; ", $_obfuscated_0D403E0E3E0816310C0326353D2F1A2F2A293028402B32_);
+        $retval["notification_case"] = "notification_script_corrupted";
+        $retval["notification_text"] = implode("; ", $configuration_errors);
     }
-    return $_obfuscated_0D163B07242C043D22371D0307281D18043C113D1F0A32_;
+    return $retval;
 }
 function _obfuscated_3432320B383614303B2D31210411_($MYSQLI_LINK = NULL)
 {
