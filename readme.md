@@ -16,7 +16,7 @@
 
 ## 🗒️ Notes:
 
-- The daemon is a closed-source binary. We painfully modified it to check at `https://proxcp.free-tools.club/socket-license-check`. The easiest solution would be to simply create an entry in `/etc/hosts` and redirect my domain to the IP of your hosted server.
+- The daemon is a closed-source binary. We painfully modified it to check at `https://license.proxcp.free-tools.club/socket-license-check`. The easiest solution would be to simply create an entry in `/etc/hosts` and redirect my domain to the IP of your hosted server.
 
 - <a href="https://github.com/marcus-alicia/ProxCP/blob/main/web/lilib/proxcp_lilib_c.php" target="_blank">The web config file</a> contains a section for the IP address of the server. You'll have to change that as well, otherwise ProxCP will complain.
 
