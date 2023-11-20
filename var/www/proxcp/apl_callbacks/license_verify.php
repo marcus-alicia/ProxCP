@@ -3,7 +3,7 @@ $LICENSE_CODE=$_SERVER['HTTP_LICENSE_CODE'];
 $APL_PRODUCT_ID=$_SERVER['HTTP_APL_PRODUCT_ID'];
 $CLIENT_EMAIL=$_SERVER['HTTP_CLIENT_EMAIL'];
 $ROOT_URL=$_SERVER['HTTP_ROOT_URL'];
-$iparray = gethostbynamel("proxcp.free-tools.club");
+$iparray = gethostbynamel("license.proxcp.free-tools.club");
 
 $server = hash("sha256", implode("", $iparray) . $APL_PRODUCT_ID . $LICENSE_CODE . $CLIENT_EMAIL . $ROOT_URL . gmdate("Y-m-d"));
 
