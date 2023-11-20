@@ -1,5 +1,5 @@
 server {
-	server_name proxcp.free-tools.club;
+	server_name license.proxcp.free-tools.club;
 	root /var/www/proxcp;
     listen 443 ssl; # managed by Certbot
     # Please add your cert files here. Just use certbot. google "nginx certbot" :3
