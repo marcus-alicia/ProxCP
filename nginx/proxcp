@@ -1,0 +1,29 @@
+server {
+	server_name proxcp.free-tools.club;
+	root /var/www/proxcp;
+    listen 443 ssl; # managed by Certbot
+    # Please add your cert files here. Just use certbot. google "nginx certbot" :3
+
+	#######################
+	#    Web Dashboard    #
+	#######################
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+	}
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+	#######################
+	#    ProxCP Daemon    #
+	#######################
+
+	location /socket-license-check {
+		add_header Content-Type text/html;
+		return 200 'true';
+	}
+
+}
