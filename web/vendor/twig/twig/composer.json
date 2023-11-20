@@ -2,7 +2,9 @@
     "name": "twig/twig",
     "type": "library",
     "description": "Twig, the flexible, fast, and secure template language for PHP",
-    "keywords": ["templating"],
+    "keywords": [
+        "templating"
+    ],
     "homepage": "https://twig.symfony.com",
     "license": "BSD-3-Clause",
     "minimum-stability": "dev",
@@ -33,16 +35,16 @@
         "psr/container": "^1.0"
     },
     "autoload": {
-        "psr-0" : {
-            "Twig_" : "lib/"
+        "psr-0": {
+            "Twig_": "lib/"
         },
-        "psr-4" : {
-            "Twig\\" : "src/"
+        "psr-4": {
+            "Twig\\": "src/"
         }
     },
     "autoload-dev": {
-        "psr-4" : {
-            "Twig\\Tests\\" : "tests/"
+        "psr-4": {
+            "Twig\\Tests\\": "tests/"
         }
     },
     "extra": {

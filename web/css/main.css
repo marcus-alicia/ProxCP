@@ -1,9 +1,7 @@
-
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-body{
+body {
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -12,32 +10,32 @@ a:focus {
 }
 
 .container-full {
-	width:100%;
-	  overflow: hidden;
+	width: 100%;
+	overflow: hidden;
 }
 
 #navigation {
 	background-color: #fff;
-  	min-height: 100px;
- 	 border-bottom: 3px solid #074377;
- 	 margin-bottom: 0px;
- 	 border-radius: 0;
+	min-height: 100px;
+	border-bottom: 3px solid #074377;
+	margin-bottom: 0px;
+	border-radius: 0;
 }
 
 #admin_navigation {
 	background-color: #fff;
-  	min-height: 100px;
- 	 border-bottom: 3px solid #074377;
- 	 margin-bottom: 0px;
- 	 border-radius: 0;
+	min-height: 100px;
+	border-bottom: 3px solid #074377;
+	margin-bottom: 0px;
+	border-radius: 0;
 }
 
 .nav-elem li a {
 	-webkit-transition: all .25s ease;
-	   -moz-transition: all .25s ease;
-	    -ms-transition: all .25s ease;
-	     -o-transition: all .25s ease;
-	        transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
 }
 
 .navbar-brand {
@@ -47,16 +45,15 @@ a:focus {
 	height: 50px;
 }
 
-.nav-elem{
+.nav-elem {
 	padding-bottom: 10px;
 }
 
-.mynav {
+.mynav {}
 
-}
 #blocks {
 	padding-top: 50px;
-  	padding-bottom: 50px;
+	padding-bottom: 50px;
 }
 
 .block {
@@ -65,24 +62,24 @@ a:focus {
 }
 
 .block img {
-	  margin: 0 auto;
+	margin: 0 auto;
 }
 
 .block h3 {
 	color: #34495e;
-  	font-size: 24px;
-  	font-weight: 600;
+	font-size: 24px;
+	font-weight: 600;
 }
 
 .block p {
 	color: #666666;
-  	font-size: 18px;
-  	font-weight: 300;
+	font-size: 18px;
+	font-weight: 300;
 }
 
 #plans {
 	background: #5d8c3d url("../img/circuit-pattern.png") repeat-y 50%;
-  	height: auto;
+	height: auto;
 	padding-top: 45px;
 	background-size: 100%;
 	padding-bottom: 45px;
@@ -90,66 +87,67 @@ a:focus {
 
 #plans h2 {
 	font-size: 36px;
-  	color: #fff;
-  	text-align: center;
+	color: #fff;
+	text-align: center;
 	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 #plans h4 {
 	color: #fff;
-  	font-style: italic;
-  	font-weight: 300;
-  	text-align: center;
-  	font-size: 24px;
-  	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+	font-style: italic;
+	font-weight: 300;
+	text-align: center;
+	font-size: 24px;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 .plan {
 	width: 280px;
-  	background-color: #fff;
-  	margin: 60px auto;
-  	color: #666666;
-  	text-align: center;
-  	box-shadow: 4px 4px rgba(0,0,0,0.15);
+	background-color: #fff;
+	margin: 60px auto;
+	color: #666666;
+	text-align: center;
+	box-shadow: 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .spans {
 	width: 100%;
-	  height: 50px;
+	height: 50px;
 }
 
 .span1 {
 	width: 139px;
-  	height: 50px;
-  	float:left;
-  	background-color: #34495e;
-  	font-size: 36px;
-  	text-align: center;
-  	color: #fff
+	height: 50px;
+	float: left;
+	background-color: #34495e;
+	font-size: 36px;
+	text-align: center;
+	color: #fff
 }
 
 .span2 {
 	width: 139px;
-  	height: 50px;
-  	float:left;
-  	background-color: #f0f0f0;
-  	border-top: 1px solid #d6d6d6;
-  	border-bottom: 1px solid #d6d6d6;
-  	font-size: 18px;
-  	text-align: center;
-  	font-style: italic;
-  	padding: 10px;
-  	line-height: 1.6;
+	height: 50px;
+	float: left;
+	background-color: #f0f0f0;
+	border-top: 1px solid #d6d6d6;
+	border-bottom: 1px solid #d6d6d6;
+	font-size: 18px;
+	text-align: center;
+	font-style: italic;
+	padding: 10px;
+	line-height: 1.6;
 }
 
 .plan h5 {
 	font-size: 26px;
-  	font-weight: 600;
-  	text-align: center;
-  	padding-top: 10px;
-  	padding-bottom: 10px;
-  	margin: 0;
-  	color: #34495e;;
+	font-weight: 600;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: 0;
+	color: #34495e;
+	;
 }
 
 .plan ul {
@@ -169,12 +167,12 @@ a:focus {
 
 .linkBtn {
 	background-color: #34495e;
-  	color: #fff;
-  	font-size: 16px;
-  	display: inline-block;
-  	padding: 10px 15px;
-  	margin-bottom: 15px;
-  	margin-top: 5px;
+	color: #fff;
+	font-size: 16px;
+	display: inline-block;
+	padding: 10px 15px;
+	margin-bottom: 15px;
+	margin-top: 5px;
 }
 
 .linkBtn:hover {
@@ -191,16 +189,16 @@ a:focus {
 }
 
 .linkView {
-	color:#5d8c3d;
-  	font-size: 16px;
+	color: #5d8c3d;
+	font-size: 16px;
 }
 
 .linkView:hover {
 	text-decoration: underline;
-	color:#5d8c3d;
+	color: #5d8c3d;
 }
 
-#footer{
+#footer {
 	background: url("../img/footer.png") no-repeat 50%;
 	height: auto;
 	padding-top: 30px;
@@ -210,13 +208,13 @@ a:focus {
 .menu {
 	/*max-width: 250px;*/
 	min-height: 50px;
- 	margin: 0 auto;
-  	margin-bottom: 50px;
+	margin: 0 auto;
+	margin-bottom: 50px;
 }
 
 .menu h4 {
 	font-size: 24px;
-  	color: #fff;
+	color: #fff;
 }
 
 .menu ul {
@@ -229,36 +227,36 @@ a:focus {
 
 .menu a {
 	color: #96c277;
-  	font-size: 16px;
-  	font-weight: 200;
+	font-size: 16px;
+	font-weight: 200;
 }
 
 .menu h5 {
 	color: #fff;
-  	font-size: 16px;
-  	font-weight: 600;
-  	margin: 5px 0;
+	font-size: 16px;
+	font-weight: 600;
+	margin: 5px 0;
 }
 
 .menu p {
 	color: #fff;
-  	font-size: 16px;
-  	font-weight: 300;
+	font-size: 16px;
+	font-weight: 300;
 }
 
 #btn {
 	color: #5d8c3d;
-  	font-size: 16px;
- 	background-color: #fff;
-  	padding: 8px;
-  	font-weight: 400;
-  	margin-top: 20px;
-  	display: inline-block;
-  	-webkit-transition: all .25s ease;
-  	   -moz-transition: all .25s ease;
-  	    -ms-transition: all .25s ease;
-  	     -o-transition: all .25s ease;
-  	        transition: all .25s ease;
+	font-size: 16px;
+	background-color: #fff;
+	padding: 8px;
+	font-weight: 400;
+	margin-top: 20px;
+	display: inline-block;
+	-webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
 }
 
 #btn:hover {
@@ -273,20 +271,18 @@ a:focus {
 
 #footer2 {
 	bottom: 0;
-  	min-height: 100px;
-  	background: rgba(0, 0, 0, 0.3);
-  	padding: 20px 0;
+	min-height: 100px;
+	background: rgba(0, 0, 0, 0.3);
+	padding: 20px 0;
 }
 
 .copyright {
 	color: #fff;
-  	font-weight: 300;
-  	font-size: 14px;
+	font-weight: 300;
+	font-size: 14px;
 }
 
-.footernav {
-
-}
+.footernav {}
 
 .footernav ul {
 	padding: 0;
@@ -294,18 +290,19 @@ a:focus {
 
 .footernav li {
 	list-style: none;
- 	padding: 0 10px;
-  	margin: 5px 0;
-  	float: left;
+	padding: 0 10px;
+	margin: 5px 0;
+	float: left;
 }
+
 .footernav li:first-child {
 	border-right: 1px solid #fff;
 }
 
 .footernav a {
 	color: #96c277;
-  	font-size: 14px;
-  	font-weight: 300;
+	font-size: 14px;
+	font-weight: 300;
 }
 
 .footernav a:hover {
@@ -314,23 +311,23 @@ a:focus {
 }
 
 .twitter {
-	  margin: 20px 0;
+	margin: 20px 0;
 }
 
 .twitter a {
 	font-size: 25px;
-  	background-color: #5d8c3d;
-  	color: #fff;
-  	width: 36px;
-  	height: 36px;
-  	display: block;
-  	text-align: center;
-  	margin-top: 13px;
-  	-webkit-transition: all .25s ease;
-  	   -moz-transition: all .25s ease;
-  	    -ms-transition: all .25s ease;
-  	     -o-transition: all .25s ease;
-  	        transition: all .25s ease;
+	background-color: #5d8c3d;
+	color: #fff;
+	width: 36px;
+	height: 36px;
+	display: block;
+	text-align: center;
+	margin-top: 13px;
+	-webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
 }
 
 .twitter a:hover {
@@ -344,32 +341,34 @@ a:focus {
 
 #map h1 {
 	font-size: 36px;
-  	text-align: center;
-  	color: #34495e;
+	text-align: center;
+	color: #34495e;
 }
 
 #map h3 {
 	font-size: 24px;
-  	font-weight: 300;
-  	color: #34495e;
-  	font-style: italic;
-  	text-align: center;
-  	margin: 0;
+	font-weight: 300;
+	color: #34495e;
+	font-style: italic;
+	text-align: center;
+	margin: 0;
 }
+
 .map-wrapper {
 	padding: 50px 0;
 	text-align: center;
 }
 
-.text p{
+.text p {
 	color: #666666;
-  	font-size: 18px;
-  	font-weight: 300;
+	font-size: 18px;
+	font-weight: 300;
 }
-.join p{
+
+.join p {
 	font-weight: 600;
-  	font-size: 20px;
-  	color: #34495e;
+	font-size: 20px;
+	color: #34495e;
 }
 
 .text span {
@@ -377,7 +376,7 @@ a:focus {
 }
 
 .block2 {
-	  margin: 30px 0;
+	margin: 30px 0;
 }
 
 .block2 h3 {
@@ -386,30 +385,30 @@ a:focus {
 
 .block2 p {
 	color: #34495e;
-  	font-size: 16px;
+	font-size: 16px;
 
 }
 
 .circle2 {
-	background-color: #5d8c3d!important;
-  	width: 95px;
-  	height: 95px;
-  	line-height: 95px;
-  	color: #fff;
-  	font-size: 45px!important;
-  	-webkit-transition: all .5s ease;
-  	   -moz-transition: all .5s ease;
-  	    -ms-transition: all .5s ease;
-  	     -o-transition: all .5s ease;
-  	        transition: all .5s ease;
+	background-color: #5d8c3d !important;
+	width: 95px;
+	height: 95px;
+	line-height: 95px;
+	color: #fff;
+	font-size: 45px !important;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
 }
 
 .circle2:hover {
 	-webkit-transform: rotate(360deg);
-  	   -moz-transform: rotate(360deg);
-  	    -ms-transform: rotate(360deg);
-  	     -o-transform: rotate(360deg);
-  	        transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	transform: rotate(360deg);
 }
 
 .navbar-toggle {
@@ -420,6 +419,7 @@ a:focus {
 	position: relative;
 	top: 15px;
 }
+
 /* server.html */
 
 #heading {
@@ -432,10 +432,10 @@ a:focus {
 
 #heading h1 {
 	color: #fff;
-  	font-size: 26px;
-  	padding: 15px 0px;
-  	margin: 0 auto;
-  	text-align: center;
+	font-size: 26px;
+	padding: 15px 0px;
+	margin: 0 auto;
+	text-align: center;
 }
 
 #vps-heading {
@@ -448,10 +448,10 @@ a:focus {
 
 #vps-heading h1 {
 	color: #fff;
-  	font-size: 26px;
-  	padding: 15px 0px;
-  	margin: 0 auto;
-  	text-align: center;
+	font-size: 26px;
+	padding: 15px 0px;
+	margin: 0 auto;
+	text-align: center;
 }
 
 #about-heading {
@@ -464,10 +464,10 @@ a:focus {
 
 #about-heading h1 {
 	color: #fff;
-  	font-size: 26px;
-  	padding: 15px 0px;
-  	margin: 0 auto;
-  	text-align: center;
+	font-size: 26px;
+	padding: 15px 0px;
+	margin: 0 auto;
+	text-align: center;
 }
 
 #vps-heading .icon {
@@ -481,15 +481,16 @@ a:focus {
 #about-heading .icon {
 	background: rgba(250, 250, 250, 0.15) url(../img/about_icon.png) no-repeat 50%;
 }
+
 .icon {
-  	border-radius: 50%;
-  	font-size: 30px;
-  	margin: 0 auto;
-  	display: block;
-  	width: 75px;
-  	height: 75px;
-  	position: relative;
-  	background-size: 26px;
+	border-radius: 50%;
+	font-size: 30px;
+	margin: 0 auto;
+	display: block;
+	width: 75px;
+	height: 75px;
+	position: relative;
+	background-size: 26px;
 }
 
 .circle {
@@ -498,7 +499,7 @@ a:focus {
 
 #plans2 {
 	background: url("../img/circuit-pattern.png") no-repeat 50%;
-  	height: auto;
+	height: auto;
 	padding-top: 30px;
 	background-size: 100%;
 	padding-bottom: 60px;
@@ -506,8 +507,8 @@ a:focus {
 
 #plans2 h2 {
 	color: #34495e;
- 	font-size: 36px;
-  	text-align: center;
+	font-size: 36px;
+	text-align: center;
 }
 
 #plans2 h4 {
@@ -524,7 +525,7 @@ a:focus {
 
 #plans3 {
 	background: url("../img/circuit-pattern.png") no-repeat 50%;
-  	height: auto;
+	height: auto;
 	padding-top: 30px;
 	background-size: 100%;
 	padding-bottom: 40px;
@@ -532,8 +533,8 @@ a:focus {
 
 #plans3 h2 {
 	color: #34495e;
- 	font-size: 36px;
-  	text-align: center;
+	font-size: 36px;
+	text-align: center;
 }
 
 #plans3 h4 {
@@ -546,35 +547,35 @@ a:focus {
 
 .btnLink {
 	margin: 0px auto;
-  	padding: 20px 0;
+	padding: 20px 0;
 }
 
 .plan:hover h5 {
 	color: #5D8C3D;
 	-webkit-transition: all .25s ease;
-	   -moz-transition: all .25s ease;
-	    -ms-transition: all .25s ease;
-	     -o-transition: all .25s ease;
-	        transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
 }
 
 .plan:hover .span1 {
 	background: #5D8C3D;
 	-webkit-transition: all .25s ease;
-	   -moz-transition: all .25s ease;
-	    -ms-transition: all .25s ease;
-	     -o-transition: all .25s ease;
-	        transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
 }
 
 .plan:hover .linkBtn {
 	background: #5D8C3D;
 	color: #fff;
 	-webkit-transition: all .25s ease;
-	   -moz-transition: all .25s ease;
-	    -ms-transition: all .25s ease;
-	     -o-transition: all .25s ease;
-	        transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
 }
 
 .linkBtn i {
@@ -584,13 +585,13 @@ a:focus {
 .btnLink a {
 	width: 100px;
 	font-size: 24px;
-  	padding: 5px 15px;
-  	margin: 5px;
-  	-webkit-transition: all .25s ease;
-  	   -moz-transition: all .25s ease;
-  	    -ms-transition: all .25s ease;
-  	     -o-transition: all .25s ease;
-  	        transition: all .25s ease;
+	padding: 5px 15px;
+	margin: 5px;
+	-webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
 }
 
 .btnLink a:hover {
@@ -599,23 +600,23 @@ a:focus {
 
 .btnLink a.active {
 	color: #fff;
-  	background-color: #34495e;
+	background-color: #34495e;
 }
 
 .btnLink a {
 	background-color: #e7e7e7;
-  	color: #34495e;
-  	padding: 5px 30px!important;
+	color: #34495e;
+	padding: 5px 30px !important;
 }
 
 .btnLink a:hover {
 	-webkit-transition: all .25s ease;
-	   -moz-transition: all .25s ease;
-	    -ms-transition: all .25s ease;
-	     -o-transition: all .25s ease;
-	        transition: all .25s ease;
-    background-color: #5D8C3D;
-    color: #fff !important;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
+	background-color: #5D8C3D;
+	color: #fff !important;
 }
 
 .blue:hover {
@@ -629,7 +630,7 @@ a:focus {
 }
 
 .green {
-	color: #5d8c3d!important;
+	color: #5d8c3d !important;
 }
 
 .twitter {
@@ -648,18 +649,16 @@ a:focus {
 
 #slider h1 {
 	font-size: 65px;
-  	color: #fff;
+	color: #fff;
 }
 
 #slider p {
 	font-size: 42px;
-  	font-weight: 300;
-  	text-align: center;
+	font-weight: 300;
+	text-align: center;
 }
 
-#slider a {
-
-}
+#slider a {}
 
 .slide {
 	background: #5d8c3d;
@@ -674,23 +673,23 @@ a:focus {
 
 #bottom-nav .dropdown-menu .divider {
 	height: 2px;
-	margin:0px;
+	margin: 0px;
 }
 
 .subNav {
-	padding:0;
+	padding: 0;
 }
 
 #bottom-nav .dropdown-menu li a {
-	  padding: 10px 20px;
+	padding: 10px 20px;
 }
 
 .tab-cnt {
-    display: none;
+	display: none;
 }
 
 .tab-cnt.active {
-    display: block !important;
+	display: block !important;
 }
 
 .tabs_container {
@@ -699,38 +698,38 @@ a:focus {
 }
 
 .tabs_container li {
-    display: inline-block;
-    text-align: center;
-    cursor: pointer;
-    list-style: none;
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+	list-style: none;
 }
 
 .tab-single {
-    width: 100%;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+	width: 100%;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 }
 
 .aboutp {
 	font-size: 20px;
-  	text-align: center;
-  	font-weight: 300;
-  	color: #34495e;
-  	padding: 20px;
+	text-align: center;
+	font-weight: 300;
+	color: #34495e;
+	padding: 20px;
 }
 
 #blocks h2 {
 	color: #34495e;
-  	font-size: 36px;
-  	text-align: center;
+	font-size: 36px;
+	text-align: center;
 }
 
 #blocks h5 {
 	font-size: 24px;
-  	font-weight: 300;
-  	font-style: italic;
-  	text-align: center;
-  	color: #34495e;
+	font-weight: 300;
+	font-style: italic;
+	text-align: center;
+	color: #34495e;
 }
 
 #vapornode {
@@ -743,54 +742,54 @@ a:focus {
 
 #vapornode h2 {
 	font-size: 36px;
-  	font-weight: 400;
-  	color: #34495e;
-  	text-align: center;
+	font-weight: 400;
+	color: #34495e;
+	text-align: center;
 }
 
 #vapornode h5 {
 	color: #34495e;
-  	font-weight: 300;
-  	font-size: 24px;
-  	font-style: italic;
-  	text-align: center;
+	font-weight: 300;
+	font-size: 24px;
+	font-style: italic;
+	text-align: center;
 }
 
 #vapornode p {
 	padding: 20px;
-  	color: #34495e;
-  	font-size: 20px;
-  	font-weight: 300;
-  	text-align: center;
+	color: #34495e;
+	font-size: 20px;
+	font-weight: 300;
+	text-align: center;
 }
 
 #vapornode i {
 	color: #5d8c3d;
-  	padding-right: 10px;
+	padding-right: 10px;
 }
 
-.smallBtnLink a{
+.smallBtnLink a {
 	font-size: 18px;
-	  margin: 0;
-	    padding: 10px 15px !important;
+	margin: 0;
+	padding: 10px 15px !important;
 }
 
 .datacenters {
 	padding-top: 50px;
-  	padding-bottom: 100px;
-  	min-height: 280px;
+	padding-bottom: 100px;
+	min-height: 280px;
 }
 
-.datacenters img{
+.datacenters img {
 	margin: 0 auto;
 }
 
-.datacenters p{
+.datacenters p {
 	color: #34495e;
-  	font-size: 18px;
-  	text-align: center;
-  	padding: 50px 20px;
-  	font-weight: 300;
+	font-size: 18px;
+	text-align: center;
+	padding: 50px 20px;
+	font-weight: 300;
 }
 
 .tabs_containermb0 {
@@ -799,10 +798,10 @@ a:focus {
 
 .h2datacenters {
 	color: #34495e;
-  	text-align: center;
-  	font-size: 36px;
-  	margin-top: 50px;
-  	margin-bottom: 30px;
+	text-align: center;
+	font-size: 36px;
+	margin-top: 50px;
+	margin-bottom: 30px;
 }
 
 .green_tab a {
@@ -837,12 +836,12 @@ a:focus {
 	color: #fff;
 	font-weight: 300;
 	-webkit-transition: all .25s ease;
-	   -moz-transition: all .25s ease;
-	    -ms-transition: all .25s ease;
-	     -o-transition: all .25s ease;
-	        transition: all .25s ease;
-    border-radius: 0;
-    margin-top: 25px;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
+	border-radius: 0;
+	margin-top: 25px;
 }
 
 .learn_more_btn:hover, .learn_more_btn:focus {
@@ -881,12 +880,12 @@ a:focus {
 
 .pin1 {
 	top: 77px;
-  	left: 196px;
+	left: 196px;
 }
 
 .pin2 {
 	top: 140px;
-  	left: 58px;
+	left: 58px;
 }
 
 .map_dc .dropdown {
@@ -909,7 +908,7 @@ a:focus {
 
 .dropdown_chi {
 	top: 75px;
-  	left: 130px;
+	left: 130px;
 }
 
 .map_dc .dropdown .dropdown-menu {
@@ -919,7 +918,7 @@ a:focus {
 
 .dropdown_pho {
 	top: 138px;
-  	left: 0px;
+	left: 0px;
 }
 
 .tooltip-inner {
@@ -945,8 +944,8 @@ a:focus {
 }
 
 .form-control:focus {
-  border-color: #074377;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(39, 170, 226, 0.6);
+	border-color: #074377;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(39, 170, 226, 0.6);
 }
 
 .btn-info.active {
@@ -955,9 +954,9 @@ a:focus {
 }
 
 .vnbc {
-	margin-bottom:0px;
-	border-radius:0px;
-	background-color:transparent;
+	margin-bottom: 0px;
+	border-radius: 0px;
+	background-color: transparent;
 }
 
 .vnbc a {
@@ -979,8 +978,10 @@ a:focus {
 .alert-info-vngreen {
 	color: #34495E;
 	background-color: #27AAE2;
-	border-top:none;border-left:none;border-right:none;
-	border-bottom:3px solid #074377;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 3px solid #074377;
 }
 
 .nav-pills>li.active>a,
@@ -994,44 +995,49 @@ a:focus {
 	color: #34495e;
 }
 
-@media (min-width: 768px){
-	.nav-elem{
+@media (min-width: 768px) {
+	.nav-elem {
 		padding-bottom: 0px;
 	}
 
 	#navigation {
-  		min-height: 100px;
+		min-height: 100px;
 	}
+
 	#admin_navigation {
-  		min-height: 100px;
+		min-height: 100px;
 	}
 
 	.navbar-brand {
 
-  		height: 55px;
-  		padding: 0;
- 	 	margin: 20px 0 20px 20px;
+		height: 55px;
+		padding: 0;
+		margin: 20px 0 20px 20px;
 	}
-	.nav-elem{
 
+	.nav-elem {}
+
+	.nav-elem li {
+		height: 97px;
 	}
-	.nav-elem li{
-		height:97px;
+
+	.nav-elem li a {
+		padding: 38px 7px;
+		;
+		color: #34495e !important;
+		font-size: 14px;
+		height: 100%;
 	}
-	.nav-elem li a{
-		padding: 38px 7px;;
-  		color: #34495e!important;
-  		font-size: 14px;
-  		height: 100%;
-	}
+
 	.nav-elem li a:hover {
-		background-color: #074377!important;
-		color: #fff!important;
+		background-color: #074377 !important;
+		color: #fff !important;
 		text-decoration: none;
 	}
+
 	.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
-		background-color: #074377!important;
-		color: #fff!important;
+		background-color: #074377 !important;
+		color: #fff !important;
 		line-height: 21px;
 	}
 
@@ -1047,12 +1053,9 @@ a:focus {
 		float: right;
 	}
 
-	.plans {
+	.plans {}
 
-	}
-	.wrapper {
-
-	}
+	.wrapper {}
 
 	.menu {
 		/*max-width: 250px;*/
@@ -1063,25 +1066,24 @@ a:focus {
 		float: right;
 	}
 
-	.wraper {
+	.wraper {}
 
-	}
 	#heading h1 {
-	  font-size: 46px;
-	  padding: 32px 30px;
-	  float: left;
+		font-size: 46px;
+		padding: 32px 30px;
+		float: left;
 	}
 
 	#vps-heading h1 {
 		font-size: 46px;
-	  	padding: 32px 30px;
-	  	float: left;
+		padding: 32px 30px;
+		float: left;
 	}
 
 	#about-heading h1 {
 		font-size: 46px;
-	  	padding: 32px 30px;
-	  	float: left;
+		padding: 32px 30px;
+		float: left;
 	}
 
 	.icon {
@@ -1099,15 +1101,15 @@ a:focus {
 	}
 
 	#heading {
-		height:150px;
+		height: 150px;
 	}
 
 	#vps-heading {
-		height:150px;
+		height: 150px;
 	}
 
 	#about-heading {
-		height:150px;
+		height: 150px;
 	}
 
 	#plans2 .plan {
@@ -1121,7 +1123,7 @@ a:focus {
 
 	.datacenters p {
 		text-align: left;
-		padding:0;
+		padding: 0;
 	}
 
 	.datacenters {
@@ -1138,36 +1140,38 @@ a:focus {
 
 	.pin1 {
 		top: 63px;
-  		left: 424px;
+		left: 424px;
 	}
 
 	.pin2 {
-	  	top: 150px;
-  		left: 235px;
+		top: 150px;
+		left: 235px;
 	}
 
 	.dropdown_chi {
-	  	top: 62px;
-	  	left: 455px;
+		top: 62px;
+		left: 455px;
 	}
 
 	.dropdown_pho {
-	  	top: 147px;
-	  	left: 265px;
+		top: 147px;
+		left: 265px;
 	}
 }
 
-@media (min-width: 992px){
-	.nav-elem li a{
+@media (min-width: 992px) {
+	.nav-elem li a {
 		padding: 38px 20px;
-  		color: #34495e!important;
-  		font-size: 18px;
+		color: #34495e !important;
+		font-size: 18px;
 	}
+
 	.nav-elem li a:hover {
-		background-color: #074377!important;
-		color: #fff!important;
+		background-color: #074377 !important;
+		color: #fff !important;
 		text-decoration: none;
 	}
+
 	.plan {
 		margin: 60px 95px;
 	}
@@ -1178,12 +1182,12 @@ a:focus {
 	}
 
 	#heading {
-		height:180px;
+		height: 180px;
 		padding-top: 50px;
 	}
 
 	#vps-heading {
-		height:180px;
+		height: 180px;
 		padding-top: 50px;
 	}
 
@@ -1192,7 +1196,7 @@ a:focus {
 	}
 
 	#about-heading {
-		height:180px;
+		height: 180px;
 		padding-top: 50px;
 	}
 
@@ -1201,7 +1205,7 @@ a:focus {
 	}
 
 	#heading h1 {
-		  padding: 14px 25px;
+		padding: 14px 25px;
 	}
 
 	#plans2 {
@@ -1210,7 +1214,7 @@ a:focus {
 
 	#plans2 .plan {
 		float: left;
-  		margin-left: 3.5%;
+		margin-left: 3.5%;
 	}
 
 	#slider, .slide {
@@ -1236,22 +1240,22 @@ a:focus {
 
 	.pin1 {
 		top: 63px;
-  		left: 320px;
+		left: 320px;
 	}
 
 	.pin2 {
-	  	top: 150px;
-  		left: 130px;
+		top: 150px;
+		left: 130px;
 	}
 
 	.dropdown_pho {
 		top: 147px;
-	  	left: 163px;
+		left: 163px;
 	}
 
 	.dropdown_chi {
 		top: 62px;
-	  	left: 350px;
+		left: 350px;
 	}
 
 	.map-wrapper {
@@ -1259,7 +1263,7 @@ a:focus {
 	}
 }
 
-@media (min-width: 1200px){
+@media (min-width: 1200px) {
 	.plan {
 		margin: 30px 6px;
 	}
@@ -1278,41 +1282,41 @@ a:focus {
 
 	.icon {
 		width: 95px;
-		height:95px;
+		height: 95px;
 		bottom: 10px;
 
 		position: relative;
 	}
 
 	#heading {
-		height:200px;
+		height: 200px;
 		padding-top: 60px;
 	}
 
 	#vps-heading {
-		height:200px;
-		  padding-top: 60px;
+		height: 200px;
+		padding-top: 60px;
 	}
 
 	#about-heading {
-		height:200px;
-		  padding-top: 60px;
+		height: 200px;
+		padding-top: 60px;
 	}
 
 	#plans2 .plan {
-	  margin-left: 6.5%;
+		margin-left: 6.5%;
 	}
 
 	#slider h1 {
 		font-size: 65px;
-	  	color: #fff;
+		color: #fff;
 	}
 
 	#slider p {
 		margin-top: 30px;
 		font-size: 42px;
-	  	font-weight: 300;
-	  	text-align: center;
+		font-weight: 300;
+		text-align: center;
 	}
 
 	.datacenters p {
@@ -1331,25 +1335,26 @@ a:focus {
 	padding-bottom: 20px;
 	border: 10px solid #074377;
 }
+
 .tooltip-wrapper {
-  display: inline-block;
+	display: inline-block;
 }
 
 .tooltip-wrapper .btn[disabled] {
-  pointer-events: none;
+	pointer-events: none;
 }
 
 .tooltip-wrapper.disabled {
-  cursor: not-allowed;
+	cursor: not-allowed;
 }
 
 .socket_error {
-	visibility:hidden;
-	text-align:center;
-	background-color:red;
-	color:white;
-	font-size:20px;
-	padding:10px;
+	visibility: hidden;
+	text-align: center;
+	background-color: red;
+	color: white;
+	font-size: 20px;
+	padding: 10px;
 }
 
 .btn, input, .form-control, .alert, .label, .progress, .panel {
@@ -1357,66 +1362,79 @@ a:focus {
 }
 
 .pulse {
-  display: block;
-  width: 100%;
-  height: 5px;
-  background: #074377;
-  box-shadow: 0 0 0 rgba(39,170,226,0.5);
-  animation: pulse 2s infinite;
+	display: block;
+	width: 100%;
+	height: 5px;
+	background: #074377;
+	box-shadow: 0 0 0 rgba(39, 170, 226, 0.5);
+	animation: pulse 2s infinite;
 }
 
 @-webkit-keyframes pulse {
-  0% {
-    -webkit-box-shadow: 0 0 0 0 rgba(39,170,226,0.5);
-  }
-  70% {
-      -webkit-box-shadow: 0 0 0 10px rgba(39,170,226,0);
-  }
-  100% {
-      -webkit-box-shadow: 0 0 0 0 rgba(39,170,226,0);
-  }
+	0% {
+		-webkit-box-shadow: 0 0 0 0 rgba(39, 170, 226, 0.5);
+	}
+
+	70% {
+		-webkit-box-shadow: 0 0 0 10px rgba(39, 170, 226, 0);
+	}
+
+	100% {
+		-webkit-box-shadow: 0 0 0 0 rgba(39, 170, 226, 0);
+	}
 }
+
 @keyframes pulse {
-  0% {
-    -moz-box-shadow: 0 0 0 0 rgba(39,170,226,0.5);
-    box-shadow: 0 0 0 0 rgba(39,170,226,0.5);
-  }
-  70% {
-      -moz-box-shadow: 0 0 0 10px rgba(39,170,226,0);
-      box-shadow: 0 0 0 10px rgba(39,170,226,0);
-  }
-  100% {
-      -moz-box-shadow: 0 0 0 0 rgba(39,170,226,0);
-      box-shadow: 0 0 0 0 rgba(39,170,226,0);
-  }
+	0% {
+		-moz-box-shadow: 0 0 0 0 rgba(39, 170, 226, 0.5);
+		box-shadow: 0 0 0 0 rgba(39, 170, 226, 0.5);
+	}
+
+	70% {
+		-moz-box-shadow: 0 0 0 10px rgba(39, 170, 226, 0);
+		box-shadow: 0 0 0 10px rgba(39, 170, 226, 0);
+	}
+
+	100% {
+		-moz-box-shadow: 0 0 0 0 rgba(39, 170, 226, 0);
+		box-shadow: 0 0 0 0 rgba(39, 170, 226, 0);
+	}
 }
+
 .rebuild_progress {
 	-webkit-transition: none !important;
 	transition: none !important;
 }
+
 .man_rebuild_progress {
 	-webkit-transition: none !important;
 	transition: none !important;
 }
+
 .restore_progress {
 	-webkit-transition: none !important;
 	transition: none !important;
 }
+
 #ramsliderLabel, #cpusliderLabel, #disksliderLabel {
 	margin-left: 10px;
 }
+
 .jvectormap-container {
-	width:620px;
-	height:400px;
+	width: 620px;
+	height: 400px;
 }
+
 #geoipmap {
-	width:620px;
-	height:400px;
+	width: 620px;
+	height: 400px;
 }
+
 .admin_dd {
 	padding: 10px 20px !important;
 	height: auto !important;
 }
+
 .admin_dd_li {
 	height: auto !important;
 }

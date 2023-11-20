@@ -1,8 +1,14 @@
 # ProxCP
 
-## Free repository of ProxCP
+## Free and open-source repository of ProxCP
 
 This tool comes in various paid packages, and we all know that I try to be the last to pay for something, so here goes nothing.
+
+> **Warning**
+> This is an ongoing project. Please help us if you have the time and knowledge!
+
+<details open>
+<summary>Temporary info until completed decomp</summary>
 
 ## 🌲Structure:
 - web:
@@ -14,19 +20,44 @@ This tool comes in various paid packages, and we all know that I try to be the l
     - api
 <br><br>
 
-## 🗒️ Source?:
-Well, as you can tell theres not really much readable source-code here. You can have a look at old commits, and maybe some day we will actually fully decomp this, but for now this is the best I can offer.
+-----
+### ✔️Done:
+- web:
+    - Decrypted all php files (ioncube 10.2 / php7.2)
+    - Deobfuscate JS files in js/
+    - Beautify JS for the most part
+- daemon:
+    - /
 <br><br>
 
-## 🖥️ How does it work?
-Its actually not too complicated. <a href="https://github.com/marcus-alicia/ProxCP/blob/main/web/lilib/proxcp_lilib_c.php">this file</a> contains the config. We were able to decrypt that. As you can see, it points to my license server, which just returns a valid check for whatever license you throw at it ❤️
-
-If you dont like using my server, feel free to check the `server` branch here. It has the code you need to run.
+-----
+### 📝TODO:
+- web:
+    - Find missing PHP functions (See [notes.md](https://github.com/marcus-alicia/ProxCP/blob/main/notes.md))
+    - Deobfuscate *all* php files in the repository
+- daemon:
+    - Decompile into JS / Asar
+    - Deobfuscate
+    - Beautify
 <br><br>
 
+-----
 ### 🗣️Contribute:
-- [Click me](https://discord.gg/free-tools)
+- [Click me](https://discord.gg/96kh6n5EMB)
 <br><br>
+
+-----
+### ❗Rules:
+- Work function by function.
+- Sensible names. Name the function based on what it does
+- Follow [PHP naming schemes](https://www.php.net/manual/en/userlandnaming.rules.php)
+- Push as often as possible, to allow other uses to see progress
+
+<img style="margin: 10px" src="https://cdn.discordapp.com/attachments/1085349080592560169/1097954019248451635/ezgif.com-gif-maker_1.gif" height="25" />  
+</details>
+
+
+-----
 
 ### Some useful links:
 

@@ -20,7 +20,7 @@
         "asn1",
         "asn.1",
         "BigInteger"
-        ],
+    ],
     "homepage": "http://phpseclib.sourceforge.net",
     "license": "MIT",
     "authors": [
