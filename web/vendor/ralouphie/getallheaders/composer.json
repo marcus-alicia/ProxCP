@@ -16,9 +16,7 @@
 		"php-coveralls/php-coveralls": "^2.1"
 	},
 	"autoload": {
-		"files": [
-			"src/getallheaders.php"
-		]
+		"files": ["src/getallheaders.php"]
 	},
 	"autoload-dev": {
 		"psr-4": {

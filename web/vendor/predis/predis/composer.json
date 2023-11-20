@@ -2,11 +2,7 @@
     "name": "predis/predis",
     "type": "library",
     "description": "Flexible and feature-complete Redis client for PHP and HHVM",
-    "keywords": [
-        "nosql",
-        "redis",
-        "predis"
-    ],
+    "keywords": ["nosql", "redis", "predis"],
     "homepage": "http://github.com/predis/predis",
     "license": "MIT",
     "support": {

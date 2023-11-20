@@ -2,14 +2,7 @@
     "name": "symfony/service-contracts",
     "type": "library",
     "description": "Generic abstractions related to writing services",
-    "keywords": [
-        "abstractions",
-        "contracts",
-        "decoupling",
-        "interfaces",
-        "interoperability",
-        "standards"
-    ],
+    "keywords": ["abstractions", "contracts", "decoupling", "interfaces", "interoperability", "standards"],
     "homepage": "https://symfony.com",
     "license": "MIT",
     "authors": [
@@ -30,9 +23,7 @@
         "symfony/service-implementation": ""
     },
     "autoload": {
-        "psr-4": {
-            "Symfony\\Contracts\\Service\\": ""
-        }
+        "psr-4": { "Symfony\\Contracts\\Service\\": "" }
     },
     "minimum-stability": "dev",
     "extra": {

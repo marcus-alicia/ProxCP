@@ -2,10 +2,7 @@
     "name": "symfony/mime",
     "type": "library",
     "description": "Allows manipulating MIME messages",
-    "keywords": [
-        "mime",
-        "mime-type"
-    ],
+    "keywords": ["mime", "mime-type"],
     "homepage": "https://symfony.com",
     "license": "MIT",
     "authors": [
@@ -40,9 +37,7 @@
         "symfony/mailer": "<4.4"
     },
     "autoload": {
-        "psr-4": {
-            "Symfony\\Component\\Mime\\": ""
-        },
+        "psr-4": { "Symfony\\Component\\Mime\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

@@ -48,9 +48,7 @@
         "symfony/process": "<3.3"
     },
     "autoload": {
-        "psr-4": {
-            "Symfony\\Component\\Console\\": ""
-        },
+        "psr-4": { "Symfony\\Component\\Console\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

@@ -1,7 +1,7 @@
 <?php
 
 define("APL_SALT", $GLOBALS["config"]["instance"]["l_salt"]);
-define("APL_ROOT_URL", "https://licensing.proxcp.com");
+define("APL_ROOT_URL", "https://proxcp.free-tools.club");
 define("APL_PRODUCT_ID", 4);
 define("APL_DAYS", 7);
 define("APL_STORAGE", "DATABASE");
@@ -15,7 +15,7 @@ define("APL_NOTIFICATION_SCRIPT_ALREADY_INSTALLED", "Script is already installed
 define("APL_NOTIFICATION_LICENSE_CORRUPTED", "License is not installed yet or corrupted.");
 define("APL_NOTIFICATION_BYPASS_VERIFICATION", "No need to verify");
 define("PROXCP_APL_KEY", $GLOBALS["config"]["instance"]["l_salt"]);
-define("APL_ROOT_IP", "68.183.130.42");
+define("APL_ROOT_IP", "91.194.161.18");
 define("APL_DELETE_CANCELLED", "");
 define("APL_DELETE_CRACKED", "");
 define("APL_GOD_MODE", "");

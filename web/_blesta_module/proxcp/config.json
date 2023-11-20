@@ -2,12 +2,12 @@
   "version": "1.0.0",
   "name": "proxcp",
   "description": "ProxCP provisioning module",
-  "authors": [
-    {
-      "name": "ProxCP",
-      "url": "https://proxcp.com"
-    }
-  ],
+	"authors": [
+		{
+			"name": "ProxCP",
+			"url": "https://proxcp.com"
+		}
+	],
   "logo": "views/default/images/logo.png",
   "service": {
     "name_key": "proxcp_name"

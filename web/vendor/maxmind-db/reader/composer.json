@@ -1,13 +1,7 @@
 {
     "name": "maxmind-db/reader",
     "description": "MaxMind DB Reader API",
-    "keywords": [
-        "database",
-        "geoip",
-        "geoip2",
-        "geolocation",
-        "maxmind"
-    ],
+    "keywords": ["database", "geoip", "geoip2", "geolocation", "maxmind"],
     "homepage": "https://github.com/maxmind/MaxMind-DB-Reader-php",
     "type": "library",
     "license": "Apache-2.0",
