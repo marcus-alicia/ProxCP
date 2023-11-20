@@ -1,6 +1,4 @@
-# ProxCP
-
-## Free repository of ProxCP
+# Free repository of ProxCP
 
 This tool comes in various paid packages, and we all know that I try to be the last to pay for something, so here goes nothing.
 
