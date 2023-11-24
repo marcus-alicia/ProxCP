@@ -4,12 +4,10 @@ This tool comes in various paid packages, and we all know that I try to be the l
 
 ## 🌲Structure:
 - web:
-    - PHP
-    - JS
-    - CSS
+    - patched config file
 
 - daemon:
-    - api
+    - patched daemon file (SoonTM)
 <br><br>
 
 ## 🗒️ Source?:
@@ -17,7 +15,7 @@ Well, as you can tell theres not really much readable source-code here. You can 
 <br><br>
 
 ## 🖥️ How does it work?
-Its actually not too complicated. <a href="https://github.com/marcus-alicia/ProxCP/blob/main/web/lilib/proxcp_lilib_c.php">this file</a> contains the config. We were able to decrypt that. As you can see, it points to my license server, which just returns a valid check for whatever license you throw at it ❤️
+Its actually not too complicated. <a href="https://github.com/marcus-alicia/ProxCP/blob/main/web/lilib/proxcp_lilib_c.php">this file</a> contains the config. We were able to decrypt that. As you can see, it points to my license server, which just returns a valid check for whatever license you throw at it ❤️ Simply replace that file on your install with ours, and thats it.
 
 If you dont like using my server, feel free to check the `server` branch here. It has the code you need to run.
 <br><br>
