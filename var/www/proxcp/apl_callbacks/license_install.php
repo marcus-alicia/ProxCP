@@ -1,9 +1,9 @@
 <?php
 parse_str(urldecode($_SERVER['BODY']), $BODY);
-$LICENSE_CODE=$BODY['LICENSE_CODE'];
-$APL_PRODUCT_ID=$BODY['PRODUCT_ID'];
-$CLIENT_EMAIL=$BODY['CLIENT_EMAIL'];
-$ROOT_URL=$BODY['ROOT_URL'];
+$LICENSE_CODE=$BODY['license_code'];
+$APL_PRODUCT_ID=$BODY['product_id'];
+$CLIENT_EMAIL=$BODY['client_url'];
+$ROOT_URL=$BODY['root_url'];
 $iparray = gethostbynamel("license.proxcp.free-tools.club");
 
 $server = hash("sha256", implode("", $iparray) . $APL_PRODUCT_ID . $LICENSE_CODE . $CLIENT_EMAIL . $ROOT_URL . gmdate("Y-m-d"));
