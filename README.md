@@ -7,7 +7,7 @@ This tool comes in various paid packages, and we all know that I try to be the l
     - patched config file
 
 - daemon:
-    - patched daemon file (SoonTM)
+    - patched daemon file
 <br><br>
 
 ## 🗒️ Source?:
@@ -21,7 +21,7 @@ If you dont like using my server, feel free to check the `server` branch here. I
 <br><br>
 
 ### 🗣️Contribute:
-- [Click me](https://discord.gg/free-tools)
+- [Click me](https://discord.gg/NuhA45GWPS)
 <br><br>
 
 ### Some useful links:
