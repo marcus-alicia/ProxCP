@@ -1,8 +1,0 @@
-hmac_test
-rest_test
-Makefile.in
-keygen_test
-driver
-.libs
-.deps
-Makefile
