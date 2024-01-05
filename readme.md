@@ -14,6 +14,16 @@
         - license_verify.php
         - verify_envato_purcahse.php
 
+<br><br>
+
+## 🔎 Sample:
+
+Server Request             |  Server Response
+:-------------------------:|:-------------------------:
+<img src="https://github.com/marcus-alicia/ProxCP/assets/104512346/bb9e776f-713f-4942-acae-c29f86d48536" height="350px"> | <img src="https://github.com/marcus-alicia/ProxCP/assets/104512346/3688b51e-5095-4cb6-b992-6960fb4053b9" height="350px" width="900px">
+
+<br><br>
+
 ## 🗒️ Notes:
 
 - The daemon is a closed-source binary. We painfully modified it to check at `https://license.proxcp.free-tools.club/?k=`.
