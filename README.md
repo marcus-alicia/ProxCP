@@ -17,11 +17,11 @@ Well, as you can tell theres not really much readable source-code here. You can 
 ## 🖥️ How does it work?
 Its actually not too complicated. <a href="https://github.com/marcus-alicia/ProxCP/blob/main/web/lilib/proxcp_lilib_c.php">this file</a> contains the config. We were able to decrypt that. As you can see, it points to my license server, which just returns a valid check for whatever license you throw at it ❤️ Simply replace that file on your install with ours, and thats it.
 
-If you dont like using my server, feel free to check the `server` branch here. It has the code you need to run.
+If you dont like using my server, feel free to check the `license-server` branch here. It has the code you need to run.
 <br><br>
 
 ### 🗣️Contribute:
-- [Click me](https://discord.gg/NuhA45GWPS)
+- [Click me](https://discord.gg/free-tools)
 <br><br>
 
 ### Some useful links:
