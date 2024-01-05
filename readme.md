@@ -20,7 +20,7 @@
 
 Server Request             |  Server Response
 :-------------------------:|:-------------------------:
-<img src="https://github.com/marcus-alicia/ProxCP/assets/104512346/bb9e776f-713f-4942-acae-c29f86d48536" height="350px"> | <img src="https://github.com/marcus-alicia/ProxCP/assets/104512346/3688b51e-5095-4cb6-b992-6960fb4053b9" height="350px" width="900px">
+<img src="https://github.com/marcus-alicia/ProxCP/assets/104512346/82b3ac8d-09b1-4368-a42c-dc58fe0e25f6" height="350px"> | <img src="https://github.com/marcus-alicia/ProxCP/assets/104512346/35294425-5f27-4125-bbeb-3a330bc5d417" height="350px" width="900px">
 
 <br><br>
 
