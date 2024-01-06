@@ -18,9 +18,11 @@
 
 ## 🔎 Sample:
 
-Server Request             |  Server Response
-:-------------------------:|:-------------------------:
-<img src="https://github.com/marcus-alicia/ProxCP/assets/104512346/82b3ac8d-09b1-4368-a42c-dc58fe0e25f6" height="350px"> | <img src="https://github.com/marcus-alicia/ProxCP/assets/104512346/35294425-5f27-4125-bbeb-3a330bc5d417" height="350px" width="900px">
+### Server Request
+<img src="https://github.com/marcus-alicia/ProxCP/assets/104512346/82b3ac8d-09b1-4368-a42c-dc58fe0e25f6">
+
+### Server Response
+<img src="https://github.com/marcus-alicia/ProxCP/assets/104512346/35294425-5f27-4125-bbeb-3a330bc5d417">
 
 <br><br>
 
