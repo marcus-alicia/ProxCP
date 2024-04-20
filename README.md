@@ -21,7 +21,7 @@ If you dont like using my server, feel free to check the `license-server` branch
 <br><br>
 
 ### 🗣️Contribute:
-- [Click me](https://discord.gg/free-tools)
+- [Click me](https://free-tools.club/discord)
 <br><br>
 
 ### Some useful links:
@@ -46,4 +46,4 @@ It provides your employees with a central dashboard to manage all your Proxmox i
 ![Pricing](https://i.imgur.com/OLAkbo7.png)
 
 ----- 
-<p align="center"><a href="https://discord.gg/free-tools">Join the Discord and help us!</a></p>
+<p align="center"><a href="https://free-tools.club/discord">Join the Discord and help us!</a></p>
