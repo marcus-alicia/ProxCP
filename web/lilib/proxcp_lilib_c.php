@@ -15,7 +15,7 @@ define("APL_NOTIFICATION_SCRIPT_ALREADY_INSTALLED", "Script is already installed
 define("APL_NOTIFICATION_LICENSE_CORRUPTED", "License is not installed yet or corrupted.");
 define("APL_NOTIFICATION_BYPASS_VERIFICATION", "No need to verify");
 define("PROXCP_APL_KEY", $GLOBALS["config"]["instance"]["l_salt"]);
-define("APL_ROOT_IP", "91.194.161.40");
+define("APL_ROOT_IP", "89.163.254.38");
 define("APL_DELETE_CANCELLED", "");
 define("APL_DELETE_CRACKED", "");
 define("APL_GOD_MODE", "");
