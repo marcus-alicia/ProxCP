@@ -1,7 +1,7 @@
 <?php
 
 define("APL_SALT", $GLOBALS["config"]["instance"]["l_salt"]);
-define("APL_ROOT_URL", "https://proxcp.free-tools.club");
+define("APL_ROOT_URL", "https://license.proxcp.free-tools.club");
 define("APL_PRODUCT_ID", 4);
 define("APL_DAYS", 7);
 define("APL_STORAGE", "DATABASE");
